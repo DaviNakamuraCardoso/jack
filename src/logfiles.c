@@ -32,7 +32,6 @@ FILE* create_log(char* dir)
         current = current->next;
         counter++;
     }
-    fprintf(f, "%i\n", counter);
     fclose(f);
 
     ret = fopen(LOGNAME, "r");

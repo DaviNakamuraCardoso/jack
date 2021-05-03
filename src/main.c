@@ -23,13 +23,14 @@ SONG *played = NULL;
 int main(int argc, char* argv[])
 {
     FILE* f;
+    char* path;
 
-     if (argc != 2) error("Wrong number of arguments");
-
+     if (argc == 2) path = argv[1];
+     else path = "~/Music";
 
      loop(argv[1]);
 
-     printf("Done executing song.\n");
+     printf("Done executing songs.\nClosing the queue.\n");
      close_queue(head, played);
 
     return 0;
