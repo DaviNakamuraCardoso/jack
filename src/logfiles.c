@@ -1,5 +1,5 @@
 /*
-    Logfiles for the Davi Music Player (DMus)
+    Logfiles for the Diamond City Music Player (DMus)
 */
 
 #include <stdio.h>

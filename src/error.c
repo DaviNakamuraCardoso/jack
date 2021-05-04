@@ -1,5 +1,5 @@
 /*
-    Error module for the Davi Music Player (DMus)
+        Error module for the Diamond City Music Player (DMus)
 */
 
 #include <stdio.h>

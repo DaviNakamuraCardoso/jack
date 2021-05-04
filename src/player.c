@@ -1,10 +1,14 @@
-// Player module for the Davi Music Player (DMus)
+/*
+    Player module for the Diamond City Music Player (DMus)
+*/
+
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <player.h>
 
+// Perform a system call to play a song
 int play(const char* song)
 {
     char buff[400];

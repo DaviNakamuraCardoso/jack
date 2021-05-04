@@ -1,4 +1,7 @@
-// Queue module for the Davi Music Player (DMus)
+/*
+    Queue module for the Diamond City Music Player (DMus)
+
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

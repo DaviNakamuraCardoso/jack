@@ -1,5 +1,5 @@
 /*
-    Source code for the Davi Music Player (DMus)
+    Source code for the Diamond City Music Player (DMus)
     Released Under the MIT License
     (c) 2021 Davi Nakamura Cardoso
 */
@@ -28,9 +28,9 @@ int main(int argc, char* argv[])
      if (argc == 2) path = argv[1];
      else path = "~/Music";
 
-     loop(argv[1]);
+     loop(path);
 
-     printf("Done executing songs.\nClosing the queue.\n");
+     printf("Done executing songs.\nClosing queue.\n");
      close_queue(head, played);
 
     return 0;

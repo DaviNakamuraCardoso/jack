@@ -1,5 +1,7 @@
-// Files module for the Davi Music Player (DMus)
+/*
+    Files module for the Diamond City Music Player (DMus)
 
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
