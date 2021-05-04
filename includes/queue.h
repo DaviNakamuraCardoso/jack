@@ -1,4 +1,4 @@
-// Header files for the queue module of the Davi Music Player (DMus)
+// Header files for the queue module of the DC Music Player (DMus)
 
 // Song structure
 typedef struct _song {

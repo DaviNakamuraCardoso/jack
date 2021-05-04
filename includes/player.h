@@ -1,5 +1,5 @@
 /*
-    Player for the Davi Music Player (DMus)
+    Player for the DC Music Player (DMus)
 */
 
 // Plays a given song
