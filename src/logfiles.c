@@ -10,12 +10,27 @@
 
 #define LOGNAME "./cache/queue.csv"
 
+
+int write_queue(FILE* f, SONG* root)
+{
+    int counter;
+    counter = 0;
+
+    while (current != NULL)
+    {
+        fprintf(f, "%i,%s\n", current->called, current->path);
+        current = current->next;
+        counter++;
+    }
+
+    return counter;
+}
+
 // Creates a new log
 FILE* create_log(char* dir)
 {
     FILE* f, *ret;
     SONG* tail, *head, *current;
-    unsigned int counter;
 
     tail = create("foo");
     head = tail;
@@ -25,13 +40,7 @@ FILE* create_log(char* dir)
 
     current = head->next;
 
-    counter = 0;
-    while (current != NULL)
-    {
-        fprintf(f, "%i,%s\n", 0, current->path);
-        current = current->next;
-        counter++;
-    }
+    write_queue(f, head);
     fclose(f);
 
     ret = fopen(LOGNAME, "r");
@@ -122,12 +131,7 @@ void close_queue(SONG* head, SONG* played)
 
     f = fopen(LOGNAME, "w");
 
-    current = head;
-    while (current != NULL)
-    {
-        fprintf(f, "%i,%s\n", current->called, current->path);
-        current = current->next;
-    }
+    write_queue()
 
     current = played;
     while (current != NULL)
