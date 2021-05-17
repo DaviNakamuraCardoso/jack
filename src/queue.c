@@ -6,67 +6,57 @@
 #include <stdlib.h>
 #include <string.h>
 #include <queue.h>
+#include <dmus/dimensions.h>
 #include <time.h>
 
 // Creates a song and assignes it a path
-SONG* create(const char* path)
+SONG* create_song(const char* path)
 {
-    SONG* s;
-    s = malloc(sizeof(SONG));
-    s->next = NULL;
-    s->path = strdup(path);
+    SONG* song;
+    song = malloc(sizeof(SONG));
 
-    return s;
+    song->path = path;
+    song->next = NULL;
+
+    return song;
 }
 
-// Adds a song to the queue
-void add_song(SONG** tail, SONG* new)
+unsigned short hash_based_on_path(const char* path, unsigned int max_size)
 {
-    (*tail)->next = new;
-    *tail = new;
+    short s;
+    unsigned int total;
 
-    return;
-}
-
-// Calls a song from a given queue
-SONG* call_queue(SONG* head, unsigned int *q_size)
-{
-    SONG* current, *previous;
-    unsigned int i;
-    long int pos;
-
-    srandom(clock());
-
-    pos = random() % *q_size;
-    pos = (pos == 0) ? 1 : pos;
-
-    current = head;
-    previous = NULL;
-    for (i = 0; i < pos; i++)
+    for (s = 0; path[s] != '\0'; s++)
     {
-        previous = current;
-        current = current->next;
+        total += path[s];
     }
 
-    previous->next = current->next;
-
-    (*q_size)--;
-
-    return (current);
-
+    return (total % HASH_SIZE);
 }
 
-void add_queue(SONG** tail, char* name)
+void add_queue(SONG* hash[], char* path)
 {
+    unsigned short index;
     SONG* new;
-    new = create(name);
 
-    add_song(tail, new);
+    index = hash_based_on_path(path);
+    new = create_song(path);
+
+    new->next = hash[index];
+    hash[index] = new;
 
     return;
 }
 
-void release(SONG* head)
+SONG* pop_queue(SONG* hash[], unsigned short index)
 {
-    return;
+    SONG *first, *second;
+
+    first = hash[index];
+    if (first == NULL) return NULL;
+
+    second = first->next;
+    hash[index] = second;
+
+    return first;
 }

@@ -17,8 +17,8 @@
 #include <logfiles.h>
 #include <main.h>
 
-SONG *head = NULL;
-SONG *played = NULL;
+SONG *not_played[50];
+SONG *played[50];
 
 int main(int argc, char* argv[])
 {
@@ -28,96 +28,32 @@ int main(int argc, char* argv[])
      if (argc == 2) path = argv[1];
      else path = "~/Music";
 
-     loop(path);
+     create_hash(path, not_played, played);
 
-     printf("Done executing songs.\nClosing queue.\n");
-     close_queue(head, played);
+     loop();
+
+     close_queue(not_played, played);
 
     return 0;
 }
 
 
-int catch_signal(int sig, void (*handler) (int))
-{
-    struct sigaction action;
-    action.sa_handler = handler;
-    sigemptyset(&action.sa_mask);
-    action.sa_flags = 0;
-
-    return sigaction(sig, &action, NULL);
-}
-
-void kill_handler(int sig)
-{
-    printf("Goodbye\n");
-    exit(0);
-}
-
-
 void loop(char* dir)
 {
-    char ans;
-    int size, status;
-    SONG *selected, *tail_played, *tail;
-
-    selected = NULL;
-    size = 0;
-
-    openlog(dir, &head, &played, &size);
-    printf("Head is %s\n", head->path);
-
-    tail = head;
-
-    while (tail->next != NULL)
-    {
-        tail = tail->next;
-    }
-
-    tail_played = played;
-
-    while (tail_played->next != NULL)
-    {
-        tail_played = tail_played->next;
-    }
-
-    system("clear");
-    printf("There are %i songs in queue.\n", size);
-
     while (1)
     {
-        selected = call_queue(head, &size);
-        add_queue(&tail_played, selected->path);
-        printf("Selected %s\n", selected->path);
-        status = play(selected->path);
-
-        if (status != 0)
-        {
-            break;
-        }
-
-        // If there are no songs in the queue, swap with the played queue
-        if (size == 0)
-        {
-            SONG* tmp, *tmp2, *curr;
-
-            // Swap heads
-            tmp = head;
-            head = played;
-            played = tmp;
-
-            // Swap tails
-            tmp2 = tail;
-            tail = played;
-            played = tmp2;
-
-            // Get the queue size
-            while (curr != NULL)
-            {
-                curr = curr->next;
-                size++;
-            }
-        }
-        system("clear");
+        play_next_song();
     }
-     return;
+}
+
+
+void play_next_song(void)
+{
+    SONG* s;
+
+    s = get_random_song(not_played);
+    add_next_position(s, played);
+
+    play(s->path);
+    return;
 }

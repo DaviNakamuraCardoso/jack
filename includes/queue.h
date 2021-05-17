@@ -3,19 +3,18 @@
 // Song structure
 typedef struct _song {
     char* path;
+    unsigned int played:1;
     struct _song* next;
-    unsigned int called:1;
-
 } SONG;
 
 // Creates a new song
-SONG* create(const char* path);
+SONG* create_song(const char* path);
 
 // Adds a song to the queue
-void add_queue(SONG** tail, char* name);
+void add_queue(SONG* hash[], char* path);
 
 // Gets song out of the queue
-SONG* call_queue(SONG* head, unsigned int* q_size);
+SONG* pop_queue(SONG* hash[], unsigned short index);
 
 // Releases the memory
-void release(SONG* head);
+void release_hash(SONG* hash[]);

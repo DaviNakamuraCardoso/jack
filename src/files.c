@@ -22,43 +22,30 @@ bool is_song(char* path)
 bool is_dir(char* name)
 {
     return (strchr(name, '.') == NULL);
-
 }
 
 // Searches all the songs in a given directory
-void find_songs(const char* path, SONG** tail)
+void find_songs(const char* path, SONG* hash[])
 {
     int i;
     DIR* dir;
-    char* p;
     struct dirent* de;
-
-    printf("Opening dir in path: %s\n", path);
 
     dir = opendir(path);
     if (dir == NULL) return;
 
-    printf("In path: %s\n", path);
     while ((de = readdir(dir)) != NULL)
     {
-        // Gets space for a new path
-        p = malloc(1000*sizeof(char));
-        strcpy(p, path);
-        strcat(strcat(p, "/"), de->d_name);
+        char song_path[1500];
+        sprintf(song_path, "%s/%s", path, de->d_name);
 
-        if (is_dir(de->d_name))
-        {
-            find_songs(p, tail);
-        }
-        if (is_song(de->d_name))
-        {
+        // Recursivily searches for songs in subdirectories
+        if (is_dir(de->d_name)) find_songs(song_path, tail);
 
-            printf("Song found: %s\n", p);
-            add_queue(tail, p);
-
-        }
-        free(p);
+        if (is_song(de->d_name)) add_queue(tail, song_path);
     }
+
+    close(dir);
 
     return;
 }
