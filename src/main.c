@@ -36,24 +36,3 @@ int main(int argc, char* argv[])
 
     return 0;
 }
-
-
-void loop(char* dir)
-{
-    while (1)
-    {
-        play_next_song();
-    }
-}
-
-
-void play_next_song(void)
-{
-    SONG* s;
-
-    s = get_random_song(not_played);
-    add_next_position(s, played);
-
-    play(s->path);
-    return;
-}

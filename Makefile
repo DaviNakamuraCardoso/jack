@@ -27,5 +27,5 @@ $(L)queue.o: $(S)queue.c
 $(L)main.o: $(S)main.c
 	gcc -I$(I) -c $(S)main.c -o $(L)main.o
 
-dmus: $(L)main.o $(L)libsongutils.a $(L)queue.o
+exec: $(L)main.o $(L)libsongutils.a $(L)queue.o
 	gcc $(L)queue.o $(L)main.o -I$(I) -L$(L) -lsongutils  -o dmus
