@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <player.h>
+#include <jukebox/player.h>
 
 // Perform a system call to play a song
 int play(const char* song)
