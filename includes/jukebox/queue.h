@@ -8,4 +8,4 @@ typedef struct _song {
 
 } SONG;
 
-SONG* new_song(const char* path, unsigned int played); 
+SONG* new_song(const char* path, unsigned int played);
