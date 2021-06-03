@@ -9,10 +9,12 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <dmus/dimensions.h>
+#include <tools/error.h>
 
 int main(int argc, char* argv[])
 {
-    char* path;
+    return 0;
 
-     return 0;
+    
 }

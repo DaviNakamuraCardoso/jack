@@ -12,12 +12,12 @@ TARGET = tests
 VERBOSE = TRUE
 
 # Create the list of directories
-DIRS = tools dmus jukebox
+DIRS = tools dmus jukebox ../tools ../dmus ../jukebox
 SOURCEDIRS = $(foreach dir, $(DIRS), $(addprefix $(SOURCEDIR)/, $(dir)))
 TARGETDIRS = $(foreach dir, $(DIRS), $(addprefix $(BUILDDIR)/, $(dir)))
 
 # Generate the GCC includes parameters by adding -I before each source folder
-INCLUDES = $(foreach dir, $(DIRS), $(addprefix -I, ./includes)) 
+INCLUDES = -I./../includes -I./includes
 
 # Add this list to VPATH, the place make will look for the source files
 VPATH = $(SOURCEDIRS)

@@ -33,6 +33,7 @@ DEPS = $(OBJS:.o=.d)
 
 # Name the compiler
 CC = gcc
+FLAGS = -Ofast -Wall
 
 # OS specific part
 ifeq ($(OS),Windows_NT)
@@ -63,7 +64,7 @@ endif
 define generateRules
 $(1)/%.o: %.c
 	@echo Building $$@
-	$(HIDE)$(CC) -c $$(INCLUDES) -o $$(subst /,$$(PSEP),$$@) $$(subst /,$$(PSEP),$$<) -MMD
+	$(HIDE)$(CC) -c $$(INCLUDES) -o $$(subst /,$$(PSEP),$$@) $$(subst /,$$(PSEP),$$<) $(FLAGS) -MMD
 endef
 
 .PHONY: all clean directories
