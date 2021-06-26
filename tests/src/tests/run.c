@@ -17,6 +17,7 @@ unsigned int run(unsigned int (*tests[]) (void))
             printf("Error in test %i\n", i);
             return 1;
         }
+
     }
 
     return 0;
