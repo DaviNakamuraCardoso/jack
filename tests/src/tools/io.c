@@ -1,7 +1,7 @@
 /**
 *
 *
-*   Useful I/O functions for the test suite
+*       Useful I/O functions for the test suite
 *
 */
 
@@ -17,5 +17,21 @@ const char* get_file(const char* filename)
     if (file == NULL) error("Given file does not exist");
 
     return "Hello";
+
+}
+
+unsigned int compare_files(const char* f1, const char* f2)
+{
+    unsigned int status;
+    char* a, *b;
+
+    a = get_file(f1);
+    b = get_file(f2);
+
+    status = strcmp(a, b);
+
+    free(a); free(b);
+
+    return status;
 
 }

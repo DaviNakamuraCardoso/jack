@@ -7,8 +7,10 @@
 
 #include <stdio.h>
 #include <dmus/tests.h>
+#include <dmus/testtools.h>
 #include <tests/tests.h>
 #include <tests/error.h>
+#include <tests/run.h>
 
 
 int main(int argc, const char* args[])
@@ -22,5 +24,9 @@ int main(int argc, const char* args[])
 
 static unsigned int testall(void)
 {
-    return 0;
+    unsigned int (*tests[]) (void) = {
+        test_tools,
+        NULL
+    };
+    return run(tests);
 }

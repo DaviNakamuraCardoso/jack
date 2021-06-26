@@ -17,7 +17,7 @@ static unsigned int test_basic_error(void)
 {
     pid_t pid;
     int fd[2];
-    char line[300];
+    char line[300], *ret;
 
     if (pipe(fd) == -1)
     {
@@ -32,19 +32,19 @@ static unsigned int test_basic_error(void)
         // Set the STDERR for the pipe output
         dup2(fd[1], 2);
         close(fd[0]);
-        fprintf(stderr, "Hello, World!\n");
-        exit(0);
+        fprintf(stderr, "Hello");
+        exit(1);
     }
 
     dup2(fd[0], 0);
     close(fd[1]);
 
-    fgets(line, 300, stdin);
+    ret = fgets(line, 300, stdin);
 
-    printf("%s", line);
+    if (ret == NULL) return 1;
 
 
-    return strcmp(line, "Hello, World!\n");
+    return strcmp(line, "Hello");
 }
 
 
