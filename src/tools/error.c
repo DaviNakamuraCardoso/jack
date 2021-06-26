@@ -38,5 +38,6 @@ static char* formats(char* string, va_list args)
 
 void error(char* msg)
 {
+    fprintf(stderr, "Error: %s\n", msg);
     return;
 }

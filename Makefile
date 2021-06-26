@@ -1,91 +1,63 @@
-# Set project directory one level above of Makefile directory. $(CURDIR) is a GNU make variable containing the path to the current working directory
-PROJDIR := $(realpath $(CURDIR)/.)
-SOURCEDIR := $(PROJDIR)/src
-BUILDDIR := $(PROJDIR)/obj
+
+S = ./src
+O = ./obj
+I = ./includes/
+L = ./libs/
 
 
-# Name of the final executable
-TARGET = prototype
+D = /dmus/
+J = /jukebox/
+T = /tools/
+G = /storage/
 
-
-# Decide whether the commands will be shwon or not
-VERBOSE = TRUE
-
-# Create the list of directories
-DIRS = tools dmus jukebox
-SOURCEDIRS = $(foreach dir, $(DIRS), $(addprefix $(SOURCEDIR)/, $(dir)))
-TARGETDIRS = $(foreach dir, $(DIRS), $(addprefix $(BUILDDIR)/, $(dir)))
-
-# Generate the GCC includes parameters by adding -I before each source folder
-INCLUDES = $(foreach dir, $(DIRS), $(addprefix -I, ./includes))
-
-# Add this list to VPATH, the place make will look for the source files
-VPATH = $(SOURCEDIRS)
-
-# Create a list of *.c sources in DIRS
-SOURCES = $(foreach dir,$(SOURCEDIRS),$(wildcard $(dir)/*.c))
-
-# Define objects for all sources
-OBJS := $(subst $(SOURCEDIR),$(BUILDDIR),$(SOURCES:.c=.o))
-
-# Define dependencies files for all objects
-DEPS = $(OBJS:.o=.d)
-
-# Name the compiler
 CC = gcc
 FLAGS = -Ofast -Wall
 
-# OS specific part
-ifeq ($(OS),Windows_NT)
-    RM = del /F /Q
-    RMDIR = -RMDIR /S /Q
-    MKDIR = -mkdir
-    ERRIGNORE = 2>NUL || true
-    SEP=\\
-else
-    RM = rm -rf
-    RMDIR = rm -rf
-    MKDIR = mkdir -p
-    ERRIGNORE = 2>/dev/null
-    SEP=/
-endif
 
-# Remove space after separator
-PSEP = $(strip $(SEP))
+# Modules
+DMUS = dmus.o
+DMUSOBJS = $(foreach obj, $(DMUS), $(addprefix $(D), $(obj)))
 
-# Hide or not the calls depending of VERBOSE
-ifeq ($(VERBOSE),TRUE)
-    HIDE =
-else
-    HIDE = @
-endif
+JUKEBOX = player.o queue.o
+JUKEOBJS = $(foreach obj, $(JUKEBOX), $(addprefix $(J), $(obj)))
 
-# Define the function that will generate each rule
-define generateRules
-$(1)/%.o: %.c
-	@echo Building $$@
-	$(HIDE)$(CC) -c $$(INCLUDES) -o $$(subst /,$$(PSEP),$$@) $$(subst /,$$(PSEP),$$<) $(FLAGS) -MMD
-endef
+TOOLS = error.o
+TOOLOBJS = $(foreach obj, $(TOOLS), $(addprefix $(T), $(obj)))
 
-.PHONY: all clean directories
+STORAGE = files.o logfiles.o
+STOROBJS = $(foreach obj, $(STORAGE), $(addprefix $(G), $(obj)))
 
-all: directories $(TARGET)
+OBJS = $(DMUSOBJS)
+OBJECTS = $(foreach obj, $(OBJS), $(addprefix $(O), $(obj)))
 
 
-$(TARGET): $(OBJS)
-	$(HIDE) $(CC) $(OBJS) -o $(TARGET)
+# Archives
+$(L)libjukebox.a: $(foreach obj, $(JUKEOBJS), $(addprefix $(O), $(obj)))
+	ar -rcs $@ $^
 
-# Include dependencies
--include $(DEPS);
+$(L)libtools.a: $(foreach obj, $(TOOLOBJS), $(addprefix $(O), $(obj)))
+	ar -rcs $@ $^
 
-# Generate rules
-$(foreach targetdir, $(TARGETDIRS), $(eval $(call generateRules, $(targetdir))))
+$(L)libstorage.a: $(foreach obj, $(STOROBJS), $(addprefix $(O), $(obj)))
+	ar -rcs $@ $^
 
+LIBS = $(L)libjukebox.a $(L)libtools.a $(L)libstorage.a
 
-directories:
-	$(HIDE)$(MKDIR) $(subst /, $(PSEP), $(TARGETDIRS)) $(ERRIGNORE)
+# Main
 
-# Remove all objects, dependencies and executable files generated during the build
-clean:
-	$(HIDE)$(RMDIR) $(subst /,$(PSEP),$(TARGETDIRS)) $(ERRIGNORE)
-	$(HIDE)$(RM) $(TARGET) $(ERRIGNORE)
+all: $(OBJECTS) $(LIBS)
+	$(CC) -I$(I) -L$(L) $(FLAGS) $(OBJECTS) -ljukebox -lstorage -ltools -o mus
+
+# Definitions
+
+$(O)$(D)%.o: $(S)$(D)%.c
+	$(CC) -I$(I) -c $^ -o $@
+
+$(O)$(J)%.o: $(S)$(J)%.c
+	$(CC) -I$(I) -c $^ -o $@
+
+$(O)$(G)%.o: $(S)$(G)%.c
+	$(CC) -I$(I) -c $^ -o $@
+
+$(O)$(T)%.o: $(S)$(T)%.c
+	$(CC) -I$(I) -c $^ -o $@

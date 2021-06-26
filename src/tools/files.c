@@ -7,3 +7,8 @@
 #include <string.h>
 #include <sys/types.h>
 #include <dirent.h>
+
+unsigned int loop(void)
+{
+    return 1; 
+}

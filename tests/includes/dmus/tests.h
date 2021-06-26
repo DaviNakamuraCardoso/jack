@@ -1,1 +1,2 @@
-static unsigned int test(void);
+
+static unsigned int testall(void); 
