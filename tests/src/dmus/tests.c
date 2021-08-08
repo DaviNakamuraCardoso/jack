@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <dmus/tests.h>
 #include <dmus/testtools.h>
+#include <jukebox/testqueue.h>
 #include <tests/tests.h>
 #include <tests/error.h>
 #include <tests/run.h>
@@ -26,6 +27,7 @@ static unsigned int testall(void)
 {
     unsigned int (*tests[]) (void) = {
         test_tools,
+        test_queue,
         NULL
     };
     return run(tests);

@@ -11,10 +11,16 @@
 #include <tests/run.h>
 
 
+static unsigned int test_compile(void)
+{
+    return system("cd .. && make all");
+}
+
 unsigned int test_tools(void)
 {
     unsigned int (*tests[]) (void) = {
         test_error,
+        test_compile,
         NULL
     };
 

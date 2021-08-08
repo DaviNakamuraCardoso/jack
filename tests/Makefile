@@ -12,6 +12,10 @@ D = /dmus/
 
 TS = ../src
 TI = ../includes
+
+TJ = /jukebox/
+TJT = /jukebox/test
+
 TG = /storage/
 TT = /tools/
 
@@ -30,13 +34,17 @@ TESTOBJS = $(foreach obj, $(TESTS), $(addprefix $(T), $(obj)))
 STORAGE = files.o logfiles.o
 STOROBJS = $(foreach obj, $(STORAGE), $(addprefix $(TG), $(obj)))
 
+JUKEBOX = queue.o
+JUKEOBJS = $(foreach obj, $(JUKEBOX), $(addprefix $(TJ), $(obj)))
+TJUKEOBJS = $(foreach obj, $(JUKEBOX), $(addprefix $(TJT), $(obj)))
+
 TOOLS = error.o
 TOOLSOBJS = $(foreach obj, $(TOOLS), $(addprefix $(TT), $(obj)))
 
 OBJECTS = $(DMUSOBJS)
 OBJS = $(foreach obj, $(OBJECTS), $(addprefix $(O), $(obj)))
 
-TESTEDOBJS = $(STOROBJS) $(TOOLSOBJS)
+TESTEDOBJS = $(STOROBJS) $(TOOLSOBJS) $(JUKEOBJS)
 
 # Libraries
 $(L)libtests.a: $(foreach obj, $(TESTOBJS), $(addprefix $(O), $(obj)))
@@ -45,24 +53,19 @@ $(L)libtests.a: $(foreach obj, $(TESTOBJS), $(addprefix $(O), $(obj)))
 $(L)libtested.a: $(foreach obj, $(TESTEDOBJS), $(addprefix $(O), $(obj)))
 	ar -rcs $@ $^
 
-LIBS = libtests.a libtested.a
+$(L)libjuketests.a: $(foreach obj, $(TJUKEOBJS), $(addprefix $(O), $(obj)))
+	ar -rcs $@ $^
+
+LIBS = libtests.a libtested.a libjuketests.a
 LIBRARIES = $(foreach lib, $(LIBS), $(addprefix $(L), $(lib)))
+LINKS = -ltests -ltested -ljuketests
 
 all: $(OBJS) $(LIBRARIES)
-	$(CC) -L$(L) $(FLAGS) $(OBJS) -ltests -o tests
+	$(CC) -L$(L) $(FLAGS) $(OBJS) $(LINKS) -o tests
 
 # Main
-$(O)$(D)%.o: $(S)$(D)%.c
-	$(CC) -I$(I) $(FLAGS) -c $^ -o $@
-
-# Tests
-$(O)$(T)%.o: $(S)$(T)%.c
+./obj/%.o: ./src/%.c
 	$(CC) -I$(I) -I$(TI) $(FLAGS) -c $^ -o $@
 
-# Storage
-$(O)$(TG)%.o: $(TS)$(TG)%.c
-	$(CC) -I$(TI) $(FLAGS) -c $^ -o $@
-
-# Tools
-$(O)$(TT)%.o: $(TS)$(TT)%.c
+./obj/%.o: ../src/%.c
 	$(CC) -I$(TI) $(FLAGS) -c $^ -o $@

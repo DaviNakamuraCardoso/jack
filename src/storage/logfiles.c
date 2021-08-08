@@ -5,4 +5,4 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define LOGNAME "./cache/queue.csv"
+#define LOGNAME "~/.dmus/cache/queue.csv"
