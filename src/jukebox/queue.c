@@ -45,6 +45,7 @@ void release_queue(SONG** queue)
         {
             next = current->next;
             release_song(&current);
+
         }
     }
     return;
