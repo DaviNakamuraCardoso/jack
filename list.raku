@@ -1,16 +1,26 @@
 #! /usr/bin/rakudo
 
 # Loops searching for songs
+#
+
+use Text::CSV;
 
 sub MAIN (
-    Str :$path = "$*HOME/Music",
-    Str :$grep = "", #= Pattern in name
-    Bool :$remove = False,
-    Str :$move = ""
+    Str     :$path = "$*HOME/Music",
+    Str     :$grep = "", #= Pattern in name
+    Bool    :$csv = False,
+    Bool    :$remove = False,
+    Str     :$move = "" 
 ) returns int
 {
     my IO::Path @list = listall($path);
     my IO::Path @matches = @list.grep({ .Str.contains: $grep; });
+
+    if ($csv)  
+    { 
+        echosongs(@matches);
+        exit; 
+    }
 
     loop (my int $i = 0; $i < @matches.elems; $i++) { say "($i) @matches[$i]"; }
 
@@ -20,12 +30,13 @@ sub MAIN (
     unless ($move eq "") { &handler = &movematch; $info = $move; }
 
     if (&handler) { commandhandler(@matches, &handler, $info);}
+
     return 0;
 }
 
 my sub commandhandler(
     IO::Path @matches,
-    &handler,
+    int &handler,
     Str $info
 ) returns int
 {
@@ -42,14 +53,14 @@ my sub commandhandler(
 
 }
 
-my sub deletematch(IO::Path $match, Str $info)
+my sub deletematch(IO::Path $match, Str $info) returns int
 {
     say "Removing $match";
     $match.unlink;
-    return;
+    return 0;
 }
 
-my sub movematch(IO::Path $match, Str $info)
+my sub movematch(IO::Path $match, Str $info) returns int
 {
     my $filename = $match.basename;
     my IO::Path $path = IO::Path.new("$*HOME/Music/$info/");
@@ -60,12 +71,12 @@ my sub movematch(IO::Path $match, Str $info)
         mkdir($path);
         say "Creating path $path";
     }
-    say "Moving $match to $path";
+    say "Moving $filename to $path";
     unless ($match eq $path.add($filename))
     {
         $match.move($path.add($filename));
     }
-    return;
+    return 0;
 
 }
 
@@ -84,4 +95,33 @@ my sub listall($dir) returns Array[IO::Path]
     }
 
     return @songs;
+}
+
+
+class Song is IO::Path {
+    has Bool $.played; 
+}
+
+my sub echosongs(IO::Path @songs)
+{
+    my $csv = Text::CSV.new; my $io  = open "$*HOME/.dmus/queue.csv", :r, chomp => False;
+    my @data = $csv.getline_all($io);
+
+    my Bool %paths;
+    for @data -> @line { 
+        my IO::Path $song = IO::Path.new(@line[0]);
+        %paths{$song.basename} = @line[1].Bool
+    }
+
+    for @songs -> $song
+    {
+        if (%paths{$song.basename}) {
+            say "\"$song\",1";
+        } else {
+            say "\"$song\",0";
+        }
+    
+    }
+
+
 }
