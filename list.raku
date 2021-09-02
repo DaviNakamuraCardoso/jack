@@ -8,9 +8,9 @@ use Text::CSV;
 sub MAIN (
     Str     :$path = "$*HOME/Music",
     Str     :$grep = "", #= Pattern in name
-    Bool    :$csv = False,
-    Bool    :$remove = False,
-    Str     :$move = "" 
+    Str     :$move = "" , #= Destination path to move songs
+    Bool    :$csv = False,  #= Print in CSV format
+    Bool    :$remove = False #= Starts remove routine
 ) returns int
 {
     my IO::Path @list = listall($path);
@@ -43,9 +43,9 @@ my sub commandhandler(
     for lines() {
         given ($_)
         {
-            when "q" { exit; }
-            when "a" { for @matches -> $match { &handler($match, $info); } }
-            default {
+            when: "q" { exit; }
+            when: "a" { for @matches -> $match { &handler($match, $info); } }
+            default: {
                 &handler(@matches[$_.Int], $info);
             }
         }
@@ -55,7 +55,7 @@ my sub commandhandler(
 
 my sub deletematch(IO::Path $match, Str $info) returns int
 {
-    say "Removing $match";
+    say "Removing {$match.basename}";
     $match.unlink;
     return 0;
 }
@@ -110,7 +110,7 @@ my sub echosongs(IO::Path @songs)
     my Bool %paths;
     for @data -> @line { 
         my IO::Path $song = IO::Path.new(@line[0]);
-        %paths{$song.basename} = @line[1].Bool
+        %paths{$song.basename} = @line[1].Int.Bool
     }
 
     for @songs -> $song
