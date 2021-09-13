@@ -1,0 +1,8 @@
+<classVarDec>
+	<keyword> field </keyword>
+	<keyword> int </keyword>
+	<identifier> a </identifier>
+	<symbol> , </symbol>
+	<identifier> b </identifier>
+	<symbol> ; </symbol>
+</classVarDec>

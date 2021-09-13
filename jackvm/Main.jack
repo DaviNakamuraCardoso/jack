@@ -1,0 +1,12 @@
+class Main {
+
+    function int main() {
+        var String name;
+
+        let name = Keyboard.getString("What's your name? "); 
+        do Output.printf("Hello, %s!\n", name);
+
+        return 0; 
+    }
+
+}

@@ -1,0 +1,30 @@
+<statements>
+	<whileStatement>
+		<keyword> while </keyword>
+		<symbol> ( </symbol>
+		<expression>
+			<term>
+				<identifier> dean </identifier>
+			</term>
+		</expression>
+		<symbol> ) </symbol>
+		<symbol> { </symbol>
+		<statements>
+		</statements>
+		<symbol> } </symbol>
+	</whileStatement>
+	<whileStatement>
+		<keyword> while </keyword>
+		<symbol> ( </symbol>
+		<expression>
+			<term>
+				<identifier> dean </identifier>
+			</term>
+		</expression>
+		<symbol> ) </symbol>
+		<symbol> { </symbol>
+		<statements>
+		</statements>
+		<symbol> } </symbol>
+	</whileStatement>
+</statements>

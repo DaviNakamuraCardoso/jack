@@ -1,0 +1,6 @@
+<identifier>Sky</identifier>
+<symbol>.</symbol>
+<identifier>setColor</identifier>
+<symbol>(</symbol>
+<stringConstant>orange</stringConstant>
+<symbol>)</symbol>

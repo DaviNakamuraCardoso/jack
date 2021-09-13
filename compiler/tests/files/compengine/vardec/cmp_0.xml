@@ -1,0 +1,6 @@
+<varDec>
+	<keyword> var </keyword>
+	<keyword> int </keyword>
+	<identifier> hello </identifier>
+	<symbol> ; </symbol>
+</varDec>

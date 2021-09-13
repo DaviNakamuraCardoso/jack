@@ -1,0 +1,1 @@
+unsigned int test_symbols(char* name, __VARIABLE** variables[], int size, void (*tested) (CODE*));

@@ -1,0 +1,3 @@
+push constant 2003
+push constant 1903
+call Math.sub 2

@@ -1,0 +1,80 @@
+<class>
+	<keyword> class </keyword>
+	<identifier> Hello </identifier>
+	<symbol> { </symbol>
+	<classVarDec>
+		<keyword> field </keyword>
+		<keyword> int </keyword>
+		<identifier> a </identifier>
+		<symbol> , </symbol>
+		<identifier> b </identifier>
+		<symbol> ; </symbol>
+	</classVarDec>
+	<subroutineDec>
+		<keyword> function </keyword>
+		<keyword> void </keyword>
+		<identifier> hello </identifier>
+		<symbol> ( </symbol>
+		<parameterList>
+		</parameterList>
+		<symbol> ) </symbol>
+		<subroutineBody>
+			<symbol> { </symbol>
+			<statements>
+				<whileStatement>
+					<keyword> while </keyword>
+					<symbol> ( </symbol>
+					<expression>
+						<term>
+						</term>
+					</expression>
+					<symbol> ) </symbol>
+					<symbol> { </symbol>
+					<statements>
+						<ifStatement>
+							<keyword> if </keyword>
+							<symbol> ( </symbol>
+							<expression>
+								<term>
+								</term>
+							</expression>
+							<symbol> ) </symbol>
+							<symbol> { </symbol>
+							<statements>
+								<doStatement>
+									<keyword> do </keyword>
+									<subroutineCall>
+										<identifier> nothing </identifier>
+										<symbol> ( </symbol>
+										<expressionList>
+										</expressionList>
+										<symbol> ) </symbol>
+									</subroutineCall>
+									<symbol> ; </symbol>
+								</doStatement>
+								<letStatement>
+									<keyword> let </keyword>
+									<identifier> a </identifier>
+									<symbol> = </symbol>
+									<expression>
+										<term>
+										</term>
+									</expression>
+									<symbol> ; </symbol>
+								</letStatement>
+							</statements>
+							<symbol> } </symbol>
+						</ifStatement>
+					</statements>
+					<symbol> } </symbol>
+				</whileStatement>
+				<returnStatement>
+					<keyword> return </keyword>
+					<symbol> ; </symbol>
+				</returnStatement>
+			</statements>
+			<symbol> } </symbol>
+		</subroutineBody>
+	</subroutineDec>
+	<symbol> } </symbol>
+</class>

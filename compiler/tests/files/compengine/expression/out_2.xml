@@ -1,0 +1,5 @@
+<expression>
+	<term>
+		<stringConstant> Hello, World </stringConstant>
+	</term>
+</expression>

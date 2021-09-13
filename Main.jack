@@ -1,0 +1,7 @@
+class Main {
+    function int main() {
+        do Output.printf("Hello, CS%i!\n", 50);
+        return ; 
+    }
+}
+

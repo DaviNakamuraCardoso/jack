@@ -1,0 +1,11 @@
+<expression>
+	<term>
+		<symbol> ( </symbol>
+		<expression>
+			<term>
+				<identifier> bob </identifier>
+			</term>
+		</expression>
+		<symbol> ) </symbol>
+	</term>
+</expression>

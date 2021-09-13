@@ -1,0 +1,8 @@
+<classVarDec>
+	<keyword> static </keyword>
+	<identifier> Queen </identifier>
+	<identifier> carolina </identifier>
+	<symbol> , </symbol>
+	<identifier> four </identifier>
+	<symbol> ; </symbol>
+</classVarDec>

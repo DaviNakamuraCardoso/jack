@@ -1,0 +1,12 @@
+<symbol>{</symbol>
+<keyword>var</keyword>
+<keyword>int</keyword>
+<identifier>i</identifier>
+<symbol>;</symbol>
+<keyword>var</keyword>
+<keyword>boolean</keyword>
+<identifier>b</identifier>
+<symbol>,</symbol>
+<identifier>b2</identifier>
+<symbol>;</symbol>
+<symbol>}</symbol>

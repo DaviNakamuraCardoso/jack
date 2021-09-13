@@ -1,0 +1,14 @@
+<whileStatement>
+	<keyword> while </keyword>
+	<symbol> ( </symbol>
+	<expression>
+		<term>
+			<identifier> size </identifier>
+		</term>
+	</expression>
+	<symbol> ) </symbol>
+	<symbol> { </symbol>
+	<statements>
+	</statements>
+	<symbol> } </symbol>
+</whileStatement>

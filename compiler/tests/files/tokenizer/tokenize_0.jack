@@ -1,0 +1,21 @@
+/**
+*       This is a test file from Nand2tetris project 10
+*/
+
+class Main {
+    function void main() {
+        var int i;
+
+        let i = 20; 
+        do Output.printString("Hello, World");
+
+        while (i < 40) {
+            if (i == 2)
+            {
+                do Output.printInt(i);
+            }
+        }
+
+        return;
+    }
+}

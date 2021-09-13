@@ -1,0 +1,37 @@
+<tokens>
+	<keyword>class</keyword>
+	<identifier>Apalachicola</identifier>
+	<symbol>{</symbol>
+	<keyword>constructor</keyword>
+	<identifier>new</identifier>
+	<symbol>(</symbol>
+	<symbol>)</symbol>
+	<symbol>{</symbol>
+	<keyword>do</keyword>
+	<identifier>Output</identifier>
+	<symbol>.</symbol>
+	<identifier>printString</identifier>
+	<symbol>(</symbol>
+	<stringConstant>We are on our way.</stringConstant>
+	<symbol>)</symbol>
+	<symbol>;</symbol>
+	<keyword>do</keyword>
+	<identifier>Output</identifier>
+	<symbol>.</symbol>
+	<identifier>printString</identifier>
+	<symbol>(</symbol>
+	<stringConstant>==&gt;&gt; to Apalachicola F.L.A</stringConstant>
+	<symbol>)</symbol>
+	<symbol>;</symbol>
+	<keyword>do</keyword>
+	<identifier>Output</identifier>
+	<symbol>.</symbol>
+	<identifier>println</identifier>
+	<symbol>(</symbol>
+	<symbol>)</symbol>
+	<symbol>;</symbol>
+	<keyword>return</keyword>
+	<symbol>;</symbol>
+	<symbol>}</symbol>
+	<symbol>}</symbol>
+</tokens>

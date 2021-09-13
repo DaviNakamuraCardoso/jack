@@ -1,0 +1,6 @@
+function Point.new 1
+push constant 2
+call Memory.alloc 1
+pop pointer 0
+push pointer 0
+return

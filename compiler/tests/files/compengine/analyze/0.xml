@@ -1,0 +1,266 @@
+<class>
+	<keyword> class </keyword>
+	<identifier> Person </identifier>
+	<symbol> { </symbol>
+	<classVarDec>
+		<keyword> field </keyword>
+		<identifier> String </identifier>
+		<identifier> name </identifier>
+		<symbol> ; </symbol>
+	</classVarDec>
+	<classVarDec>
+		<keyword> field </keyword>
+		<keyword> boolean </keyword>
+		<identifier> isMale </identifier>
+		<symbol> ; </symbol>
+	</classVarDec>
+	<classVarDec>
+		<keyword> field </keyword>
+		<keyword> int </keyword>
+		<identifier> age </identifier>
+		<symbol> ; </symbol>
+	</classVarDec>
+	<subroutineDec>
+		<keyword> constructor </keyword>
+		<identifier> Person </identifier>
+		<identifier> new </identifier>
+		<symbol> ( </symbol>
+		<parameterList>
+			<keyword> int </keyword>
+			<identifier> a </identifier>
+			<symbol> , </symbol>
+			<keyword> boolean </keyword>
+			<identifier> male </identifier>
+			<symbol> , </symbol>
+			<identifier> String </identifier>
+			<identifier> n </identifier>
+		</parameterList>
+		<symbol> ) </symbol>
+		<subroutineBody>
+			<symbol> { </symbol>
+			<statements>
+				<letStatement>
+					<keyword> let </keyword>
+					<identifier> age </identifier>
+					<symbol> = </symbol>
+					<expression>
+						<term>
+							<identifier> a </identifier>
+						</term>
+					</expression>
+					<symbol> ; </symbol>
+				</letStatement>
+				<letStatement>
+					<keyword> let </keyword>
+					<identifier> isMale </identifier>
+					<symbol> = </symbol>
+					<expression>
+						<term>
+							<identifier> male </identifier>
+						</term>
+					</expression>
+					<symbol> ; </symbol>
+				</letStatement>
+				<letStatement>
+					<keyword> let </keyword>
+					<identifier> name </identifier>
+					<symbol> = </symbol>
+					<expression>
+						<term>
+							<identifier> n </identifier>
+						</term>
+					</expression>
+					<symbol> ; </symbol>
+				</letStatement>
+				<returnStatement>
+					<keyword> return </keyword>
+					<expression>
+						<term>
+							<keyword> this </keyword>
+						</term>
+					</expression>
+					<symbol> ; </symbol>
+				</returnStatement>
+			</statements>
+			<symbol> } </symbol>
+		</subroutineBody>
+	</subroutineDec>
+	<subroutineDec>
+		<keyword> method </keyword>
+		<keyword> void </keyword>
+		<identifier> hello </identifier>
+		<symbol> ( </symbol>
+		<parameterList>
+		</parameterList>
+		<symbol> ) </symbol>
+		<subroutineBody>
+			<symbol> { </symbol>
+			<statements>
+				<doStatement>
+					<keyword> do </keyword>
+					<subroutineCall>
+						<identifier> Output </identifier>
+						<symbol> . </symbol>
+						<identifier> printString </identifier>
+						<symbol> ( </symbol>
+						<expressionList>
+							<expression>
+								<term>
+									<stringConstant> Hello, my name is  </stringConstant>
+								</term>
+							</expression>
+						</expressionList>
+						<symbol> ) </symbol>
+					</subroutineCall>
+					<symbol> ; </symbol>
+				</doStatement>
+				<doStatement>
+					<keyword> do </keyword>
+					<subroutineCall>
+						<identifier> Output </identifier>
+						<symbol> . </symbol>
+						<identifier> printString </identifier>
+						<symbol> ( </symbol>
+						<expressionList>
+							<expression>
+								<term>
+									<identifier> name </identifier>
+								</term>
+							</expression>
+						</expressionList>
+						<symbol> ) </symbol>
+					</subroutineCall>
+					<symbol> ; </symbol>
+				</doStatement>
+				<doStatement>
+					<keyword> do </keyword>
+					<subroutineCall>
+						<identifier> Output </identifier>
+						<symbol> . </symbol>
+						<identifier> printString </identifier>
+						<symbol> ( </symbol>
+						<expressionList>
+							<expression>
+								<term>
+									<stringConstant> and I'm a </stringConstant>
+								</term>
+							</expression>
+						</expressionList>
+						<symbol> ) </symbol>
+					</subroutineCall>
+					<symbol> ; </symbol>
+				</doStatement>
+				<doStatement>
+					<keyword> do </keyword>
+					<subroutineCall>
+						<identifier> Output </identifier>
+						<symbol> . </symbol>
+						<identifier> printInt </identifier>
+						<symbol> ( </symbol>
+						<expressionList>
+							<expression>
+								<term>
+									<identifier> age </identifier>
+								</term>
+							</expression>
+						</expressionList>
+						<symbol> ) </symbol>
+					</subroutineCall>
+					<symbol> ; </symbol>
+				</doStatement>
+				<doStatement>
+					<keyword> do </keyword>
+					<subroutineCall>
+						<identifier> Output </identifier>
+						<symbol> . </symbol>
+						<identifier> printString </identifier>
+						<symbol> ( </symbol>
+						<expressionList>
+							<expression>
+								<term>
+									<stringConstant> year old </stringConstant>
+								</term>
+							</expression>
+						</expressionList>
+						<symbol> ) </symbol>
+					</subroutineCall>
+					<symbol> ; </symbol>
+				</doStatement>
+				<ifStatement>
+					<keyword> if </keyword>
+					<symbol> ( </symbol>
+					<expression>
+						<term>
+							<identifier> isMale </identifier>
+						</term>
+					</expression>
+					<symbol> ) </symbol>
+					<symbol> { </symbol>
+					<statements>
+						<doStatement>
+							<keyword> do </keyword>
+							<subroutineCall>
+								<identifier> Output </identifier>
+								<symbol> . </symbol>
+								<identifier> printString </identifier>
+								<symbol> ( </symbol>
+								<expressionList>
+									<expression>
+										<term>
+											<stringConstant> guy </stringConstant>
+										</term>
+									</expression>
+								</expressionList>
+								<symbol> ) </symbol>
+							</subroutineCall>
+							<symbol> ; </symbol>
+						</doStatement>
+					</statements>
+					<symbol> } </symbol>
+					<keyword> else </keyword>
+					<symbol> { </symbol>
+					<statements>
+						<doStatement>
+							<keyword> do </keyword>
+							<subroutineCall>
+								<identifier> Output </identifier>
+								<symbol> . </symbol>
+								<identifier> printString </identifier>
+								<symbol> ( </symbol>
+								<expressionList>
+									<expression>
+										<term>
+											<stringConstant> girl </stringConstant>
+										</term>
+									</expression>
+								</expressionList>
+								<symbol> ) </symbol>
+							</subroutineCall>
+							<symbol> ; </symbol>
+						</doStatement>
+					</statements>
+					<symbol> } </symbol>
+				</ifStatement>
+				<doStatement>
+					<keyword> do </keyword>
+					<subroutineCall>
+						<identifier> Output </identifier>
+						<symbol> . </symbol>
+						<identifier> println </identifier>
+						<symbol> ( </symbol>
+						<expressionList>
+						</expressionList>
+						<symbol> ) </symbol>
+					</subroutineCall>
+					<symbol> ; </symbol>
+				</doStatement>
+				<returnStatement>
+					<keyword> return </keyword>
+					<symbol> ; </symbol>
+				</returnStatement>
+			</statements>
+			<symbol> } </symbol>
+		</subroutineBody>
+	</subroutineDec>
+	<symbol> } </symbol>
+</class>

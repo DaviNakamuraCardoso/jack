@@ -1,0 +1,16 @@
+
+
+/**
+*   This is a test file for the Davi Compiler Collection (DCC)
+*   (c) 2021 Davi Nakamura Cardoso
+*   Under the MIT License
+*
+*/
+
+class Main {
+
+    function void main() {
+        
+
+    }
+}

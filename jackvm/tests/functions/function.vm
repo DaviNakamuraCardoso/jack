@@ -1,0 +1,23 @@
+function Fibonacci.fibonacci 0
+push argument 0
+push constant 1
+eq
+not
+if-goto LABEL_0
+push constant 1
+return
+goto LABEL_1
+label LABEL_0
+label LABEL_1
+push pointer 0
+push argument 0
+push constant 1
+sub
+call Fibonacci.fibonacci 2
+push pointer 0
+push argument 0
+push constant 2
+sub
+call Fibonacci.fibonacci 2
+add
+return

@@ -1,0 +1,39 @@
+/**
+*       This is an example of the behavior provided
+*       by the Davi Compiler Collection (DCC).
+*       This is part of the Project-Centered Course
+*       Nand2tetris, Available in Coursera.
+*
+*/
+
+// All programs need a Main class and a main function
+class Main {
+
+    // Classes can have static variables
+    static boolean b;
+    static int i;
+    static char c;
+
+    // And also member variables
+    field boolean fb;
+    field int fi;
+    field char fc;
+
+    function void main() {
+        // Local variables are declared with the keyword 'var'
+        var char c;
+
+        // Assignments are made with 'let'
+        let c = 'C';
+
+
+        // Function calls need the keyword 'do'
+        do Output.printString("Howdy, World!");
+
+        // All functions need a return statement
+        return;
+
+    }
+
+
+}

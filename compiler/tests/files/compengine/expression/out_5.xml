@@ -1,0 +1,18 @@
+<expression>
+	<term>
+		<subroutineCall>
+			<identifier> Sky </identifier>
+			<symbol> . </symbol>
+			<identifier> setColor </identifier>
+			<symbol> ( </symbol>
+			<expressionList>
+				<expression>
+					<term>
+						<stringConstant> orange </stringConstant>
+					</term>
+				</expression>
+			</expressionList>
+			<symbol> ) </symbol>
+		</subroutineCall>
+	</term>
+</expression>

@@ -1,0 +1,3 @@
+push constant 11
+pop local 2
+goto LABEL_2

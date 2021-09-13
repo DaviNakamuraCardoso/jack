@@ -1,0 +1,15 @@
+// Another test
+
+class Main
+{
+    // Comment 0
+            function
+    // Commment 1
+                            void
+    // Comment 2
+    main (      )
+    {
+        /*** This is a commment**/
+        // Another one
+                                            }
+}

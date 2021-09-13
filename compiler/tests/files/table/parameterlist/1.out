@@ -1,0 +1,12 @@
+<symbol> ( </symbol>
+<parameterList>
+	<keyword> int </keyword>
+	<identifier> a </identifier>
+	<symbol> , </symbol>
+	<keyword> int </keyword>
+	<identifier> b </identifier>
+	<symbol> , </symbol>
+	<keyword> int </keyword>
+	<identifier> c </identifier>
+</parameterList>
+<symbol> ) </symbol>

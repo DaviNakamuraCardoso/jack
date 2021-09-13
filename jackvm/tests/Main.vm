@@ -1,0 +1,27 @@
+function Main.main 1
+push constant 1
+call Main.fib 1
+pop local 0
+push constant 0
+return
+function Main.fib 0
+push argument 0
+push constant 2
+lt
+not
+if-goto LABEL_0
+push constant 1
+return
+goto LABEL_1
+label LABEL_0
+label LABEL_1
+push argument 0
+push constant 1
+sub
+call Main.fib 1
+push argument 0
+push constant 2
+sub
+call Main.fib 1
+add
+return

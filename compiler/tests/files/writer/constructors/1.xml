@@ -1,0 +1,14 @@
+<keyword>constructor</keyword>
+<identifier>Point</identifier>
+<identifier>new</identifier>
+<symbol>(</symbol>
+<symbol>)</symbol>
+<symbol>{</symbol>
+<keyword>var</keyword>
+<keyword>int</keyword>
+<identifier>a</identifier>
+<symbol>;</symbol>
+<keyword>return</keyword>
+<keyword>this</keyword>
+<symbol>;</symbol>
+<symbol>}</symbol>

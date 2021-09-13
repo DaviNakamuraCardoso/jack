@@ -1,0 +1,4 @@
+push pointer 0
+push argument 1
+call Point.sum 2
+pop temp 0

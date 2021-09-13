@@ -1,0 +1,22 @@
+label LABEL_0
+push constant 2
+push constant 1
+gt
+not
+if-goto LABEL_1
+push constant 5
+call String.new 1
+push constant 83
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 109
+call String.appendChar 2
+push constant 98
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+call SouthAmerica.takeBack 1
+pop temp 0
+goto LABEL_0
+label LABEL_1

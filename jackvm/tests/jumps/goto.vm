@@ -1,0 +1,5 @@
+label FOR 
+push constant 12
+push constant 0 
+if-goto FOR
+

@@ -1,0 +1,33 @@
+class Person {
+
+    field String name;
+    field boolean isMale;
+    field int age;
+
+    constructor Person new(int a, boolean male, String n) {
+        let age = a;
+        let isMale = male;
+        let name = n;
+
+        return this;
+    }
+
+    method void hello(){
+        do Output.printString("Hello, my name is ");
+        do Output.printString(name);
+        do Output.printString("and I'm a");
+        do Output.printInt(age);
+        do Output.printString("year old");
+
+        if (isMale) {
+            do Output.printString("guy");
+        }
+        else {
+            do Output.printString("girl");
+        }
+
+        do Output.println();
+
+        return;
+    }
+}

@@ -1,0 +1,28 @@
+class Fox {
+
+    field String salute, color;
+    field int size;
+
+    // Constructor
+    constructor Fox new() {
+        let salute = "N'ya N'ya N'ya Ya Can't Catch Me.";
+        let color = "#ff0000";
+        let size = 1;
+
+        return this;
+    }
+
+    // Methods allow access to the class fields
+    method void say(){
+        do Output.printString(salute);
+        do Output.println();
+        return;
+    }
+
+    function void hello(){
+        do Output.printString("I'm a fox");
+        do Output.println();
+        return;
+    }
+
+}

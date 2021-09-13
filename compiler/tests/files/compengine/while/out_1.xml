@@ -1,0 +1,18 @@
+<whileStatement>
+	<keyword>while</keyword>
+	<symbol>(</symbol>
+	<expression>
+		<term>
+			<identifier>i</identifier>
+		</term>
+		<symbol>+</symbol>
+		<term>
+			<identifier>a</identifier>
+		</term>
+	</expression>
+	<symbol>)</symbol>
+	<symbol>{</symbol>
+	<statements>
+	</statements>
+	<symbol>}</symbol>
+</whileStatement>

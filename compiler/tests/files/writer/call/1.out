@@ -1,0 +1,2 @@
+push pointer 0
+call Main.draw 1

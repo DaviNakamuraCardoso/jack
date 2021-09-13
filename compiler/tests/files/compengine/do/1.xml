@@ -1,0 +1,6 @@
+<keyword>do</keyword>
+<identifier>print</identifier>
+<symbol>(</symbol>
+<stringConstant>Hello, World!</stringConstant>
+<symbol>)</symbol>
+<symbol>;</symbol>

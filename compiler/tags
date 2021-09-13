@@ -1,0 +1,444 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ARGUMENT	include/table/kinds.h	/^    ARGUMENT,$/;"	e	enum:__anon3
+B	Makefile	/^B = table\/$/;"	m
+B	tests/Makefile	/^B = table\/$/;"	m
+BASE_DIR	tests/includes/tests.h	27;"	d
+BOOLEAN	include/table/types.h	/^    BOOLEAN,$/;"	e	enum:__anon2
+C	Makefile	/^C = compengine\/$/;"	m
+C	tests/Makefile	/^C = compengine\/$/;"	m
+CH	tests/Makefile	/^CH = .\/..\/include\/$/;"	m
+CHAR	include/table/types.h	/^    CHAR,$/;"	e	enum:__anon2
+CLASSNAME	include/table/types.h	/^    CLASSNAME,$/;"	e	enum:__anon2
+CODE	include/compengine/compile.h	/^} CODE;$/;"	t	typeref:struct:_code
+CONSTRUCTOR	include/table/table.h	/^    METHOD, FUNCTION, CONSTRUCTOR$/;"	e	enum:__anon1
+CS	tests/Makefile	/^CS = .\/..\/src\/$/;"	m
+DO	include/compengine/statements.h	/^    DO,$/;"	e	enum:__anon4
+FIELD	include/table/kinds.h	/^    FIELD,$/;"	e	enum:__anon3
+FUNCTION	include/table/table.h	/^    METHOD, FUNCTION, CONSTRUCTOR$/;"	e	enum:__anon1
+H	tests/Makefile	/^H = .\/includes\/$/;"	m
+HASHSIZE	include/table/table.h	9;"	d
+I	Makefile	/^I = .\/include\/$/;"	m
+IF	include/compengine/statements.h	/^    IF,$/;"	e	enum:__anon4
+IMPLEMENTED_SYMBOL	include/tokenizer/tokens.h	/^    IMPLEMENTED_SYMBOL,$/;"	e	enum:__anon5
+INT	include/table/types.h	/^    INT,$/;"	e	enum:__anon2
+INVALID	include/tokenizer/tokens.h	/^    INVALID$/;"	e	enum:__anon5
+INVALID_STATEMENT	include/compengine/statements.h	/^    INVALID_STATEMENT,$/;"	e	enum:__anon4
+INVALID_TYPE	include/table/types.h	/^    INVALID_TYPE$/;"	e	enum:__anon2
+KEYWORD	include/tokenizer/tokens.h	/^    KEYWORD,$/;"	e	enum:__anon5
+KIND	include/table/kinds.h	/^} KIND;$/;"	t	typeref:enum:__anon3
+L	Makefile	/^L = .\/lib\/$/;"	m
+L	tests/Makefile	/^L = .\/lib\/$/;"	m
+LET	include/compengine/statements.h	/^    LET,$/;"	e	enum:__anon4
+LOCAL	include/table/kinds.h	/^    LOCAL$/;"	e	enum:__anon3
+MAX_ASCII	include/tokenizer/tokens.h	3;"	d
+METHOD	include/table/table.h	/^    METHOD, FUNCTION, CONSTRUCTOR$/;"	e	enum:__anon1
+NUMBER_CONSTANT	include/tokenizer/tokens.h	/^    NUMBER_CONSTANT,$/;"	e	enum:__anon5
+O	Makefile	/^O = .\/obj\/$/;"	m
+O	tests/Makefile	/^O = .\/obj\/$/;"	m
+OPERATOR	include/compengine/expressions.h	/^} OPERATOR;$/;"	t	typeref:enum:operator
+OPSIZE	include/compengine/expressions.h	21;"	d
+RETURN	include/compengine/statements.h	/^    RETURN$/;"	e	enum:__anon4
+S	Makefile	/^S = .\/src\/$/;"	m
+S	tests/Makefile	/^S = .\/src\/$/;"	m
+STATEMENT	include/compengine/statements.h	/^} STATEMENT;$/;"	t	typeref:enum:__anon4
+STATIC	include/table/kinds.h	/^    STATIC,$/;"	e	enum:__anon3
+STRING_LITERAL	include/tokenizer/tokens.h	/^    STRING_LITERAL,$/;"	e	enum:__anon5
+SYMBOL	include/tokenizer/tokens.h	/^} SYMBOL;$/;"	t	typeref:struct:_symbol
+T	Makefile	/^T = tokenizer\/$/;"	m
+T	tests/Makefile	/^T = tokenizer\/$/;"	m
+TABLE	include/table/table.h	/^} TABLE;$/;"	t	typeref:struct:_table
+TH	tests/Makefile	/^TH = .\/..\/include\/$/;"	m
+TOKEN	include/compengine/parser.h	/^} TOKEN;$/;"	t	typeref:struct:_token
+TOKEN_TYPE	include/tokenizer/tokens.h	/^} TOKEN_TYPE;$/;"	t	typeref:enum:__anon5
+TRACKER	include/writer/tracker.h	/^} TRACKER;$/;"	t	typeref:struct:_tracker
+TS	tests/Makefile	/^TS = .\/..\/src\/$/;"	m
+TYPE	include/table/types.h	/^} TYPE;$/;"	t	typeref:enum:__anon2
+U	Makefile	/^U = utils\/$/;"	m
+U	tests/Makefile	/^U = utils\/$/;"	m
+UNARYOP	include/compengine/expressions.h	/^} UNARYOP;$/;"	t	typeref:enum:unaryop
+VARIABLE	include/tokenizer/tokens.h	/^    VARIABLE,$/;"	e	enum:__anon5
+W	Makefile	/^W = writer\/$/;"	m
+W	tests/Makefile	/^W = writer\/$/;"	m
+WHILE	include/compengine/statements.h	/^    WHILE,$/;"	e	enum:__anon4
+__ADD	include/compengine/expressions.h	/^    __ADD,$/;"	e	enum:operator
+__AND	include/compengine/expressions.h	/^    __AND,$/;"	e	enum:operator
+__DIV	include/compengine/expressions.h	/^    __DIV,$/;"	e	enum:operator
+__EQ	include/compengine/expressions.h	/^    __EQ$/;"	e	enum:operator
+__F_TYPE	include/table/table.h	/^} __F_TYPE;$/;"	t	typeref:enum:__anon1
+__GT	include/compengine/expressions.h	/^    __GT,$/;"	e	enum:operator
+__INVALID	include/compengine/expressions.h	/^    __INVALID,$/;"	e	enum:operator
+__INVALID_U	include/compengine/expressions.h	/^    __INVALID_U, $/;"	e	enum:unaryop
+__KIND	include/compengine/structure.h	14;"	d
+__KIND	include/table/table.h	19;"	d
+__LT	include/compengine/expressions.h	/^    __LT,$/;"	e	enum:operator
+__MUL	include/compengine/expressions.h	/^    __MUL,$/;"	e	enum:operator
+__NEG	include/compengine/expressions.h	/^    __NEG$/;"	e	enum:unaryop
+__NOT	include/compengine/expressions.h	/^    __NOT,$/;"	e	enum:unaryop
+__OR	include/compengine/expressions.h	/^    __OR,$/;"	e	enum:operator
+__SUB	include/compengine/expressions.h	/^    __SUB,$/;"	e	enum:operator
+__TYPE	include/compengine/structure.h	9;"	d
+__TYPE	include/table/table.h	14;"	d
+__VARIABLE	include/table/table.h	/^} __VARIABLE;$/;"	t	typeref:struct:_variable
+_code	include/compengine/compile.h	/^typedef struct _code {$/;"	s
+_symbol	include/tokenizer/tokens.h	/^typedef struct _symbol$/;"	s
+_table	include/table/table.h	/^typedef struct _table {$/;"	s
+_token	include/compengine/parser.h	/^typedef struct _token {$/;"	s
+_tracker	include/writer/tracker.h	/^typedef struct _tracker {$/;"	s
+_variable	include/table/table.h	/^typedef struct _variable {$/;"	s
+add_classname	src/table/table.c	/^static void add_classname(__VARIABLE* v, char* classname, TYPE t)$/;"	f	file:
+add_hash	src/table/table.c	/^void add_hash(TABLE* root, __VARIABLE* variable)$/;"	f
+add_symbol	src/tokenizer/tokens.c	/^void add_symbol(SYMBOL* root, char* key, TOKEN_TYPE type)$/;"	f
+add_symbols_from_file	src/tokenizer/tokens.c	/^void add_symbols_from_file(SYMBOL* root, char* filename, TOKEN_TYPE type)$/;"	f
+add_var	src/table/table.c	/^void add_var(TABLE* root, char* varname, char* classname, KIND k, TYPE t)$/;"	f
+add_xml_endnode	src/tokenizer/parser.c	/^void add_xml_endnode(FILE* xml)$/;"	f
+add_xml_startnode	src/tokenizer/parser.c	/^void add_xml_startnode(FILE* xml)$/;"	f
+analyze	src/compengine/analyzer.c	/^void analyze(char* path)$/;"	f
+analyze_directory	src/compengine/analyzer.c	/^static void analyze_directory(char* directory, TRACKER* t)$/;"	f	file:
+analyze_file	src/compengine/analyzer.c	/^static void analyze_file(char* file, TRACKER* t)$/;"	f	file:
+analyzer_test	src/utils/comptests.c	/^unsigned int analyzer_test(const char* name, void (*function) (char*), unsigned int size)$/;"	f
+assert_content	src/compengine/compile.c	/^void assert_content(char* a, char* b, int* status)$/;"	f
+assert_type	src/compengine/compile.c	/^void assert_type(TOKEN_TYPE a, TOKEN_TYPE b, int* status)$/;"	f
+can_clean_source	tests/src/tokenizer/test_precomp.c	/^unsigned int can_clean_source(void)$/;"	f
+can_clean_string_literals	tests/src/tokenizer/test_precomp.c	/^unsigned int can_clean_string_literals(void)$/;"	f
+can_handle_inline_comments	tests/src/tokenizer/test_precomp.c	/^unsigned int can_handle_inline_comments(void)$/;"	f
+can_handle_multiple_line_comments	tests/src/tokenizer/test_precomp.c	/^unsigned int can_handle_multiple_line_comments(void)$/;"	f
+can_handle_whitespaces	tests/src/tokenizer/test_precomp.c	/^static unsigned int can_handle_whitespaces(void)$/;"	f	file:
+can_precompile	tests/src/tokenizer/test_precomp.c	/^unsigned int can_precompile(void)$/;"	f
+check_arrayaccess	src/compengine/expressions.c	/^static unsigned int check_arrayaccess(CODE* c)$/;"	f	file:
+check_subroutine	src/compengine/expressions.c	/^static unsigned int check_subroutine(CODE* c, short* is_class, short* is_function)$/;"	f	file:
+check_variable	src/tokenizer/cleaner.c	/^TOKEN_TYPE check_variable(char* token)$/;"	f
+classname	include/table/table.h	/^    char* classname;$/;"	m	struct:_table
+classname	include/table/table.h	/^    char* classname;$/;"	m	struct:_variable
+clean_source	src/tokenizer/precomp.c	/^char* clean_source(char* source)$/;"	f
+cleanup	src/compengine/analyzer.c	/^static void cleanup(void)$/;"	f	file:
+close_statement	src/compengine/statements.c	/^void close_statement(int* identation, char* keyword, FILE* target)$/;"	f
+close_statements	src/compengine/statements.c	/^void close_statements(CODE* c)$/;"	f
+closetag	src/compengine/compile.c	/^void closetag(CODE* c, const char* tagname)$/;"	f
+codealloc	src/compengine/compile.c	/^static CODE* codealloc(void)$/;"	f	file:
+compare_results	tests/src/tokenizer/test_precomp.c	/^unsigned int compare_results(char** input, char** expected,$/;"	f
+compile	src/compengine/analyzer.c	/^void compile(char* filename, TRACKER* t)$/;"	f
+compile_access	src/compengine/statements.c	/^static unsigned int compile_access(CODE* c)$/;"	f	file:
+compile_arrayaccess	src/compengine/expressions.c	/^unsigned int compile_arrayaccess(CODE* c)$/;"	f
+compile_class	src/compengine/structure.c	/^void compile_class(CODE* c)$/;"	f
+compile_classbody	src/compengine/structure.c	/^void compile_classbody(CODE* c)$/;"	f
+compile_classfield	src/compengine/structure.c	/^KIND compile_classfield(CODE* c)$/;"	f
+compile_classheader	src/compengine/structure.c	/^void compile_classheader(CODE* c)$/;"	f
+compile_classvardec	src/compengine/structure.c	/^void compile_classvardec(CODE* c)$/;"	f
+compile_comma	src/compengine/structure.c	/^unsigned int compile_comma(CODE* c)$/;"	f
+compile_const	src/compengine/compile.c	/^unsigned int compile_const(CODE* c, char* keyword)$/;"	f
+compile_do	src/compengine/statements.c	/^void compile_do(CODE* c)$/;"	f
+compile_else	src/compengine/statements.c	/^void compile_else(CODE* c)$/;"	f
+compile_expression	src/compengine/expressions.c	/^void compile_expression(CODE* c)$/;"	f
+compile_expressionlist	src/compengine/expressions.c	/^unsigned int compile_expressionlist(CODE* c)$/;"	f
+compile_function_predec	src/compengine/structure.c	/^signed int compile_function_predec(CODE* c)$/;"	f
+compile_function_type	src/compengine/structure.c	/^void compile_function_type(CODE* c)$/;"	f
+compile_identifier	src/compengine/compile.c	/^unsigned int compile_identifier(CODE* c)$/;"	f
+compile_if	src/compengine/statements.c	/^void compile_if(CODE* c)$/;"	f
+compile_implemented	src/compengine/compile.c	/^unsigned int compile_implemented(CODE* c, char* content, char* tagname, TOKEN_TYPE type)$/;"	f
+compile_inbraces	src/compengine/expressions.c	/^unsigned int compile_inbraces(CODE* c)$/;"	f
+compile_integerconstant	src/compengine/compile.c	/^unsigned int compile_integerconstant(CODE* c)$/;"	f
+compile_keylist	src/compengine/expressions.c	/^static int compile_keylist(CODE* c, char* keylist[], unsigned int (*handler) (CODE*, char*))$/;"	f	file:
+compile_keyword	src/compengine/compile.c	/^unsigned int compile_keyword(CODE* c, char* keyword)$/;"	f
+compile_keywordconstant	src/compengine/expressions.c	/^unsigned int compile_keywordconstant(CODE* c)$/;"	f
+compile_let	src/compengine/statements.c	/^void compile_let(CODE* c)$/;"	f
+compile_op	src/compengine/expressions.c	/^signed int compile_op(CODE* c)$/;"	f
+compile_parameterlist	src/compengine/structure.c	/^void compile_parameterlist(CODE* c)$/;"	f
+compile_return	src/compengine/statements.c	/^void compile_return(CODE* c)$/;"	f
+compile_statements	src/compengine/statements.c	/^void compile_statements(CODE* c)$/;"	f
+compile_string	src/compengine/compile.c	/^void compile_string(CODE* c)$/;"	f
+compile_stringconstant	src/compengine/compile.c	/^unsigned int compile_stringconstant(CODE* c)$/;"	f
+compile_subroutine_vardec	src/compengine/structure.c	/^static void compile_subroutine_vardec(CODE* c)$/;"	f	file:
+compile_subroutinebody	src/compengine/structure.c	/^void compile_subroutinebody(CODE* c)$/;"	f
+compile_subroutinecall	src/compengine/expressions.c	/^unsigned int compile_subroutinecall(CODE* c)$/;"	f
+compile_subroutinedec	src/compengine/structure.c	/^void compile_subroutinedec(CODE* c)$/;"	f
+compile_symbol	src/compengine/compile.c	/^unsigned int compile_symbol(CODE* c, char* symbol)$/;"	f
+compile_symbol_tag	src/compengine/compile.c	/^void compile_symbol_tag(int *identation, char* content, FILE* target)$/;"	f
+compile_tag	src/compengine/compile.c	/^void compile_tag(CODE* c, char* content, char* tagname)$/;"	f
+compile_term	src/compengine/expressions.c	/^unsigned int compile_term(CODE* c)$/;"	f
+compile_termlist	src/compengine/expressions.c	/^unsigned int compile_termlist(CODE* c)$/;"	f
+compile_type	src/compengine/structure.c	/^TYPE compile_type(CODE *c, char* buffer)$/;"	f
+compile_unaryop	src/compengine/expressions.c	/^signed int compile_unaryop(CODE* c)$/;"	f
+compile_value	src/compengine/compile.c	/^unsigned int compile_value(CODE* c, TOKEN_TYPE type)$/;"	f
+compile_vardec	src/compengine/structure.c	/^void compile_vardec(CODE* c)$/;"	f
+compile_variable	src/compengine/compile.c	/^void compile_variable(CODE* c, TOKEN* t)$/;"	f
+compile_varname	src/compengine/compile.c	/^unsigned int compile_varname(CODE* c)$/;"	f
+compile_while	src/compengine/statements.c	/^void compile_while(CODE* c)$/;"	f
+compilef	src/compengine/compile.c	/^void compilef(int identation, char* text, FILE* target)$/;"	f
+content	include/compengine/parser.h	/^    char* content;$/;"	m	struct:_token
+counter	include/writer/tracker.h	/^    unsigned long counter;$/;"	m	struct:_tracker
+cycle_text	src/tokenizer/precomp.c	/^char* cycle_text(char* text, unsigned int (*validator) (char*))$/;"	f
+dec	src/compengine/compile.c	/^void dec(int *identation)$/;"	f
+display_results	src/utils/tests.c	/^void display_results(char* expected, char* result, unsigned int test)$/;"	f
+dump_return	src/compengine/statements.c	/^static void dump_return(CODE* c)$/;"	f	file:
+error	src/utils/error.c	/^void error(char* msg)$/;"	f
+escape_string_literals	src/tokenizer/cleaner.c	/^unsigned long long escape_string_literals(char* source, FILE* f)$/;"	f
+escape_string_specials	src/tokenizer/parser.c	/^char* escape_string_specials(char* literal)$/;"	f
+exists	include/tokenizer/tokens.h	/^    unsigned int exists:1;$/;"	m	struct:_symbol
+exit_scope	src/table/parser.c	/^void exit_scope(CODE* c)$/;"	f
+file_size	src/tokenizer/reader.c	/^int file_size(char* filename)$/;"	f
+fill_new_string	src/writer/assignments.c	/^static void fill_new_string(CODE* c, char* str)$/;"	f	file:
+generic_compare	src/utils/comptests.c	/^unsigned int generic_compare(const char* expression, void (*tested) (CODE*, ...), unsigned short size)$/;"	f
+get_classname	src/table/parser.c	/^unsigned int get_classname(CODE* c, char* varname, char* buffer)$/;"	f
+get_code	src/compengine/analyzer.c	/^CODE* get_code(char* filename, TRACKER* t)$/;"	f
+get_code	src/tokenizer/precomp.c	/^char* get_code(char* current, FILE* f)$/;"	f
+get_content_type	src/compengine/structure.c	/^TYPE get_content_type(char* content)$/;"	f
+get_counter	src/compengine/compile.c	/^unsigned long get_counter(CODE* c)$/;"	f
+get_file	src/tokenizer/reader.c	/^char* get_file(char* filename)$/;"	f
+get_keysegment	src/writer/assignments.c	/^static void get_keysegment(char* key, char* buffer)$/;"	f	file:
+get_keyvalue	src/writer/assignments.c	/^static void get_keyvalue(char* key, char* buffer)$/;"	f	file:
+get_kind	src/compengine/structure.c	/^static KIND get_kind(char* content)$/;"	f	file:
+get_label	src/writer/loops.c	/^void get_label(CODE* c, char* buffer)$/;"	f
+get_name	src/compengine/analyzer.c	/^static void get_name(char* filename, char* buffer)$/;"	f	file:
+get_next_token	src/compengine/parser.c	/^TOKEN* get_next_token(FILE* xml)$/;"	f
+get_next_token_content	src/compengine/compile.c	/^void get_next_token_content(CODE* c, char* buffer)$/;"	f
+get_object_size	src/table/table.c	/^unsigned int get_object_size(TABLE* root)$/;"	f
+get_primitive	src/table/table.c	/^static void get_primitive(TYPE t, char* buffer)$/;"	f	file:
+get_source_line	src/tokenizer/parser.c	/^unsigned int get_source_line(char* buff, char* source)$/;"	f
+get_special_symbol	src/tokenizer/cleaner.c	/^char* get_special_symbol(char* token)$/;"	f
+get_statement	src/compengine/statements.c	/^STATEMENT get_statement(TOKEN* t)$/;"	f
+get_string_literals	src/tokenizer/precomp.c	/^char* get_string_literals(char* source, FILE* f)$/;"	f
+get_symbol	src/tokenizer/tokens.c	/^SYMBOL* get_symbol(SYMBOL* root, char* key)$/;"	f
+get_tag	src/tokenizer/parser.c	/^void get_tag(SYMBOL* root, char* token, FILE* f)$/;"	f
+get_tagname	src/tokenizer/parser.c	/^char* get_tagname(TOKEN_TYPE type)$/;"	f
+get_token_content	src/tokenizer/parser.c	/^char* get_token_content(TOKEN_TYPE t, char* token)$/;"	f
+get_token_type	src/tokenizer/tokens.c	/^TOKEN_TYPE get_token_type(SYMBOL* root, char* key)$/;"	f
+get_token_type_from_tag	src/compengine/parser.c	/^TOKEN_TYPE get_token_type_from_tag(char* tagname)$/;"	f
+get_tokens	src/compengine/analyzer.c	/^static void get_tokens(char* tokens)$/;"	f	file:
+get_type	src/tokenizer/parser.c	/^TOKEN_TYPE get_type(SYMBOL* types_table, char* token)$/;"	f
+get_typename	src/table/table.c	/^void get_typename(__VARIABLE* v, char* buffer)$/;"	f
+get_variable	src/table/parser.c	/^void get_variable(CODE* c, char* varname, char* buffer)$/;"	f
+get_vm_name	src/table/parser.c	/^static char* get_vm_name(KIND kind)$/;"	f	file:
+get_vm_variable	src/table/parser.c	/^static void get_vm_variable(__VARIABLE* v, char* buffer)$/;"	f	file:
+get_xml	src/tokenizer/parser.c	/^char* get_xml(char* source)$/;"	f
+handle_inline_comments	src/tokenizer/precomp.c	/^char* handle_inline_comments(char* text)$/;"	f
+handle_multiple_line_comments	src/tokenizer/precomp.c	/^char* handle_multiple_line_comments(char* text)$/;"	f
+handle_statements	src/compengine/statements.c	/^unsigned int handle_statements(CODE* c, STATEMENT type)$/;"	f
+handle_type	src/compengine/structure.c	/^void handle_type(TYPE type, CODE* c, TOKEN* token)$/;"	f
+handle_whitespaces	src/tokenizer/precomp.c	/^char* handle_whitespaces(char* text)$/;"	f
+hash	src/table/table.c	/^static unsigned int hash(char* s)$/;"	f	file:
+identation	include/compengine/compile.h	/^    int* identation;$/;"	m	struct:_code
+inc	src/compengine/compile.c	/^void inc(int *identation)$/;"	f
+index	include/table/table.h	/^    unsigned int index;$/;"	m	struct:_variable
+init_constructor_segment	src/writer/functions.c	/^void init_constructor_segment(CODE* c)$/;"	f
+init_method_args	src/writer/functions.c	/^void init_method_args(CODE* c)$/;"	f
+init_method_arguments	src/writer/functions.c	/^void init_method_arguments(CODE* c)$/;"	f
+init_method_decs	src/table/parser.c	/^void init_method_decs(CODE* c, __F_TYPE t)$/;"	f
+init_scope	src/table/parser.c	/^void init_scope(CODE* c)$/;"	f
+init_subroutine_specifics	src/table/parser.c	/^void init_subroutine_specifics(CODE* c, __F_TYPE t)$/;"	f
+intalloc	src/compengine/compile.c	/^static int* intalloc(void)$/;"	f	file:
+is_class_header	src/compengine/structure.c	/^static unsigned int is_class_header(char* content)$/;"	f	file:
+is_code	src/tokenizer/precomp.c	/^unsigned int is_code(char current, char next)$/;"	f
+is_next	src/compengine/compile.c	/^short is_next(CODE* c, char* content, TOKEN_TYPE type)$/;"	f
+is_not_endof_comment	src/tokenizer/precomp.c	/^unsigned int is_not_endof_comment(char* c)$/;"	f
+is_not_endofline	src/tokenizer/precomp.c	/^unsigned int is_not_endofline(char* c)$/;"	f
+is_primitive	src/table/table.c	/^static unsigned int is_primitive(TYPE t)$/;"	f	file:
+is_source	src/compengine/analyzer.c	/^static unsigned int is_source(char* path)$/;"	f	file:
+is_valid_number_constant	src/tokenizer/cleaner.c	/^unsigned int is_valid_number_constant(char* number)$/;"	f
+is_valid_variable_char	src/tokenizer/cleaner.c	/^unsigned int is_valid_variable_char(char c)$/;"	f
+is_whitespace	src/tokenizer/precomp.c	/^unsigned int is_whitespace(char* ptr)$/;"	f
+kind	include/table/table.h	/^    KIND kind;$/;"	m	struct:_variable
+kind_counter	include/table/table.h	/^    int kind_counter[4];$/;"	m	struct:_table
+main	src/dcc.c	/^int main(int argc, char* argv[])$/;"	f
+main	tests/src/tests.c	/^int main(void)$/;"	f
+name	include/table/table.h	/^    char* name;$/;"	m	struct:_variable
+new_code	src/compengine/compile.c	/^CODE* new_code(FILE* source, FILE* target, FILE* vm)$/;"	f
+new_symbol	src/tokenizer/tokens.c	/^SYMBOL* new_symbol(void)$/;"	f
+new_table	src/table/table.c	/^TABLE* new_table(char* classname)$/;"	f
+new_token	src/compengine/parser.c	/^TOKEN* new_token(char* content, TOKEN_TYPE type)$/;"	f
+new_tracker	src/writer/tracker.c	/^TRACKER* new_tracker(void)$/;"	f
+new_types_table	src/tokenizer/parser.c	/^SYMBOL* new_types_table(void)$/;"	f
+new_variable	src/table/table.c	/^__VARIABLE* new_variable(char* name, char* classname, KIND k, TYPE t)$/;"	f
+next	include/table/table.h	/^    struct _table* next;$/;"	m	struct:_table	typeref:struct:_table::_table
+next	include/table/table.h	/^    struct _variable* next;$/;"	m	struct:_variable	typeref:struct:_variable::_variable
+next	include/tokenizer/tokens.h	/^    struct _symbol *next[MAX_ASCII];$/;"	m	struct:_symbol	typeref:struct:_symbol::_symbol
+next_code	src/tokenizer/precomp.c	/^char* next_code(char* source)$/;"	f
+nothing	tests/src/compengine/test_analyzer.c	/^void nothing(char* path)$/;"	f
+open_statement	src/compengine/statements.c	/^void open_statement(int* identation, char* keyword, FILE* target)$/;"	f
+open_statements	src/compengine/statements.c	/^void open_statements(CODE* c)$/;"	f
+openfile	src/tokenizer/reader.c	/^FILE* openfile(char* filename)$/;"	f
+opentag	src/compengine/compile.c	/^void opentag(CODE* c, const char* tagname)$/;"	f
+operator	include/compengine/expressions.h	/^typedef enum operator {$/;"	g
+parse_token	src/compengine/parser.c	/^TOKEN* parse_token(char* xml)$/;"	f
+pass	src/compengine/statements.c	/^void pass(CODE* c) {return;}$/;"	f
+precompile	src/tokenizer/precomp.c	/^char* precompile(char* filename)$/;"	f
+push_methodarg	src/writer/functions.c	/^unsigned int push_methodarg(CODE* c, char* classname)$/;"	f
+putident	src/compengine/compile.c	/^void putident(int ident, FILE* f)$/;"	f
+release_code	src/compengine/compile.c	/^void release_code(CODE* c)$/;"	f
+release_results	src/utils/tests.c	/^void release_results(char* r1, char* r2)$/;"	f
+release_symbol	src/tokenizer/tokens.c	/^void release_symbol(SYMBOL** root)$/;"	f
+release_table	src/table/table.c	/^void release_table(TABLE** t)$/;"	f
+release_token	src/compengine/parser.c	/^void release_token(TOKEN** tokenptr)$/;"	f
+release_tracker	src/writer/tracker.c	/^void release_tracker(TRACKER* t)$/;"	f
+release_variable	src/table/table.c	/^void release_variable(__VARIABLE* v)$/;"	f
+rollback	src/compengine/parser.c	/^void rollback(FILE* f)$/;"	f
+search_one_char	src/tokenizer/tokens.c	/^unsigned int search_one_char(SYMBOL* root, char* key)$/;"	f
+search_symbol	src/tokenizer/tokens.c	/^unsigned int search_symbol(SYMBOL* root, char* key)$/;"	f
+search_table	src/table/table.c	/^__VARIABLE* search_table(TABLE* root, char* name)$/;"	f
+see_counter	src/compengine/compile.c	/^unsigned long see_counter(CODE* c)$/;"	f
+set_filenames	src/utils/tests.c	/^void set_filenames(char* basename, char* f1, char* f2, char* f3, int index)$/;"	f
+source	include/compengine/compile.h	/^    FILE* source;$/;"	m	struct:_code
+split_implemented_symbols	src/tokenizer/cleaner.c	/^unsigned long long split_implemented_symbols(char* source, unsigned long long l, FILE* f, SYMBOL* root)$/;"	f
+split_symbols	src/tokenizer/cleaner.c	/^char* split_symbols(char* source)$/;"	f
+start_new_string	src/writer/assignments.c	/^static void start_new_string(CODE* c, char* str)$/;"	f	file:
+string_or_constant	src/tokenizer/cleaner.c	/^TOKEN_TYPE string_or_constant(char* token)$/;"	f
+table	include/compengine/compile.h	/^    TABLE* table;$/;"	m	struct:_code
+talloc	src/table/table.c	/^static TABLE* talloc(void)$/;"	f	file:
+target	include/compengine/compile.h	/^    FILE* target;$/;"	m	struct:_code
+test	src/utils/tests.c	/^unsigned int test(unsigned int (*tests[]) (void), unsigned short size)$/;"	f
+test_add_hash	tests/src/table/test_table.c	/^static unsigned int test_add_hash(void)$/;"	f	file:
+test_add_symbols_from_file	tests/src/tokenizer/test_tokens.c	/^unsigned int test_add_symbols_from_file(void)$/;"	f
+test_add_symbols_from_file_tokens	tests/src/tokenizer/test_tokens.c	/^unsigned int test_add_symbols_from_file_tokens(void)$/;"	f
+test_add_var	tests/src/table/test_table.c	/^static unsigned int test_add_var(void)$/;"	f	file:
+test_add_word	tests/src/tokenizer/test_tokens.c	/^unsigned int test_add_word(void)$/;"	f
+test_analyze	tests/src/compengine/test_analyzer.c	/^unsigned int test_analyze(void)$/;"	f
+test_analyzer	tests/src/compengine/test_analyzer.c	/^unsigned int test_analyzer(void)$/;"	f
+test_assignments	tests/src/writer/test_assignments.c	/^unsigned int test_assignments(void)$/;"	f
+test_cleaner	tests/src/tokenizer/test_cleaner.c	/^unsigned int test_cleaner(void)$/;"	f
+test_compilation	tests/src/tests.c	/^unsigned int test_compilation(void)$/;"	f
+test_compile	tests/src/compengine/test_compile.c	/^unsigned int test_compile(void)$/;"	f
+test_compile_arrayaccess	tests/src/compengine/test_expressions.c	/^static unsigned int test_compile_arrayaccess(void)$/;"	f	file:
+test_compile_class	tests/src/compengine/test_structure.c	/^unsigned int test_compile_class(void)$/;"	f
+test_compile_classvardec	tests/src/compengine/test_structure.c	/^unsigned int test_compile_classvardec(void)$/;"	f
+test_compile_expressionlist	tests/src/compengine/test_expressions.c	/^static unsigned int test_compile_expressionlist(void)$/;"	f	file:
+test_compile_expressions	tests/src/compengine/test_expressions.c	/^static unsigned int test_compile_expressions(void)$/;"	f	file:
+test_compile_identifier	tests/src/compengine/test_compile.c	/^unsigned int test_compile_identifier(void)$/;"	f
+test_compile_implemented	src/utils/comptests.c	/^unsigned int test_compile_implemented(const char* name, unsigned int (*function) (CODE*, char*), int size)$/;"	f
+test_compile_inbraces	tests/src/compengine/test_expressions.c	/^static unsigned int test_compile_inbraces(void)$/;"	f	file:
+test_compile_keyword	tests/src/compengine/test_compile.c	/^unsigned int test_compile_keyword(void)$/;"	f
+test_compile_keywordconstant	tests/src/compengine/test_expressions.c	/^static unsigned int test_compile_keywordconstant(void)$/;"	f	file:
+test_compile_op	tests/src/compengine/test_expressions.c	/^static unsigned int test_compile_op(void)$/;"	f	file:
+test_compile_parameterlist	tests/src/compengine/test_structure.c	/^unsigned int test_compile_parameterlist(void)$/;"	f
+test_compile_process	tests/src/compengine/test_analyzer.c	/^unsigned int test_compile_process(void)$/;"	f
+test_compile_statements	tests/src/compengine/test_statements.c	/^unsigned int test_compile_statements(void)$/;"	f
+test_compile_subroutinebody	tests/src/compengine/test_structure.c	/^unsigned int test_compile_subroutinebody(void)$/;"	f
+test_compile_subroutinecall	tests/src/compengine/test_expressions.c	/^static unsigned int test_compile_subroutinecall(void)$/;"	f	file:
+test_compile_subroutinedec	tests/src/compengine/test_structure.c	/^unsigned int test_compile_subroutinedec(void)$/;"	f
+test_compile_symbol	tests/src/compengine/test_compile.c	/^unsigned int test_compile_symbol(void)$/;"	f
+test_compile_type	tests/src/compengine/test_structure.c	/^unsigned int test_compile_type(void)$/;"	f
+test_compile_unaryop	tests/src/compengine/test_expressions.c	/^static unsigned int test_compile_unaryop(void)$/;"	f	file:
+test_compile_vardec	tests/src/compengine/test_structure.c	/^unsigned int test_compile_vardec(void)$/;"	f
+test_compilef	tests/src/compengine/test_compile.c	/^unsigned int test_compilef(void)$/;"	f
+test_compparser	tests/src/compengine/test_parser.c	/^unsigned int test_compparser(void)$/;"	f
+test_create_token	tests/src/tokenizer/test_tokens.c	/^unsigned int test_create_token(void)$/;"	f
+test_do_calls	tests/src/writer/test_functions.c	/^static unsigned int test_do_calls(void)$/;"	f	file:
+test_do_statement	tests/src/compengine/test_statements.c	/^unsigned int test_do_statement(void)$/;"	f
+test_expressions	tests/src/compengine/test_expressions.c	/^unsigned int test_expressions(void)$/;"	f
+test_file_size	tests/src/tokenizer/test_reader.c	/^unsigned int test_file_size(void)$/;"	f
+test_functions	tests/src/writer/test_functions.c	/^unsigned int test_functions(void)$/;"	f
+test_get_file	tests/src/tokenizer/test_reader.c	/^unsigned int test_get_file(void)$/;"	f
+test_get_next_token	tests/src/compengine/test_parser.c	/^unsigned int test_get_next_token(void)$/;"	f
+test_get_next_token_content	tests/src/compengine/test_compile.c	/^static unsigned int test_get_next_token_content(void)$/;"	f	file:
+test_get_one_char	tests/src/tokenizer/test_tokens.c	/^unsigned int test_get_one_char(void)$/;"	f
+test_get_tag	tests/src/tokenizer/test_parser.c	/^unsigned int test_get_tag(void)$/;"	f
+test_get_token_type	tests/src/tokenizer/test_tokens.c	/^unsigned int test_get_token_type(void)$/;"	f
+test_get_type	tests/src/tokenizer/test_parser.c	/^unsigned int test_get_type(void)$/;"	f
+test_get_typename	tests/src/table/test_table.c	/^static unsigned int test_get_typename(void)$/;"	f	file:
+test_get_xml	tests/src/tokenizer/test_parser.c	/^unsigned int test_get_xml(void)$/;"	f
+test_if_branch	tests/src/writer/test_loops.c	/^static unsigned int test_if_branch(void)$/;"	f	file:
+test_if_statement	tests/src/compengine/test_statements.c	/^unsigned test_if_statement(void)$/;"	f
+test_let_statement	tests/src/compengine/test_statements.c	/^unsigned int test_let_statement(void)$/;"	f
+test_local_sytable	tests/src/table/test_parser.c	/^static unsigned int test_local_sytable(void)$/;"	f	file:
+test_loops	tests/src/writer/test_loops.c	/^unsigned int test_loops(void)$/;"	f
+test_memory_leaks	tests/src/tests.c	/^unsigned int test_memory_leaks(void)$/;"	f
+test_new_table	tests/src/table/test_table.c	/^static unsigned int test_new_table(void)$/;"	f	file:
+test_new_token	tests/src/compengine/test_parser.c	/^unsigned int test_new_token(void)$/;"	f
+test_new_variable	tests/src/table/test_table.c	/^static unsigned int test_new_variable(void)$/;"	f	file:
+test_parameter_stable	tests/src/table/test_parser.c	/^static unsigned int test_parameter_stable(void)$/;"	f	file:
+test_parameterlist_scopes	tests/src/table/test_parser.c	/^static unsigned int test_parameterlist_scopes(void)$/;"	f	file:
+test_parse_token_compengine	tests/src/compengine/test_parser.c	/^unsigned int test_parse_token_compengine(void)$/;"	f
+test_parser	tests/src/tokenizer/test_parser.c	/^unsigned int test_parser(void)$/;"	f
+test_precomp	tests/src/tokenizer/test_precomp.c	/^unsigned int test_precomp(void)$/;"	f
+test_reader	tests/src/tokenizer/test_reader.c	/^unsigned int test_reader(void)$/;"	f
+test_release_table	tests/src/table/test_table.c	/^static unsigned int test_release_table(void)$/;"	f	file:
+test_release_token	tests/src/tokenizer/test_tokens.c	/^unsigned int test_release_token(void)$/;"	f
+test_release_token_compengine	tests/src/compengine/test_parser.c	/^unsigned int test_release_token_compengine(void)$/;"	f
+test_return	tests/src/compengine/test_statements.c	/^unsigned int test_return(void)$/;"	f
+test_rollback	tests/src/compengine/test_parser.c	/^unsigned int test_rollback(void)$/;"	f
+test_scope_creation	tests/src/table/test_parser.c	/^static unsigned int test_scope_creation(void)$/;"	f	file:
+test_search_variable	tests/src/table/test_table.c	/^static unsigned int test_search_variable(void)$/;"	f	file:
+test_search_words_that_arent_in_tree	tests/src/tokenizer/test_tokens.c	/^unsigned int test_search_words_that_arent_in_tree(void)$/;"	f
+test_split_spaces	tests/src/tokenizer/test_cleaner.c	/^unsigned int test_split_spaces(void)$/;"	f
+test_split_spaces_string_literals	tests/src/tokenizer/test_cleaner.c	/^unsigned int test_split_spaces_string_literals(void)$/;"	f
+test_statements	tests/src/compengine/test_statements.c	/^unsigned int test_statements(void)$/;"	f
+test_string_or_constant	tests/src/tokenizer/test_cleaner.c	/^unsigned int test_string_or_constant(void)$/;"	f
+test_structure	tests/src/compengine/test_structure.c	/^unsigned int test_structure(void)$/;"	f
+test_symbol_table	tests/src/table/test_parser.c	/^static unsigned int test_symbol_table(void)$/;"	f	file:
+test_symbols	src/utils/tabletests.c	/^unsigned int test_symbols(char* name, __VARIABLE** variables[], int size, void (*tested) (CODE*))$/;"	f
+test_table	tests/src/table/test_table.c	/^unsigned int test_table(void)$/;"	f
+test_tableparser	tests/src/table/test_parser.c	/^unsigned int test_tableparser(void)$/;"	f
+test_tokenize	tests/src/tokenizer/test_parser.c	/^unsigned int test_tokenize(void)$/;"	f
+test_tokens	tests/src/tokenizer/test_tokens.c	/^unsigned int test_tokens(void)$/;"	f
+test_tracker	tests/src/writer/test_tracker.c	/^unsigned int test_tracker(void)$/;"	f
+test_tracker_creation	tests/src/writer/test_tracker.c	/^static unsigned int test_tracker_creation(void)$/;"	f	file:
+test_types_table	tests/src/tokenizer/test_parser.c	/^unsigned int test_types_table(void)$/;"	f
+test_variable_checker	tests/src/tokenizer/test_cleaner.c	/^unsigned int test_variable_checker(void)$/;"	f
+test_vm_code	tests/src/table/test_parser.c	/^static unsigned int test_vm_code(void)$/;"	f	file:
+test_while	tests/src/compengine/test_statements.c	/^unsigned int test_while(void)$/;"	f
+test_while_loop	tests/src/writer/test_loops.c	/^static unsigned int test_while_loop(void)$/;"	f	file:
+test_write_call	tests/src/writer/test_functions.c	/^static unsigned int test_write_call(void)$/;"	f	file:
+test_write_expressions	tests/src/writer/test_assignments.c	/^static unsigned int test_write_expressions(void)$/;"	f	file:
+test_write_fdec	tests/src/writer/test_functions.c	/^static unsigned int test_write_fdec(void)$/;"	f	file:
+test_write_functiondec	tests/src/writer/test_functions.c	/^static unsigned int test_write_functiondec(void)$/;"	f	file:
+test_write_goto	tests/src/writer/test_loops.c	/^static unsigned int test_write_goto(void)$/;"	f	file:
+test_write_ifgoto	tests/src/writer/test_loops.c	/^static unsigned int test_write_ifgoto(void)$/;"	f	file:
+test_write_intconstant	tests/src/writer/test_assignments.c	/^static unsigned int test_write_intconstant(void)$/;"	f	file:
+test_write_keyconstant	tests/src/writer/test_assignments.c	/^static unsigned int test_write_keyconstant(void)$/;"	f	file:
+test_write_label	tests/src/writer/test_loops.c	/^static unsigned int test_write_label(void)$/;"	f	file:
+test_write_let	tests/src/writer/test_assignments.c	/^static unsigned int test_write_let(void)$/;"	f	file:
+test_write_methodec	tests/src/writer/test_functions.c	/^static unsigned int test_write_methodec(void)$/;"	f	file:
+test_write_pop	tests/src/writer/test_assignments.c	/^static unsigned int test_write_pop(void)$/;"	f	file:
+test_write_push	tests/src/writer/test_assignments.c	/^static unsigned int test_write_push(void)$/;"	f	file:
+test_write_stack_cmd	tests/src/writer/test_assignments.c	/^static unsigned int test_write_stack_cmd(char* cmd, void (*tested) (CODE*, char*))$/;"	f	file:
+test_write_stringliteral	tests/src/writer/test_assignments.c	/^static unsigned int test_write_stringliteral(void)$/;"	f	file:
+test_writer	tests/src/writer/test_writer.c	/^unsigned int test_writer(void)$/;"	f
+test_writevm	tests/src/writer/test_writer.c	/^unsigned int test_writevm(void)$/;"	f
+tokenize	src/tokenizer/parser.c	/^char* tokenize(char* filename)$/;"	f
+tracker	include/compengine/compile.h	/^    TRACKER* tracker;$/;"	m	struct:_code
+trackeralloc	src/writer/tracker.c	/^static TRACKER* trackeralloc(void)$/;"	f	file:
+type	include/compengine/parser.h	/^    TOKEN_TYPE type;$/;"	m	struct:_token
+type	include/table/table.h	/^    TYPE type;$/;"	m	struct:_variable
+type	include/tokenizer/tokens.h	/^    TOKEN_TYPE type;$/;"	m	struct:_symbol
+unaryop	include/compengine/expressions.h	/^typedef enum unaryop {$/;"	g
+update_table	src/table/parser.c	/^void update_table(CODE* c, char* classname, KIND k, TYPE t)$/;"	f
+varalloc	src/table/table.c	/^static __VARIABLE* varalloc(void)$/;"	f	file:
+variables	include/table/table.h	/^    __VARIABLE** variables;$/;"	m	struct:_table
+vm	include/compengine/compile.h	/^    FILE* vm;$/;"	m	struct:_code
+write_add	src/writer/writer.c	/^void write_add(CODE* c)$/;"	f
+write_constant_value	src/writer/assignments.c	/^static void write_constant_value(CODE* c, char* segment, char* value)$/;"	f	file:
+write_flow	src/writer/loops.c	/^static void write_flow(CODE* c, char* label, const char* instruction)$/;"	f	file:
+write_function_call	src/writer/functions.c	/^static void write_function_call(CODE* c, char* function_name, unsigned int nargs)$/;"	f	file:
+write_functioncall	src/writer/functions.c	/^void write_functioncall(CODE* c, char* classname, char* fname, unsigned int nargs)$/;"	f
+write_functiondec	src/writer/functions.c	/^void write_functiondec(CODE* c, char* fname)$/;"	f
+write_goto	src/writer/loops.c	/^void write_goto(CODE* c, char* label)$/;"	f
+write_ifgoto	src/writer/loops.c	/^void write_ifgoto(CODE* c, char* label)$/;"	f
+write_intconstant	src/writer/assignments.c	/^void write_intconstant(CODE* c, char* constant)$/;"	f
+write_keyconstant	src/writer/assignments.c	/^void write_keyconstant(CODE* c, char* key)$/;"	f
+write_label	src/writer/loops.c	/^void write_label(CODE* c, char* buffer)$/;"	f
+write_not	src/writer/writer.c	/^void write_not(CODE* c)$/;"	f
+write_op	src/writer/assignments.c	/^void write_op(CODE* c, int* operators, int sp)$/;"	f
+write_pop	src/writer/assignments.c	/^void write_pop(CODE* c, char* varname)$/;"	f
+write_pop_pointer	src/writer/writer.c	/^void write_pop_pointer(CODE* c, unsigned int i)$/;"	f
+write_pop_temp	src/writer/writer.c	/^void write_pop_temp(CODE* c, unsigned int i)$/;"	f
+write_pop_that	src/writer/writer.c	/^void write_pop_that(CODE* c, unsigned int i)$/;"	f
+write_poptemp	src/writer/assignments.c	/^void write_poptemp(CODE* c, int n)$/;"	f
+write_post_op	src/writer/assignments.c	/^static void write_post_op(CODE* c, char* key)$/;"	f	file:
+write_privatecall	src/writer/functions.c	/^void write_privatecall(CODE* c, char* fname, unsigned int nargs)$/;"	f
+write_push	src/writer/assignments.c	/^void write_push(CODE* c, char* varname)$/;"	f
+write_push_constant	src/writer/writer.c	/^void write_push_constant(CODE* c, unsigned int value)$/;"	f
+write_push_pointer	src/writer/writer.c	/^void write_push_pointer(CODE* c, unsigned int i)$/;"	f
+write_push_temp	src/writer/writer.c	/^void write_push_temp(CODE* c, unsigned int i)$/;"	f
+write_push_that	src/writer/writer.c	/^void write_push_that(CODE* c, unsigned int i)$/;"	f
+write_pushtemp	src/writer/assignments.c	/^void write_pushtemp(CODE* c, int n)$/;"	f
+write_stack_cmd	src/writer/assignments.c	/^static void write_stack_cmd(CODE* c, char* varname, const char* cmd)$/;"	f	file:
+write_stringliteral	src/writer/assignments.c	/^void write_stringliteral(CODE* c, char* str)$/;"	f
+write_unaryop	src/writer/assignments.c	/^void write_unaryop(CODE* c, int uop)$/;"	f
+write_xml	src/tokenizer/parser.c	/^void write_xml(char* tagname, char* content, FILE* xml)$/;"	f
+writer_compare	src/utils/writertests.c	/^unsigned int writer_compare(char* path, unsigned int (*tested) (CODE*), unsigned int size, ...)$/;"	f
+writer_test	src/utils/writertests.c	/^unsigned int writer_test(char* path, char*** words, void (*tested) (CODE*, char*), ...)$/;"	f
+writevm	src/writer/writer.c	/^void writevm(CODE* c, char* line)$/;"	f
+writevmf	src/writer/writer.c	/^static void writevmf(CODE* c, const char* op, const char* segment, int index)$/;"	f	file:

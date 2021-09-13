@@ -1,0 +1,6 @@
+push constant 293
+push argument 0
+push constant 0
+not
+sub
+add

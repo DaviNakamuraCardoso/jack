@@ -1,0 +1,13 @@
+<expressionList>
+	<expression>
+		<term>
+			<identifier> k </identifier>
+		</term>
+	</expression>
+	<symbol> , </symbol>
+	<expression>
+		<term>
+			<integerConstant> 9 </integerConstant>
+		</term>
+	</expression>
+</expressionList>

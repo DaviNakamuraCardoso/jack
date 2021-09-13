@@ -1,0 +1,8 @@
+<identifier> array </identifier>
+<symbol> [ </symbol>
+<expression>
+	<term>
+		<integerConstant> 50 </integerConstant>
+	</term>
+</expression>
+<symbol> ] </symbol>

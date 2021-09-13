@@ -1,0 +1,16 @@
+push constant 2
+push constant 1
+gt
+not
+if-goto LABEL_0
+goto LABEL_1
+label LABEL_0
+push constant 3
+push constant 1
+gt
+not
+if-goto LABEL_2
+goto LABEL_3
+label LABEL_2
+label LABEL_3
+label LABEL_1

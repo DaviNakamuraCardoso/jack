@@ -1,0 +1,9 @@
+class Main {
+
+    function void main(){
+        var Person p;
+        let p = Person.new(18, true, "Davi");
+        do p.hello();
+        return;
+    }
+}

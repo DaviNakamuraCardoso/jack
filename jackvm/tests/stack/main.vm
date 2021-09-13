@@ -1,0 +1,5 @@
+push constant 20 
+push constant 2
+add
+pop static 0 
+push static 0

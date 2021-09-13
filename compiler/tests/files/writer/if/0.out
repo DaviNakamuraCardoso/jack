@@ -1,0 +1,16 @@
+push constant 2
+push constant 1
+gt
+not
+if-goto LABEL_0
+push constant 2
+call String.new 1
+push constant 72
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+goto LABEL_1
+label LABEL_0
+label LABEL_1

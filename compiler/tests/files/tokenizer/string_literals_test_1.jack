@@ -1,0 +1,19 @@
+/**
+*       This is code. Jack code.
+*
+*/
+
+// Main class
+class Main {
+
+    // Main function
+    /**
+    *   @function
+    *   @returns {void}
+    *   @global
+    *   @ param a {void}
+    */
+    function void main() {
+        do Output.printString("Hello, World");
+    }
+}

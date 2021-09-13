@@ -1,0 +1,7 @@
+function Point.print 1
+push argument 0
+pop pointer 0
+push constant 20
+pop local 0
+push local 0
+return

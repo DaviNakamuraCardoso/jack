@@ -1,0 +1,6 @@
+<identifier>System</identifier>
+<symbol>.<symbol>
+<identifier>println</identifier>
+<symbol>(</symbol>
+<keyword>this</keyword>
+<symbol>)</symbol>

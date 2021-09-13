@@ -1,0 +1,13 @@
+<expression>
+	<term>
+		<integerConstant> 9 </integerConstant>
+	</term>
+	<symbol> * </symbol>
+	<term>
+		<identifier> a </identifier>
+	</term>
+	<symbol> &amp; </symbol>
+	<term>
+		<identifier> bing </identifier>
+	</term>
+</expression>

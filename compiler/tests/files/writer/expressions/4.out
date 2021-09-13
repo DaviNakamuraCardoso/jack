@@ -1,0 +1,3 @@
+push argument 0
+push constant 3
+lt

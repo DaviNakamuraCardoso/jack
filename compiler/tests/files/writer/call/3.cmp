@@ -1,0 +1,3 @@
+push pointer 0
+push constant 3
+call Main.grow 2

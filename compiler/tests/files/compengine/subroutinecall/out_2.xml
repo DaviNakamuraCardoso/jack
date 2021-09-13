@@ -1,0 +1,14 @@
+<subroutineCall>
+	<identifier>System</identifier>
+	<symbol>.</symbol>
+	<identifier>println</identifier>
+	<symbol>(</symbol>
+	<expressionList>
+		<expression>
+			<term>
+				<keyword>this</keyword>
+			</term>
+		</expression>
+	</expressionList>
+	<symbol>)</symbol>
+</subroutineCall>

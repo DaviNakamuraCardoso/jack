@@ -1,0 +1,19 @@
+class Dog {
+    field int weight; 
+    constructor Dog new(int w) {
+       let weight = w;  
+
+       return this; 
+    }
+    
+    method void bark() {
+        do Output.putc(weight);
+        do Output.putc(10); 
+        return;
+    }
+
+    method void dispose() {
+        do Memory.deAlloc(this);
+        return;
+    }
+}

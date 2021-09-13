@@ -1,0 +1,8 @@
+<keyword>do</keyword>
+<identifier>Output</identifier>
+<symbol>.</symbol>
+<identifier>printString</identifier>
+<symbol>(</symbol>
+<stringConstant>HI</stringConstant>
+<symbol>)</symbol>
+<symbol>;</symbol>

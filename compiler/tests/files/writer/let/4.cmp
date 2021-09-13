@@ -1,0 +1,16 @@
+push argument 2
+push constant 20
+add
+pop pointer 1
+push that 0
+push argument 0
+add
+push argument 1
+push constant 29
+add
+pop pointer 1
+push that 0
+pop temp 0
+pop pointer 1
+push temp 0
+pop that 0

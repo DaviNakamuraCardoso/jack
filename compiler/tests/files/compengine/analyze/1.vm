@@ -1,0 +1,21 @@
+function Main.main 1
+push constant 18
+push constant 1
+neg
+push constant 4
+call String.new 1
+push constant 68
+call String.appendChar 2
+push constant 97
+call String.appendChar 2
+push constant 118
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+call Person.new 3
+pop local 0
+push local 0
+call Person.hello 1
+pop temp 0
+push constant 0
+return

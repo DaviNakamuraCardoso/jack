@@ -1,0 +1,12 @@
+<expression>
+	<term>
+		<identifier> wife </identifier>
+		<symbol> [ </symbol>
+		<expression>
+			<term>
+				<stringConstant>  Adam  </stringConstant>
+			</term>
+		</expression>
+		<symbol> ] </symbol>
+	</term>
+</expression>

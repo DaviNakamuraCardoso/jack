@@ -1,0 +1,14 @@
+<keyword>while</keyword>
+<symbol>(</symbol>
+<identifier>dean</identifier>
+<symbol>)</symbol>
+<symbol>{</symbol>
+<keyword>if</keyword>
+<symbol>(</symbol>
+<identifier>dean</identifier>
+<symbol>)</symbol>
+<symbol>{</symbol>
+<symbol>}</symbol>
+<symbol>}</symbol>
+<keyword>return</keyword>
+<symbol>;</symbol>

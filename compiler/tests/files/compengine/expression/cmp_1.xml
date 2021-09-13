@@ -1,0 +1,9 @@
+<expression>
+	<term>
+		<integerConstant> 23 </integerConstant>
+	</term>
+	<symbol> + </symbol>
+	<term>
+		<integerConstant> 17 </integerConstant>
+	</term>
+</expression>

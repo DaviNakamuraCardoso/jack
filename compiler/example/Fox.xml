@@ -1,0 +1,177 @@
+<class>
+	<keyword> class </keyword>
+	<identifier> Fox </identifier>
+	<symbol> { </symbol>
+	<classVarDec>
+		<keyword> field </keyword>
+		<identifier> String </identifier>
+		<identifier> salute </identifier>
+		<symbol> , </symbol>
+		<identifier> color </identifier>
+		<symbol> ; </symbol>
+	</classVarDec>
+	<classVarDec>
+		<keyword> field </keyword>
+		<keyword> int </keyword>
+		<identifier> size </identifier>
+		<symbol> ; </symbol>
+	</classVarDec>
+	<subroutineDec>
+		<keyword> constructor </keyword>
+		<identifier> Fox </identifier>
+		<identifier> new </identifier>
+		<symbol> ( </symbol>
+		<parameterList>
+		</parameterList>
+		<symbol> ) </symbol>
+		<subroutineBody>
+			<symbol> { </symbol>
+			<statements>
+				<letStatement>
+					<keyword> let </keyword>
+					<identifier> salute </identifier>
+					<symbol> = </symbol>
+					<expression>
+						<term>
+							<stringConstant> N'ya N'ya N'ya Ya Can't Catch Me. </stringConstant>
+						</term>
+					</expression>
+					<symbol> ; </symbol>
+				</letStatement>
+				<letStatement>
+					<keyword> let </keyword>
+					<identifier> color </identifier>
+					<symbol> = </symbol>
+					<expression>
+						<term>
+							<stringConstant> #ff0000 </stringConstant>
+						</term>
+					</expression>
+					<symbol> ; </symbol>
+				</letStatement>
+				<letStatement>
+					<keyword> let </keyword>
+					<identifier> size </identifier>
+					<symbol> = </symbol>
+					<expression>
+						<term>
+							<integerConstant> 1 </integerConstant>
+						</term>
+					</expression>
+					<symbol> ; </symbol>
+				</letStatement>
+				<returnStatement>
+					<keyword> return </keyword>
+					<expression>
+						<term>
+							<keyword> this </keyword>
+						</term>
+					</expression>
+					<symbol> ; </symbol>
+				</returnStatement>
+			</statements>
+			<symbol> } </symbol>
+		</subroutineBody>
+	</subroutineDec>
+	<subroutineDec>
+		<keyword> method </keyword>
+		<keyword> void </keyword>
+		<identifier> say </identifier>
+		<symbol> ( </symbol>
+		<parameterList>
+		</parameterList>
+		<symbol> ) </symbol>
+		<subroutineBody>
+			<symbol> { </symbol>
+			<statements>
+				<doStatement>
+					<keyword> do </keyword>
+					<subroutineCall>
+						<identifier> Output </identifier>
+						<symbol> . </symbol>
+						<identifier> printString </identifier>
+						<symbol> ( </symbol>
+						<expressionList>
+							<expression>
+								<term>
+									<identifier> salute </identifier>
+								</term>
+							</expression>
+						</expressionList>
+						<symbol> ) </symbol>
+					</subroutineCall>
+					<symbol> ; </symbol>
+				</doStatement>
+				<doStatement>
+					<keyword> do </keyword>
+					<subroutineCall>
+						<identifier> Output </identifier>
+						<symbol> . </symbol>
+						<identifier> println </identifier>
+						<symbol> ( </symbol>
+						<expressionList>
+						</expressionList>
+						<symbol> ) </symbol>
+					</subroutineCall>
+					<symbol> ; </symbol>
+				</doStatement>
+				<returnStatement>
+					<keyword> return </keyword>
+					<symbol> ; </symbol>
+				</returnStatement>
+			</statements>
+			<symbol> } </symbol>
+		</subroutineBody>
+	</subroutineDec>
+	<subroutineDec>
+		<keyword> function </keyword>
+		<keyword> void </keyword>
+		<identifier> hello </identifier>
+		<symbol> ( </symbol>
+		<parameterList>
+		</parameterList>
+		<symbol> ) </symbol>
+		<subroutineBody>
+			<symbol> { </symbol>
+			<statements>
+				<doStatement>
+					<keyword> do </keyword>
+					<subroutineCall>
+						<identifier> Output </identifier>
+						<symbol> . </symbol>
+						<identifier> printString </identifier>
+						<symbol> ( </symbol>
+						<expressionList>
+							<expression>
+								<term>
+									<stringConstant> I'm a fox </stringConstant>
+								</term>
+							</expression>
+						</expressionList>
+						<symbol> ) </symbol>
+					</subroutineCall>
+					<symbol> ; </symbol>
+				</doStatement>
+				<doStatement>
+					<keyword> do </keyword>
+					<subroutineCall>
+						<identifier> Output </identifier>
+						<symbol> . </symbol>
+						<identifier> println </identifier>
+						<symbol> ( </symbol>
+						<expressionList>
+						</expressionList>
+						<symbol> ) </symbol>
+					</subroutineCall>
+					<symbol> ; </symbol>
+				</doStatement>
+				<returnStatement>
+					<keyword> return </keyword>
+					<symbol> ; </symbol>
+				</returnStatement>
+			</statements>
+			<symbol> } </symbol>
+		</subroutineBody>
+	</subroutineDec>
+	<symbol> } </symbol>
+</class>

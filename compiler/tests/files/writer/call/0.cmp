@@ -1,0 +1,2 @@
+push local 0
+call Paddle.moveUp 1
