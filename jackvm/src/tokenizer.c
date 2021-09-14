@@ -76,16 +76,32 @@ Source* tokenize(FILE* stream, Source* s)
             addl(tokens, s); 
         }
     }
+    inline unsigned int isconstant(short p, short l)
+    {
+        return (p == PUSH) && (l == CONSTANT);
+    }
+
+    inline int isindex(short p, char* word)
+    {
+        if (p != PUSH && p != POP && p != FUNCTION && p != CALL) return 0;
+
+        return isnumeral(word);
+    }
     
     inline void getspecial(char* word) 
     {
         short prevlast = lasttolast(tokens), last = lastel(tokens), labeli = -1;
 
         // Check for Memory segment indexes
-        if (isnumeral(word) && last != CONSTANT)
+        if (isconstant(prevlast, last))
+        {
+            getconstant(word); return;
+        }
+
+        if (isindex(prevlast, word))
         {
             short i = atoi(word);
-            if (isstatic(prevlast, last))
+            if (last == STATIC)
             {
                 maxi = max(i, maxi); 
                 addl(tokens, s->staticcount + i);
@@ -94,15 +110,12 @@ Source* tokenize(FILE* stream, Source* s)
             {
                 addl(tokens, i);
             }
+
             return;
         }
 
         switch (last)
         {
-            case CONSTANT: 
-            { 
-                getconstant(word); return;
-            }
             case GOTO:
             case IFGOTO:
             case FUNCTION: 

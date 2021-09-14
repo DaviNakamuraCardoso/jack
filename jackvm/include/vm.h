@@ -14,6 +14,6 @@ typedef struct _program {
 } Program;
 
 
-void vm(Source *s); 
+int vm(Source *s); 
 unsigned short next(Program* p);
 #endif 

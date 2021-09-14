@@ -1,7 +1,12 @@
 class Main {
-    function int main() {
-        do Output.printf("Hello, CS%i!\n", 50);
-        return ; 
+
+    function void main() {
+        var Dog codie, fido;
+
+        let codie = Dog.new(24, "Codie");
+        let fido = Dog.new(12, "Fido");
+        do codie.bark();
+        do fido.bark();
+        return 42;
     }
 }
-

@@ -13,8 +13,7 @@ int main(int argc, const char** argv)
     }
 
     Source* s = tokenizeall(argv[1]);
-    vm(s);
 
-    return 0; 
+    return vm(s); 
 
 }

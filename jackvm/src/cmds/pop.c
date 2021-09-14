@@ -23,10 +23,23 @@ void (*pop_commands[]) (Program*) = {
     [TEMP]          = pop_temp
 
 };
+static char* memsegs[] = {
+    [CONSTANT]  = "constant", 
+    [STATIC]    = "static",
+    [ARGUMENT]  = "argument",
+    [LOCAL]     = "local",
+    [THIS]      = "this",
+    [THAT]      = "that",
+    [POINTER]   = "pointer",
+    [TEMP]      = "temp"
+};
+
 
 void pop(Program* p)
 {
-   pop_commands[next(p)](p);
+   unsigned short index = next(p);
+   pop_commands[index](p);
+//   printf(" %s ", memsegs[index]);
 }
 
 static void pop_temp(Program* p)

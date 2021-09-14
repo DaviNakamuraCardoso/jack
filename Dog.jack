@@ -1,0 +1,28 @@
+class Dog {
+
+    field int weight;
+    field String name;
+
+    constructor Dog new(int w, String n) {
+        let weight = w;
+        let name = n;  
+        return this;
+    }
+
+    method void bark() {
+        var String bark;
+
+        if (weight < 20) {
+            let bark = "woof, woof";
+        } else {
+            let bark = "WOOF, WOOF";
+        }
+
+        do Output.printf("%s says %s!\n", name, bark); 
+
+        return;
+
+    }
+}
+
+

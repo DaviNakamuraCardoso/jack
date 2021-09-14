@@ -65,7 +65,7 @@ void printstack(Program* p, int n)
 
 
 
-void vm(Source* s)
+int vm(Source* s)
 {
     Program *p = new_program(s);
 
@@ -79,13 +79,15 @@ void vm(Source* s)
     while (!p->done)
     {
         unsigned short c = next(p); 
+//        printf(cmds[c]);
         commands[c](p); 
+ //       printf("\n");
 //        printstack(p, 20);
     }
    
     
 
-    return;
+    return popv(p);
 }
 
 static Program* new_program(Source* s)
@@ -103,6 +105,7 @@ static Program* new_program(Source* s)
     p->that = 0;
     p->labels = s->labels;
     p->stdcount = s->stdcount;
+    p->done = 0;
 
     
     return p;

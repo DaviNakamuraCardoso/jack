@@ -25,10 +25,24 @@ void (*push_routines[]) (Program*) = {
     [TEMP]          =   push_temp
 
 };
+static char* memsegs[] = {
+    [CONSTANT]  = "constant", 
+    [STATIC]    = "static",
+    [ARGUMENT]  = "argument",
+    [LOCAL]     = "local",
+    [THIS]      = "this",
+    [THAT]      = "that",
+    [POINTER]   = "pointer",
+    [TEMP]      = "temp"
+};
+
+
 
 void push(Program* p)
 {
-    push_routines[next(p)](p);
+    unsigned short index = next(p);
+    push_routines[index](p);
+//    printf(" %s ", memsegs[index]);
 }
 
 
