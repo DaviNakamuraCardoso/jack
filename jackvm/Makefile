@@ -5,8 +5,8 @@ S = ./src/
 I = ./include/
 
 # Compiler and flags
-CC = gcc
-FLAGS = -Wall -Wextra 
+CC = gcc 
+FLAGS = -fPIE -Wall -Wextra -Ofast
 
 # Basic VM operations
 CMDS = push pop operators jumps
