@@ -9,5 +9,7 @@ unsigned int isvmsource(char* filename);
 unsigned int issym(char c); 
 unsigned int iscommentstart(char* buff);
 void skipc(FILE* stream, char* buff); 
+void get_pathname(char* buffer, char* dirname, char* filename); 
+void get_dirname(char* buffer, const char* dir) ; 
 
 

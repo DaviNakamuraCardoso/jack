@@ -1,7 +1,20 @@
 function Main.main 1
-push constant 1
+push constant 5
 call Main.fib 1
 pop local 0
+push constant 4
+call String.new 1
+push constant 37
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+push constant 92
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+push local 0
+call Output.printf 2
+pop temp 0
 push constant 0
 return
 function Main.fib 0

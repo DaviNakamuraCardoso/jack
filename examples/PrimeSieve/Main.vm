@@ -1,0 +1,61 @@
+function Main.main 5
+call Clock.now 0
+pop local 1
+call Clock.clocksPerSec 0
+pop local 0
+label LABEL_10
+call Clock.now 0
+push local 1
+sub
+push local 0
+div
+push constant 5
+lt
+not
+if-goto LABEL_11
+push constant 1000000
+call PrimeSieve.new 1
+pop local 4
+push local 4
+call PrimeSieve.run 1
+pop temp 0
+push local 4
+call PrimeSieve.countPrimes 1
+pop local 2
+push local 4
+call PrimeSieve.dispose 1
+pop temp 0
+push local 3
+push constant 1
+add
+pop local 3
+goto LABEL_10
+label LABEL_11
+push constant 4
+call String.new 1
+push constant 37
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+push constant 92
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+push local 3
+call Output.printf 2
+pop temp 0
+push constant 4
+call String.new 1
+push constant 37
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+push constant 92
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+push local 2
+call Output.printf 2
+pop temp 0
+push constant 0
+return

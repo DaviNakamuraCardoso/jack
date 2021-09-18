@@ -125,10 +125,24 @@ void skipc(FILE* stream, char* buff)
     return;
 }
 
+void get_pathname(char* buffer, char* dirname, char* filename)
+{
+    strcpy(buffer, dirname); 
+    strcat(buffer, filename);
+}
 
 
+void get_dirname(char* buffer, const char* dir) 
+{
+    short index = strlen(dir) - 1;
+    strcpy(buffer, dir);
 
+    if (dir[index] != '/')
+    {
+        buffer[index+1] = '/'; buffer[index+2] = '\0';
+    }
 
-
+    return;
+}
 
 

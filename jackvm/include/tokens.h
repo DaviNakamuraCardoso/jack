@@ -20,7 +20,9 @@ enum command {
     GT      =   12,
     LT      =   13,
     EQ      =   14, 
-    NOT     =   15
+    NOT     =   15, 
+    AND     =   16,
+    OR      =   17
 }; 
 
 enum memseg {

@@ -56,7 +56,9 @@ static void pop_this(Program *p)
 static void pop_that(Program *p)
 {
     long* ptr = (long*) p->that;
-    ptr[next(p)] = popv(p);
+    long val = popv(p), index = popv(p);
+    //printf("%li and %li\n", val, index);
+    ptr[next(p) + index] = val;
 }
 
 static void pop_static(Program* p)

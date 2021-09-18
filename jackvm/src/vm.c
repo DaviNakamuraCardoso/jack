@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <tokens.h>
+#include <stdlib/stdjl.h>
 #include <cmds/push.h>
 #include <cmds/pop.h>
 #include <cmds/operators.h>
@@ -24,7 +25,9 @@ void (*commands[]) (Program*) = {
     [GT]        = gt,
     [LT]        = lt,
     [EQ]        = eq, 
-    [NOT]       = not
+    [NOT]       = not, 
+    [AND]       = and,
+    [OR]        = or
 
 };
 
@@ -44,7 +47,9 @@ static char* cmds[] = {
     [GT]        = "gt",
     [LT]        = "lt",
     [EQ]        = "eq", 
-    [NOT]       = "not"
+    [NOT]       = "not" ,
+    [AND]       = "and",
+    [OR]        = "or"
 };
 
 
@@ -65,11 +70,14 @@ void printstack(Program* p, int n)
 
 
 
-int vm(Source* s)
+int vm(Source* s, int argc, const char** argv)
 {
     Program *p = new_program(s);
 
+    cmdlineargs(p, argc, argv);
+
     unsigned short zeros = next(p);
+
 
     for (int i = 0; i < zeros; i++)
     {
@@ -79,10 +87,7 @@ int vm(Source* s)
     while (!p->done)
     {
         unsigned short c = next(p); 
-//        printf(cmds[c]);
         commands[c](p); 
- //       printf("\n");
-//        printstack(p, 20);
     }
    
     
@@ -93,8 +98,14 @@ int vm(Source* s)
 static Program* new_program(Source* s)
 {
     Program *p = malloc(sizeof(Program));
+    short main = getmap(s->indexes, "Main.main");
+    if (main == -1)
+    {
+        fprintf(stderr, "Missing definition of function Main.main.\n");
+        exit(1);
+    }
     p->source = lcontents(s->tokens);
-    p->pc = s->labels[getmap(s->indexes, "Main.main")]; 
+    p->pc = s->labels[main]; 
     p->sp = 0;
     p->stack = calloc(sizeof(long), 10000);
     p->statics = calloc(sizeof(long), 1000);

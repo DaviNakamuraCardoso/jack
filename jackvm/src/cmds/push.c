@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <tokens.h>
 #include <cmds/push.h>
+#include <cmds/pop.h>
 
 
 static void push_constant(Program* p);
@@ -58,8 +59,10 @@ static void push_temp(Program* p)
 
 static void push_that(Program* p)
 {
-    long* ptr = (long*) p->that;
-    pushv(p,  ptr[next(p)]);
+    long ptr = (long*) p->that;
+    long *a = (long*) popv(p);
+
+    pushv(p, *(ptr + next(p) + a));
 }
 
 static void push_this(Program* p)

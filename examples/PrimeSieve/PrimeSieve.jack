@@ -1,0 +1,63 @@
+class PrimeSieve {
+    field int size; 
+    field Array bits;
+
+    constructor PrimeSieve new(int sievesize) {
+
+        let size = sievesize; 
+        let bits = Array.fullArray(size, 1);
+
+        return this;
+    }
+
+    method void run() {
+        var int factor, q, num; 
+        var boolean keep;
+
+        let factor = 3;
+        let q = Math.sqrt(size);
+
+        
+        while ((factor < q) | (factor = q)) {
+
+            let num = factor;
+
+            let keep = num < size;
+
+            while (keep) {
+                if (bits[num]) { 
+                    let factor = num;
+                    let keep = false;
+                }
+                else {
+                    let keep = (num < size);
+                }
+
+                if (keep) { let num = num + 2; }
+            }   
+
+    
+            let num = factor * factor;
+
+            while (num < size) {
+                let bits[num] = false;
+                let num = num + (factor * 2);
+            }
+
+            let factor = factor + 2;
+        }
+        return;
+        
+    }
+
+    method int countPrimes() {    
+        // Counts the ocurrency of 1 (true) with a step of 2 starting at 1 (and stopping at the end by default)
+        return bits.count(1, 2, 1); 
+    }
+
+    method void dispose() {
+        do bits.dispose();
+        do Memory.deAlloc(this);
+        return;
+    }
+}

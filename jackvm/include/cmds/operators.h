@@ -13,6 +13,7 @@ void divc(Program* p);
 void gt(Program* p);
 void lt(Program* p);
 void eq(Program* p);
+void and(Program* p);
+void or(Program* p);
 void not(Program* p); 
-
 #endif 

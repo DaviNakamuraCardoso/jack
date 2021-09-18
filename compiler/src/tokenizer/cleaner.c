@@ -84,7 +84,7 @@ unsigned int is_valid_number_constant(char* number)
 
     val = atoi(number);
 
-    if (val > 33000) error("Number constant above the maximum value");
+    //if (val > 33000) error("Number constant above the maximum value");
 
     return 1;
 }

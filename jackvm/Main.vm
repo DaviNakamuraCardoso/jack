@@ -68,5 +68,5 @@ call String.appendChar 2
 push local 0
 call Output.printf 2
 pop temp 0
-push constant 0
+push constant 77
 return

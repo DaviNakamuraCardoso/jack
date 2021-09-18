@@ -1,7 +1,8 @@
 class Main {
     function void main() {
         var int a;
-        let a = Main.fib(1); 
+        let a = Main.fib(5); 
+        do Output.printf("%i\n", a);
         return;
     }
     function int fib(int a) {

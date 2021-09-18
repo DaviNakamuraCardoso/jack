@@ -261,7 +261,7 @@ unsigned int compile_arrayaccess(CODE* c)
     compile_symbol(c, "[");
     compile_expression(c);
     compile_symbol(c, "]");
-    write_add(c);
+    //write_add(c);
     write_pop_pointer(c, 1);
     write_push_that(c, 0);
 

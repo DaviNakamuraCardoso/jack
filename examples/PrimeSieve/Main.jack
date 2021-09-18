@@ -1,0 +1,21 @@
+class Main {
+    function int main() {
+        var int cps, start, count, passes;
+        var PrimeSieve ps;
+        
+        let start = Clock.now();
+        let cps = Clock.clocksPerSec();
+
+        while (((Clock.now() - start) / cps) < 5) {
+            let ps = PrimeSieve.new(1000000);
+            do ps.run();
+            let count = ps.countPrimes();
+            do ps.dispose();
+            let passes = passes + 1;
+        }
+
+        do Output.printf("%i\n", passes);
+        do Output.printf("%i\n", count);
+        return 0; 
+    }
+}

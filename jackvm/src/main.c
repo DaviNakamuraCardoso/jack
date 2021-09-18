@@ -6,14 +6,14 @@
 int main(int argc, const char** argv)
 {
     
-    if (argc != 2)
+    if (argc == 1)
     {
-        fprintf(stderr, "Wrong number of command line arguments.\n");
+        fprintf(stderr, "Usage:\n $./jack <sourcefile.jack>\n or\n $./jack <path/to/sourcefolder>\n");
         return 1;
     }
 
     Source* s = tokenizeall(argv[1]);
 
-    return vm(s); 
+    return vm(s, argc, argv); 
 
 }

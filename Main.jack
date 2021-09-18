@@ -1,12 +1,7 @@
 class Main {
-
-    function void main() {
-        var Dog codie, fido;
-
-        let codie = Dog.new(24, "Codie");
-        let fido = Dog.new(12, "Fido");
-        do codie.bark();
-        do fido.bark();
-        return 42;
+    function int main(int argc, Array argv) {
+        do Output.printf("Hello, World!\n");
+        return 0;
     }
 }
+    

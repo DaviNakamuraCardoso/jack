@@ -54,4 +54,17 @@ void not(Program* p)
     pushv(p, !a);
 }
 
+void and(Program* p)
+{
+    long a = popv(p);
+    long b = popv(p);
+    pushv(p, a && b);
+}
+
+void or(Program* p)
+{
+    long a = popv(p);
+    long b = popv(p);
+    pushv(p, a || b);
+}
 

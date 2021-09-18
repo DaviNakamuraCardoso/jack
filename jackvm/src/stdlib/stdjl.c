@@ -13,7 +13,13 @@ static Std library[] = {
     (Std) {.name="Keyboard.getString", .f=std_getstring},
     (Std) {.name="String.new", .f=std_string}, 
     (Std) {.name="String.appendChar", .f=std_appendchar}, 
-    (Std) {.name="Array.new", .f=std_array} 
+    (Std) {.name="Array.new", .f=std_array} , 
+    (Std) {.name="Array.fullArray", .f=std_full_array},
+    (Std) {.name="Array.count", .f=std_array_count},
+    (Std) {.name="Array.dispose", .f=std_array_dispose},
+    (Std) {.name="Clock.now", .f=std_clock}, 
+    (Std) {.name="Clock.clocksPerSec", .f=std_clockspersec}, 
+    (Std) {.name="Math.sqrt", .f=std_sqrt}
 };
 
 

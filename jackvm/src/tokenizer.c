@@ -165,9 +165,16 @@ Source* tokenize(FILE* stream, Source* s)
 
 }
 
+
+
 Source* tokenizedir(const char* argv, Source* s)
 {
-    DIR* d = opendir(argv);
+    char dirname[200];
+    DIR* d;
+    unsigned short sources = 0;
+   
+    get_dirname(dirname, argv);
+    d = opendir(dirname);
     struct dirent* de; 
     if (d == NULL)
     {
@@ -180,16 +187,26 @@ Source* tokenizedir(const char* argv, Source* s)
         if (isvmsource(de->d_name))
         {
             char filename[300];
-            strcpy(filename, argv); 
-            strcat(filename, de->d_name);
+            FILE* f = NULL;
 
-            FILE* f = fopen(filename, "r");
+            get_pathname(filename, dirname, de->d_name);
+            f = fopen(filename, "r");
+
             tokenize(f, s);
             fclose(f);
+            sources++;
         }
     }
 
     closedir(d);
+
+    if (sources == 0) 
+    {
+        fprintf(stderr, 
+                "ERROR: No VM source files in the given directory: '%s'\n",
+                dirname);
+        exit(1);
+    }
 
     return s;
 }

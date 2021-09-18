@@ -227,7 +227,7 @@ void compile_let(CODE* c)
     if (is_array_access)
     {
         write_push(c, var);
-        write_add(c);
+        //write_add(c);
     }
 
 

@@ -74,7 +74,7 @@ void returnc(Program* p)
     unsigned long endframe = p->locals, 
                   retaddr = p->stack[endframe - 5];
 
-    if (endframe == 0)
+    if (endframe <= 5)
     {
         p->done = 1;
         return;

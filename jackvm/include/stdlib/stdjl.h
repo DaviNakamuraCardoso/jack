@@ -7,6 +7,8 @@
 #include "../tokenizer.h"
 #include "memory.h"
 #include "string.h"
+#include "stdlib.h"
+#include "math.h"
 
 typedef struct _stdf {
     char* name; 

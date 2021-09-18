@@ -13,7 +13,7 @@ CMDS = push pop operators jumps
 CMDSP = $(foreach cmd, $(CMDS), $(addprefix cmds/, $(cmd)))
 
 # Standard Jack Library
-STDJL = stdio stdjl memory string
+STDJL = stdio stdjl memory string stdlib math
 STDJLIB = $(foreach std, $(STDJL), $(addprefix stdlib/, $(std)))
 
 # Main modules and objects
@@ -26,7 +26,7 @@ $(O)%.o: $(S)%.c
 	$(CC) -I $(I) $(FLAGS) -c $^ -o $@	
 
 all: $(OBJECTS)
-	$(CC) $(FLAGS) $^ -o jackvm
+	$(CC) $(FLAGS) $^ -o jackvm -lm
 
 clean: 
 	rm $(O)*.o

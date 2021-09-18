@@ -22,7 +22,9 @@ static char* cmds[] = {
     [GT]        = "gt",
     [LT]        = "lt",
     [EQ]        = "eq", 
-    [NOT]       = "not"
+    [NOT]       = "not", 
+    [AND]       = "and",
+    [OR]        = "or"
 };
 
 static char* memsegs[] = {
