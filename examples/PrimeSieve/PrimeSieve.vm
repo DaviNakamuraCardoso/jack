@@ -105,9 +105,10 @@ push argument 0
 pop pointer 0
 push this 1
 push constant 1
-push constant 2
 push constant 1
-call Array.count 4
+push this 0
+push constant 2
+call Array.count 5
 return
 function PrimeSieve.dispose 0
 push argument 0

@@ -51,8 +51,9 @@ class PrimeSieve {
     }
 
     method int countPrimes() {    
-        // Counts the ocurrency of 1 (true) with a step of 2 starting at 1 (and stopping at the end by default)
-        return bits.count(1, 2, 1); 
+        // Counts the ones (true), starting at from the first element trough the end of the list (size), with a ste of 2
+
+        return bits.count(1, 1, size, 2); 
     }
 
     method void dispose() {

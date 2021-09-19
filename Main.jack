@@ -1,6 +1,12 @@
 class Main {
     function int main(int argc, Array argv) {
-        do Output.printf("Hello, World!\n");
+        var Array a;
+        let a = Array.new(
+            1, 2, 3, 4, 5, 6, 7, 8
+        );
+        
+        do Output.printf("%i\n", a.length());
+        do a.dispose();
         return 0;
     }
 }

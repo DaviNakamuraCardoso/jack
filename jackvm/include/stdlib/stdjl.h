@@ -8,6 +8,7 @@
 #include "memory.h"
 #include "string.h"
 #include "stdlib.h"
+#include "array.h"
 #include "math.h"
 
 typedef struct _stdf {

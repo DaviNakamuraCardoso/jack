@@ -6,14 +6,14 @@ I = ./include/
 
 # Compiler and flags
 CC = gcc 
-FLAGS = -fPIE -Wall -Wextra -Ofast
+FLAGS = -fPIE -Wall -Wextra 
 
 # Basic VM operations
 CMDS = push pop operators jumps
 CMDSP = $(foreach cmd, $(CMDS), $(addprefix cmds/, $(cmd)))
 
 # Standard Jack Library
-STDJL = stdio stdjl memory string stdlib math
+STDJL = stdio stdjl memory string stdlib math array
 STDJLIB = $(foreach std, $(STDJL), $(addprefix stdlib/, $(std)))
 
 # Main modules and objects
@@ -29,7 +29,7 @@ all: $(OBJECTS)
 	$(CC) $(FLAGS) $^ -o jackvm -lm
 
 clean: 
-	rm $(O)*.o
+	rm $(OBJECTS) 
 
 test:
 	$(CC) tests/test.c -o tests/test

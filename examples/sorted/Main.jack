@@ -1,0 +1,19 @@
+class Main {
+    function int main() {
+        var Array a;
+        var int i;
+        let a = Array.new(
+            2, 3, 1, 8, 2, 0, 3, 587, 9
+        );
+        do a.sort();
+        
+        let i = 0;
+
+        while (i < a.length()) {
+            do Output.printf("%i ", a[i]);
+            let i = i + 1;
+        }
+        do Output.printf("\n");
+        return 0;
+    }
+}

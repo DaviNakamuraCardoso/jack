@@ -1,0 +1,9 @@
+class Main {
+    function int main(int argc, Array argv) {
+        var File f;
+        let f = File.open("hello.txt", "w");
+        do f.printf("Hello, %s!\n", argv[2]);
+        do f.close();
+        return 0;
+    }
+}

@@ -1,0 +1,54 @@
+function Main.main 2
+push constant 2
+push constant 3
+push constant 1
+push constant 8
+push constant 2
+push constant 0
+push constant 3
+push constant 587
+push constant 9
+call Array.new 9
+pop local 0
+push local 0
+call Array.sort 1
+pop temp 0
+push constant 0
+pop local 1
+label LABEL_0
+push local 1
+push local 0
+call Array.length 1
+lt
+not
+if-goto LABEL_1
+push constant 3
+call String.new 1
+push constant 37
+call String.appendChar 2
+push constant 105
+call String.appendChar 2
+push constant 32
+call String.appendChar 2
+push local 0
+push local 1
+pop pointer 1
+push that 0
+call Output.printf 2
+pop temp 0
+push local 1
+push constant 1
+add
+pop local 1
+goto LABEL_0
+label LABEL_1
+push constant 2
+call String.new 1
+push constant 92
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+call Output.printf 1
+pop temp 0
+push constant 0
+return
