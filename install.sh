@@ -1,8 +1,9 @@
 #! /bin/env bash
 
 cd compiler && make
-cp dcc ../
+cp dcc /usr/bin/ 
 cd ../jackvm
 make
-cp jackvm ../jack
+cp jackvm /usr/bin/jack
 cd ..
+
