@@ -51,7 +51,7 @@ class PrimeSieve {
     }
 
     method int countPrimes() {    
-        // Counts the ones (true), starting at from the first element trough the end of the list (size), with a ste of 2
+        // Counts the ones (true), starting at from the first element trough the end of the list (size), with a step of 2
 
         return bits.count(1, 1, size, 2); 
     }
