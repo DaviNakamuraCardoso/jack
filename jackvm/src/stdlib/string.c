@@ -52,6 +52,20 @@ void cmdlineargs(Program* p, int argc, const char** argv)
     
 }
 
+long *tojackstr(char* str)
+{
+    int len = strlen(str);
+    long *jackstr = newjackstr(len);
+    char* string = jackstr[0];
+
+    for (int i = 0; i < len; i++)
+    {
+        string[i] = str[i];
+    }
+
+    return jackstr;
+}
+
 long *newjackstr(unsigned long maxlen)
 {
     long *o = calloc(sizeof(long), 3);

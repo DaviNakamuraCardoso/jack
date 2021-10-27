@@ -35,6 +35,27 @@ void std_array_length(Program* p, unsigned short nargs)
     pushv(p, array[-1]);
 }
 
+void std_array_tos(Program* p, unsigned short nargs)
+{
+    long* array = popv(p);
+    char buff[1000], tmp[300];
+
+    buff[0] = '[';
+    buff[1] = '\0';
+
+    for (int i = 0; i < array[-1]; i++)
+    {
+        sprintf(tmp, "%i", array[i]);
+        strcat(buff, tmp);
+        if (i != array[-1]-1) strcat(buff, ",");
+    }
+
+    strcat(buff, "]");
+
+    pushv(p, tojackstr(buff));
+
+}
+
 
 // Creates an array full of the same elements
 void std_full_array(Program* p, unsigned short nargs)

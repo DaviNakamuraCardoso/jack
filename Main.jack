@@ -1,13 +1,11 @@
 class Main {
-    function int main(int argc, Array argv) {
+    function int main() {
         var Array a;
-        let a = Array.new(
-            1, 2, 3, 4, 5, 6, 7, 8
-        );
-        
-        do Output.printf("%i\n", a.length());
-        do a.dispose();
+
+        let a = Array.new(392, 32, 29, 3, 9);
+        do a.sort();
+
+        do Output.printf("%s is %i elements long.\n", a.to_s(), a.length());
         return 0;
     }
-}
-    
+}   

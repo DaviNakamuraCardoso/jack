@@ -15,15 +15,14 @@ The code is first translated to an intermediate program (like Java's *bytecode* 
 
 ### Build (Linux Only)
 On the parent directory: 
-```Bash
-$cd compiler && make dcc && cp dcc ../
-$cd ../jackvm && make && cp jackvm ../jack && cd ..
+```console
+$ sudo ./install.sh 
 ```
 
-### Run
-#### Jack to VM
+### Compilation 
+#### Compile from Jack to VM
 ```Bash
-$./dcc <path>
+$ ./dcc <path>
 ```
 
 #### Interpret the VM code 
@@ -63,6 +62,31 @@ class Main {
 }
 
 ```
+
+### Arrays 
+
+```JavaScript
+
+class Main {
+    function int main() {
+        var Array a;
+
+        let a = Array.new(392, 32, 29, 3, 9);
+        do a.sort();
+
+        do Output.printf("%s is %i elements long.\n", a.to_s(), a.length());
+        return 0;
+    }
+}
+
+```
+
+#### Output
+```console
+[3,9,29,32,392] is 5 elements long
+
+```
+
 
 ### Object Oriented features 
 
@@ -117,8 +141,8 @@ class Main {
 
 #### Compile && Run 
 ```Bash
-$./dcc ./
-$./jack ./
+$./dcc .
+$./jack .
 ```
 
 #### Output

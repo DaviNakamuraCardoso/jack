@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <limits.h>
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
@@ -169,11 +170,11 @@ Source* tokenize(FILE* stream, Source* s)
 
 Source* tokenizedir(const char* argv, Source* s)
 {
-    char dirname[200];
+    char dirname[300];
     DIR* d;
     unsigned short sources = 0;
    
-    get_dirname(dirname, argv);
+    realpath(argv, dirname);
     d = opendir(dirname);
     struct dirent* de; 
     if (d == NULL)

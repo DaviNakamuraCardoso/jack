@@ -128,6 +128,7 @@ void skipc(FILE* stream, char* buff)
 void get_pathname(char* buffer, char* dirname, char* filename)
 {
     strcpy(buffer, dirname); 
+    strcat(buffer, "/");
     strcat(buffer, filename);
 }
 
