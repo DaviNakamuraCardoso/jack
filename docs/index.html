@@ -1,142 +1,718 @@
-<h1 id="the-jack-programming-language">The Jack Programming Language</h1>
-<h2 id="compiler-and-virtual-machine">Compiler and Virtual Machine</h2>
-<p>[toc]</p>
-<h3 id="the-jack-language">The Jack Language</h3>
-<p>Jack is an educational programming language created by <a href="https://shimonschocken.com">Shimon Schocken</a> and <a href="https://en.wikipedia.org/wiki/Noam_Nisan">Noam Nisan</a> for the course <em>The Elements of Computing Systems</em>, also known as <a href="https://nand2tetris.org">Nand2Tetris</a>, offered by <a href="https://en.wikipedia.org/wiki/Hebrew_University_of_Jerusalem">The Hebrew University of Jerusalem</a>. Students are asked to build their own compilers for this object-oriented language.</p>
-<h3 id="compilation">Compilation</h3>
-<p>The Jack language is compiled in a two-tier process: <img src="./compilation.png" alt="Two tier compilation process. from the book Compilers: Principles, Techniques and tools" /></p>
-<p>The code is first translated to an intermediate program (like Java’s <em>bytecode</em> and C#’s <em>Intermediate Language</em>) and then a Virtual Machine Translator finishes the compilation process either by interpreting the VM code or by translating to the target’s machine assembly language.</p>
-<h3 id="build-linux-only">Build (Linux Only)</h3>
-<p>On the parent directory:</p>
-<pre class="console"><code>$ sudo ./install.sh </code></pre>
-<h3 id="compilation-1">Compilation</h3>
-<h4 id="compile-from-jack-to-vm">Compile from Jack to VM</h4>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1">$ <span class="ex">./dcc</span> <span class="op">&lt;</span>path<span class="op">&gt;</span></a></code></pre></div>
-<h4 id="interpret-the-vm-code">Interpret the VM code</h4>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" title="1">$<span class="ex">./jack</span> <span class="op">&lt;</span>path<span class="op">&gt;</span></a></code></pre></div>
-<h3 id="hello-world">Hello, World</h3>
-<p>Hello world program in Jack</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">class</span> Main <span class="op">{</span></a>
-<a class="sourceLine" id="cb4-2" title="2">    <span class="kw">function</span> int <span class="at">main</span>() <span class="op">{</span></a>
-<a class="sourceLine" id="cb4-3" title="3">        <span class="cf">do</span> <span class="va">Output</span>.<span class="at">printf</span>(<span class="st">&quot;Hello, World!</span><span class="sc">\n</span><span class="st">&quot;</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb4-4" title="4">        <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb4-5" title="5">    <span class="op">}</span></a>
-<a class="sourceLine" id="cb4-6" title="6"><span class="op">}</span></a></code></pre></div>
-<p>Save the file as Main.jack and run</p>
-<pre class="console"><code>$ dcc .</code></pre>
-<p>This will compile all source files in the current folder. Run</p>
-<pre class="console"><code>$ jack .</code></pre>
-<p>To interpret the VM files produced in the current folder</p>
-<p>Output:</p>
-<pre class="console"><code>Hello, World!</code></pre>
-<h3 id="features">Features</h3>
-<p>Jack is a Turing-complete, object-oriented language, with most of the features that any modern language has, such as branching, loops, assignments, arrays, classes, methods, arithmetic operations and more.</p>
-<h3 id="syntax">Syntax</h3>
-<p>Jack has a C-like syntax. Reserved words in Jack are:</p>
-<table>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">this</td>
-<td style="text-align: left;">field</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">static</td>
-<td style="text-align: left;">constructor</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">method</td>
-<td style="text-align: left;">function</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">int</td>
-<td style="text-align: left;">char</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">boolean</td>
-<td style="text-align: left;">var</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">let</td>
-<td style="text-align: left;">do</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">while</td>
-<td style="text-align: left;">if</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">else</td>
-<td style="text-align: left;">return</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">true</td>
-<td style="text-align: left;">false</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">null</td>
-<td style="text-align: left;">void</td>
-</tr>
-</tbody>
-</table>
-<h3 id="arrays">Arrays</h3>
-<div class="sourceCode" id="cb8"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"></a>
-<a class="sourceLine" id="cb8-2" title="2"><span class="kw">class</span> Main <span class="op">{</span></a>
-<a class="sourceLine" id="cb8-3" title="3">    <span class="kw">function</span> int <span class="at">main</span>() <span class="op">{</span></a>
-<a class="sourceLine" id="cb8-4" title="4">        <span class="kw">var</span> Array a<span class="op">;</span></a>
-<a class="sourceLine" id="cb8-5" title="5"></a>
-<a class="sourceLine" id="cb8-6" title="6">        <span class="kw">let</span> a <span class="op">=</span> <span class="va">Array</span>.<span class="at">new</span>(<span class="dv">392</span><span class="op">,</span> <span class="dv">32</span><span class="op">,</span> <span class="dv">29</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">9</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb8-7" title="7">        <span class="cf">do</span> <span class="va">a</span>.<span class="at">sort</span>()<span class="op">;</span></a>
-<a class="sourceLine" id="cb8-8" title="8"></a>
-<a class="sourceLine" id="cb8-9" title="9">        <span class="cf">do</span> <span class="va">Output</span>.<span class="at">printf</span>(<span class="st">&quot;%s is %i elements long.</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> <span class="va">a</span>.<span class="at">to_s</span>()<span class="op">,</span> <span class="va">a</span>.<span class="at">length</span>())<span class="op">;</span></a>
-<a class="sourceLine" id="cb8-10" title="10">        <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb8-11" title="11">    <span class="op">}</span></a>
-<a class="sourceLine" id="cb8-12" title="12"><span class="op">}</span></a></code></pre></div>
-<h4 id="output">Output</h4>
-<pre class="console"><code>[3,9,29,32,392] is 5 elements long
-</code></pre>
-<h3 id="object-oriented-features">Object Oriented features</h3>
-<p>In Dog.jack:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">class</span> Dog <span class="op">{</span></a>
-<a class="sourceLine" id="cb10-2" title="2"></a>
-<a class="sourceLine" id="cb10-3" title="3">    field int weight<span class="op">;</span></a>
-<a class="sourceLine" id="cb10-4" title="4">    field String name<span class="op">;</span></a>
-<a class="sourceLine" id="cb10-5" title="5"></a>
-<a class="sourceLine" id="cb10-6" title="6">    constructor Dog <span class="kw">new</span>(int w<span class="op">,</span> String n) <span class="op">{</span></a>
-<a class="sourceLine" id="cb10-7" title="7">        <span class="kw">let</span> weight <span class="op">=</span> w<span class="op">;</span></a>
-<a class="sourceLine" id="cb10-8" title="8">        <span class="kw">let</span> name <span class="op">=</span> n<span class="op">;</span>  </a>
-<a class="sourceLine" id="cb10-9" title="9">        <span class="cf">return</span> <span class="kw">this</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb10-10" title="10">    <span class="op">}</span></a>
-<a class="sourceLine" id="cb10-11" title="11"></a>
-<a class="sourceLine" id="cb10-12" title="12">    method <span class="kw">void</span> <span class="at">bark</span>() <span class="op">{</span></a>
-<a class="sourceLine" id="cb10-13" title="13">        <span class="kw">var</span> String bark<span class="op">;</span></a>
-<a class="sourceLine" id="cb10-14" title="14"></a>
-<a class="sourceLine" id="cb10-15" title="15">        <span class="cf">if</span> (weight <span class="op">&lt;</span> <span class="dv">20</span>) <span class="op">{</span></a>
-<a class="sourceLine" id="cb10-16" title="16">            <span class="kw">let</span> bark <span class="op">=</span> <span class="st">&quot;woof, woof&quot;</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb10-17" title="17">        <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></a>
-<a class="sourceLine" id="cb10-18" title="18">            <span class="kw">let</span> bark <span class="op">=</span> <span class="st">&quot;WOOF, WOOF&quot;</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb10-19" title="19">        <span class="op">}</span></a>
-<a class="sourceLine" id="cb10-20" title="20"></a>
-<a class="sourceLine" id="cb10-21" title="21">        <span class="cf">do</span> <span class="va">Output</span>.<span class="at">printf</span>(<span class="st">&quot;%s says %s!</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> name<span class="op">,</span> bark)<span class="op">;</span> </a>
-<a class="sourceLine" id="cb10-22" title="22"></a>
-<a class="sourceLine" id="cb10-23" title="23">        <span class="cf">return</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb10-24" title="24"></a>
-<a class="sourceLine" id="cb10-25" title="25">    <span class="op">}</span></a>
-<a class="sourceLine" id="cb10-26" title="26"><span class="op">}</span></a></code></pre></div>
-<p>In Main.jack:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">class</span> Main <span class="op">{</span></a>
-<a class="sourceLine" id="cb11-2" title="2"></a>
-<a class="sourceLine" id="cb11-3" title="3">    <span class="kw">function</span> <span class="kw">void</span> <span class="at">main</span>() <span class="op">{</span></a>
-<a class="sourceLine" id="cb11-4" title="4">        <span class="kw">var</span> Dog codie<span class="op">,</span> fido<span class="op">;</span></a>
-<a class="sourceLine" id="cb11-5" title="5"></a>
-<a class="sourceLine" id="cb11-6" title="6">        <span class="kw">let</span> codie <span class="op">=</span> <span class="va">Dog</span>.<span class="at">new</span>(<span class="dv">24</span><span class="op">,</span> <span class="st">&quot;Codie&quot;</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb11-7" title="7">        <span class="kw">let</span> fido <span class="op">=</span> <span class="va">Dog</span>.<span class="at">new</span>(<span class="dv">12</span><span class="op">,</span> <span class="st">&quot;Fido&quot;</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb11-8" title="8">        <span class="cf">do</span> <span class="va">codie</span>.<span class="at">bark</span>()<span class="op">;</span></a>
-<a class="sourceLine" id="cb11-9" title="9">        <span class="cf">do</span> <span class="va">fido</span>.<span class="at">bark</span>()<span class="op">;</span></a>
-<a class="sourceLine" id="cb11-10" title="10">        <span class="cf">return</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb11-11" title="11">    <span class="op">}</span></a>
-<a class="sourceLine" id="cb11-12" title="12"><span class="op">}</span></a></code></pre></div>
-<h4 id="compile-run">Compile &amp;&amp; Run</h4>
-<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb12-1" title="1">$<span class="ex">./dcc</span> .</a>
-<a class="sourceLine" id="cb12-2" title="2">$<span class="ex">./jack</span> .</a></code></pre></div>
-<h4 id="output-1">Output</h4>
-<pre><code>Codie says WOOF, WOOF!
-Fido says woof, woof!</code></pre>
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap' rel='stylesheet' type='text/css' /><link href='https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,700;0,800;0,900;1,400;1,500;1,700;1,800;1,900&display=swap' rel='stylesheet' type='text/css' /><link href='https://fonts.googleapis.com/css2?family=Nova+Mono&display=swap' rel='stylesheet' type='text/css' /><link href='https://teparsons.github.io/torillic/typora/torillic/torillic-typography.css' rel='stylesheet' type='text/css' /><link href='https://teparsons.github.io/torillic/typora/torillic/torillic-elements.css' rel='stylesheet' type='text/css' /><link href='https://teparsons.github.io/torillic/typora/torillic/torillic-code.css' rel='stylesheet' type='text/css' /><link href='https://teparsons.github.io/torillic/typora/torillic/torillic-write.css' rel='stylesheet' type='text/css' /><link href='https://teparsons.github.io/torillic/typora/torillic/torillic-print.css' rel='stylesheet' type='text/css' /><link href='https://teparsons.github.io/torillic/typora/torillic/torillic-focus.css' rel='stylesheet' type='text/css' /><link href='https://teparsons.github.io/torillic/typora/torillic/torillic-interface.css' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; outline: 0px; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: auto hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 10px; z-index: 3; overflow-y: hidden; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: none !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; overflow-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { overflow-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; inset: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+span.cm-underlined { text-decoration: underline; }
+span.cm-strikethrough { text-decoration: line-through; }
+.cm-tw-syntaxerror { color: rgb(255, 255, 255); background-color: rgb(153, 0, 0); }
+.cm-tw-deleted { text-decoration: line-through; }
+.cm-tw-header5 { font-weight: 700; }
+.cm-tw-listitem:first-child { padding-left: 10px; }
+.cm-tw-box { border-style: solid; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-color: inherit; border-top-width: 0px !important; }
+.cm-tw-underline { text-decoration: underline; }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+
+
+
+
+
+
+
+/** - Breaks - **/
+hr {
+  column-span: all;
+  margin: 5rem auto;
+  /* D&D style arrow */
+  width: 0; 
+  height: 0; 
+  border-top: 0.25rem solid transparent;
+  border-bottom: 0.25rem solid transparent;
+  border-left: 15cm solid var(--red);
+  border-right: none;
+}
+/** - Headings - **/
+h1, h2, h3, h4, h5, h6, 
+.cm-header {
+  break-after: avoid-column;
+
+  margin: 0;
+  margin-block-start: 0.8em;
+  margin-block-end: 0.2em;
+
+  color: var(--red);
+}
+h1, h2, h3, h4, 
+.cm-header1, .cm-header2, .cm-header3, .cm-header4 {
+  font-family: "Crimson Text", serif;
+  font-variant: small-caps;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+h1, 
+.cm-header1 {
+  font-size: 3rem;
+}
+
+h2, 
+.cm-header2 {
+  font-size: 2rem;
+}
+
+h3, 
+.cm-header3 {
+  font-size: 1.5rem;
+}
+
+h4, 
+.cm-header4 {
+  font-size: 1.5rem;
+  border-bottom: 2px solid var(--yellow);
+}
+
+h5, 
+.cm-header5 {
+  font-size: 1.2rem;
+}
+
+h6, 
+.cm-header6 {
+  font-size: 1rem;
+}
+
+/** Font setting **/
+p {
+  margin-block-start: 0.2em;
+  margin-block-end: 0.8em;
+  min-width: 100%;
+}
+
+/** Links **/
+a {
+  color: var(--black);
+  text-decoration: underline;
+  text-decoration-color: var(--yellow);
+}
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+  color: var(--red);
+  text-decoration-color: var(--red);
+}
+a:hover {
+  color: var(--red);
+}
+a:visited {
+  color: var(--yellow);
+}
+a:active {
+  color: var(--red);
+}
+
+/** Lists **/
+ul, ol {
+    padding-left: 1rem;
+}
+
+/** Other **/
+.md-footnote, sup.md-footnote {
+  color: var(--red);
+  background-color: rgba(0,0,0,0);
+}
+
+/** Emphasis **/
+del {
+  text-decoration-color: var(--red);
+}
+u {
+  
+}
+mark {
+  background-color: var(--green);
+}
+::spelling-error {
+  color: var(--red);
+}
+/** Blocks **/
+blockquote {
+  break-inside: avoid;
+  margin: 5mm 0;
+  padding: 4mm;
+  
+  background-color: var(--green);
+  border-top: 5px solid var(--red);
+  border-bottom: 5px solid var(--red);
+}
+blockquote > h4, blockquote > h3 {
+  margin-block-start: 0.2em;
+}
+
+/** Tables **/
+figure {
+  margin: 0;
+  width: 100%;
+}
+table {
+  border-collapse: collapse;
+  text-align: center;
+  margin: 0;
+    width: 100%;
+}
+.ty-table-edit + table, .md-table-edit + table {
+	margin-top: 2rem;
+}
+.ty-table-edit, .md-table-edit {
+	margin-top: -0.5rem !important;
+}
+th {
+  color: white;
+  background-color: var(--red);
+  padding: 0.2rem 0.5rem;
+}
+td {
+  border: none;
+  background: var(--green);
+  padding: 0.5rem;
+}
+blockquote table td {
+	background: rgba(255, 255, 255, 0.5);
+}
+.CodeMirror {
+	width: 100%;
+	height: 100%;
+	background-color: var(--offwhite);
+}
+
+.CodeMirror-linenumber {
+	color: var(--red);
+}
+
+
+.CodeMirror * {
+  font-family: Nova Mono, sans-serif;
+}
+
+.CodeMirror .cm-header {
+	color: var(--red);
+}
+
+.CodeMirror .cm-yaml {
+	background-color: var(--green);
+}
+
+.CodeMirror .cm-link {
+	color: var(--red);
+}
+.CodeMirror .cm-string {
+	color: var(--yellow);
+}
+
+.CodeMirror .cm-atom {
+	background-color: var(--green);
+	color: var(--black);
+}
+
+.CodeMirror .cm-table-row > span {
+	background-color: var(--green);
+	color: var(--black);
+}
+
+.CodeMirror .cm-attribute,
+.CodeMirror .cm-tag {
+	color: var(--red);
+}
+
+.CodeMirror .cm-keyword,
+.CodeMirror .cm-builtin {
+	color: var(--red);
+	font-weight: bold;
+	font-style: italic;
+}
+
+.CodeMirror .cm-property, 
+.CodeMirror .cm-def {
+	color: var(--black);
+}
+
+.CodeMirror .cm-number {
+	color: var(--red);
+}
+
+.CodeMirror .cm-comment {
+	color: var(--grey);
+}
+#write {
+    position: relative;
+    box-sizing: border-box;
+
+    zoom: 110%;
+    background-image: url(https://theeyeopener.com/wp-content/uploads/2019/03/DD-parchment.jpg);
+    padding: 2cm;
+    padding-bottom: 4cm;
+}
+@media screen and (min-width: 25cm) {
+    #write {
+        /* Make it a page */
+        width: 21cm;
+        min-height: 29.7cm;
+        margin: 1cm auto;
+        box-shadow: 20px 20px 40px rgba(0, 0, 0, 0.5);
+        /* Add columns */
+        column-count: 2;
+        column-gap: 0.5cm;
+        column-width: 8cm;
+        /* Alignment */
+        text-align: left;
+    }
+}
+
+
+content {
+    overflow-y: scroll;
+    background-image: url(https://i.pinimg.com/originals/1e/f4/86/1ef486a24dd55567a11479379f02a2f3.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+#write * {
+    column-span: none;
+    break-inside: avoid-column;
+}
+#write p, #write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write div, #write pre {
+    width: 100%;
+}
+
+#write h1, #write h2, #write hr {
+    column-span: all;
+}
+#write *[mdlike="h1"], #write *[mdlike="h2"], #write *[mdlike="hr"] {
+    column-span: all !important;
+}
+
+#write .CodeMirror {
+    break-before: avoid;
+}
+
+#write .md-meta-block {
+    font-family: Nova Mono, sans-serif;
+    background-color: var(--green);
+    border-left: 5px solid var(--red);
+    padding-left: 10px;
+}
+@media print {
+  @page {
+    size: A4;
+    size: portrait;
+    margin: 2cm;
+    background-image: url(https://theeyeopener.com/wp-content/uploads/2019/03/DD-parchment.jpg);
+  }
+  #write {
+    background-image: none !important;
+  }
+  body {
+    column-count: 2;
+    column-gap: 0.5cm;
+    column-width: 8cm;
+  }
+}
+html {
+  background-image: url(https://i.pinimg.com/originals/1e/f4/86/1ef486a24dd55567a11479379f02a2f3.jpg);
+}
+.on-focus-mode .md-end-block:not(.md-focus):not(.md-focus-container) * {
+	color: var(--grey);
+}
+/** Scrollbar **/
+::-webkit-scrollbar-thumb {
+  background: var(--red);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--yellow);
+}
+#md-notification {
+  background: var(--green);
+}
+.md-image>.md-meta {
+  color: var(--red);
+}
+
+
+/** Modal **/
+.popover {
+	background-color: var(--green);
+	color: var(--black);
+}
+.modal-content {
+	background-color: var(--offwhite);
+	padding: 1rem;
+	border: none;
+	border-left: 10px solid var(--red);
+}
+#md-searchpanel input, input {
+	background-color: var(--green);	
+	border: none;
+	padding: 5px 10px;
+}
+.dropdown-menu, .context-menu {
+	background-color: var(--green);
+	border-left: 10px solid var(--red);
+}
+.dropdown-menu .active, .context-menu .active {
+	background-color: var(--red);
+	color: var(--offwhite);
+}
+.menu-style-btn.active, .context-menu.dropdown-menu > .active > a {
+	background-color: rgba(0,0,0,0);
+}
+.context-menu.dropdown-menu > li > a:hover {
+	background-color: rgba(0,0,0,0);
+	color: var(--red);
+}
+.btn, .btn-danger, .searchpanel-search-option-btn {
+	background-color: var(--green);
+	border: none;
+	margin: 0.5rem;
+}
+.input-group-addon {
+	background-color: var(--offwhite);
+}
+#md-resize-grid {
+	color: var(--offwhite);
+	background-color: var(--red);
+	border: none;
+}
+
+
+/** Other **/
+#md-notification {
+	background-color: var(--offwhite);
+	border: none;
+}/** Crimson Text **/
+@import url("https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap");
+/** Alegreya **/
+@import url("https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,700;0,800;0,900;1,400;1,500;1,700;1,800;1,900&display=swap");
+/** Nova Mono **/
+@import url('file:////home/davi/snap/typora/42/.config/Typora/themes/https://fonts.googleapis.com/css2?family=Nova+Mono&display=swap');
+
+/* Try to import from GitHub */
+@import "";
+@import "";
+@import "";
+@import "";
+@import "";
+@import "";
+@import "";
+
+/* Try locally, in case of connection fail */
+@import "";
+@import "";
+@import "";
+@import "";
+@import "";
+@import "";
+@import "";
+
+:root {
+  --offwhite: #fff9e6;
+  --red: #58180d;
+  --green: #e0e5c1;
+  --yellow: #c9ad6a;
+  --grey: #6D6A75;
+  --black: #403333;
+
+  font-size: 3.35mm;
+  font-family: "Alegreya", sans-serif;
+  color: var(--black);
+}
+
+
+</style><title>README</title>
+</head>
+<body class='typora-export'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='the-jack-programming-language'><span>The Jack Programming Language </span></h1><h2 id='compiler-and-virtual-machine'><span>Compiler and Virtual Machine</span></h2><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n0"><a class="md-toc-inner" href="#the-jack-programming-language">The Jack Programming Language </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n2"><a class="md-toc-inner" href="#compiler-and-virtual-machine">Compiler and Virtual Machine</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n4"><a class="md-toc-inner" href="#the-jack-language">The Jack Language </a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n6"><a class="md-toc-inner" href="#compilation-1">Compilation </a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n10"><a class="md-toc-inner" href="#build-linux-only">Build (Linux Only)</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n14"><a class="md-toc-inner" href="#compilation-2">Compilation </a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n15"><a class="md-toc-inner" href="#compile-from-jack-to-vm">Compile from Jack to VM</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n17"><a class="md-toc-inner" href="#interpret-the-vm-code">Interpret the VM code </a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n20"><a class="md-toc-inner" href="#hello-world">Hello, World</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n30"><a class="md-toc-inner" href="#features">Features</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n32"><a class="md-toc-inner" href="#syntax">Syntax</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n68"><a class="md-toc-inner" href="#arrays">Arrays </a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n70"><a class="md-toc-inner" href="#output-1">Output</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n73"><a class="md-toc-inner" href="#object-oriented-features">Object Oriented features </a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n78"><a class="md-toc-inner" href="#compile--run">Compile &amp;&amp; Run </a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n80"><a class="md-toc-inner" href="#output-2">Output</a></span></p></div><h3 id='the-jack-language'><span>The Jack Language </span></h3><p><span>Jack is an educational programming language created by </span><a href='https://shimonschocken.com'><span>Shimon Schocken</span></a><span> and </span><a href='https://en.wikipedia.org/wiki/Noam_Nisan'><span>Noam Nisan</span></a><span> for the course </span><em><span>The Elements of Computing Systems</span></em><span>, also known as </span><a href='https://nand2tetris.org'><span>Nand2Tetris</span></a><span>, offered by </span><a href='https://en.wikipedia.org/wiki/Hebrew_University_of_Jerusalem'><span>The Hebrew University of Jerusalem</span></a><span>. Students are asked to build their own compilers for this object-oriented language.</span></p><h3 id='compilation-1'><span>Compilation </span></h3><p><span>The Jack language is compiled in a two-tier process:</span>
+<img src="./compilation.png" referrerpolicy="no-referrer" alt="Two tier compilation process. from the book *Compilers: Principles, Techniques and tools*"></p><p><span>The code is first translated to an intermediate program (like Java&#39;s </span><em><span>bytecode</span></em><span> and C#&#39;s </span><em><span>Intermediate Language</span></em><span>) and then a Virtual Machine Translator finishes the compilation process either by interpreting the VM code or by translating to the target&#39;s machine assembly language.  </span></p><h3 id='build-linux-only'><span>Build (Linux Only)</span></h3><p><span>On the parent directory: </span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="console"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="console"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 5px; left: 3.99148px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">$ sudo ./install.sh </span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 15px;"></div><div class="CodeMirror-gutters" style="display: none; height: 15px;"></div></div></div></pre><h3 id='compilation-2'><span>Compilation </span></h3><h4 id='compile-from-jack-to-vm'><span>Compile from Jack to VM</span></h4><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="Bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 5px; left: 3.99148px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-def">$ </span>./dcc &lt;path&gt;</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 15px;"></div><div class="CodeMirror-gutters" style="display: none; height: 15px;"></div></div></div></pre><h4 id='interpret-the-vm-code'><span>Interpret the VM code </span></h4><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="Bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 5px; left: 3.99148px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-def">$.</span>/jack &lt;path&gt;</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 15px;"></div><div class="CodeMirror-gutters" style="display: none; height: 15px;"></div></div></div></pre><h3 id='hello-world'><span>Hello, World</span></h3><p><span>Hello world program in Jack</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="JavaScript"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="javascript"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 5.72727px; left: 3.99148px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">class</span> <span class="cm-def">Main</span> {</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-property">function</span> <span class="cm-def">int</span> <span class="cm-def">main</span>() {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">do</span> <span class="cm-variable">Output</span>.<span class="cm-property">printf</span>(<span class="cm-string">"Hello, World!\n"</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-number">0</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 108px;"></div><div class="CodeMirror-gutters" style="display: none; height: 108px;"></div></div></div></pre><p><span>Save the file as Main.jack and run</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="console"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="console"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 5px; left: 3.99148px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">$ dcc .</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 15px;"></div><div class="CodeMirror-gutters" style="display: none; height: 15px;"></div></div></div></pre><p><span>This will compile all source files in the current folder. Run</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="console"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="console"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 5px; left: 3.99148px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">$ jack .</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 15px;"></div><div class="CodeMirror-gutters" style="display: none; height: 15px;"></div></div></div></pre><p><span>To interpret the VM files produced in the current folder</span></p><p><span>Output: </span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="console"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="console"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 5px; left: 3.99148px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">Hello, World!</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 15px;"></div><div class="CodeMirror-gutters" style="display: none; height: 15px;"></div></div></div></pre><h3 id='features'><span>Features</span></h3><p><span>Jack is a Turing-complete, object-oriented language, with most of the features that any modern language has, such as branching, loops, assignments, arrays, classes, methods, arithmetic operations and more.</span></p><h3 id='syntax'><span>Syntax</span></h3><p><span>Jack has a C-like syntax. Reserved words in Jack are:</span></p><figure><table><thead><tr><th style='text-align:left;' >&nbsp;</th><th style='text-align:left;' >&nbsp;</th></tr></thead><tbody><tr><td style='text-align:left;' ><span>this</span></td><td style='text-align:left;' ><span>field</span></td></tr><tr><td style='text-align:left;' ><span>static</span></td><td style='text-align:left;' ><span>constructor</span></td></tr><tr><td style='text-align:left;' ><span>method</span></td><td style='text-align:left;' ><span>function</span></td></tr><tr><td style='text-align:left;' ><span>int</span></td><td style='text-align:left;' ><span>char</span></td></tr><tr><td style='text-align:left;' ><span>boolean</span></td><td style='text-align:left;' ><span>var</span></td></tr><tr><td style='text-align:left;' ><span>let</span></td><td style='text-align:left;' ><span>do</span></td></tr><tr><td style='text-align:left;' ><span>while</span></td><td style='text-align:left;' ><span>if</span></td></tr><tr><td style='text-align:left;' ><span>else</span></td><td style='text-align:left;' ><span>return</span></td></tr><tr><td style='text-align:left;' ><span>true</span></td><td style='text-align:left;' ><span>false</span></td></tr><tr><td style='text-align:left;' ><span>null</span></td><td style='text-align:left;' ><span>void</span></td></tr></tbody></table></figure><h3 id='arrays'><span>Arrays </span></h3><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="JavaScript"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="javascript"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 5.72727px; left: 3.99148px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">class</span> <span class="cm-def">Main</span> {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-property">function</span> <span class="cm-def">int</span> <span class="cm-def">main</span>() {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">var</span> <span class="cm-def">Array</span> <span class="cm-variable">a</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">let</span> <span class="cm-def">a</span> <span class="cm-operator">=</span> <span class="cm-variable-2">Array</span>.<span class="cm-property">new</span>(<span class="cm-number">392</span>, <span class="cm-number">32</span>, <span class="cm-number">29</span>, <span class="cm-number">3</span>, <span class="cm-number">9</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">do</span> <span class="cm-variable-2">a</span>.<span class="cm-property">sort</span>();</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">do</span> <span class="cm-variable">Output</span>.<span class="cm-property">printf</span>(<span class="cm-string">"%s is %i elements long.\n"</span>, <span class="cm-variable-2">a</span>.<span class="cm-property">to_s</span>(), <span class="cm-variable-2">a</span>.<span class="cm-property">length</span>());</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-number">0</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 201px;"></div><div class="CodeMirror-gutters" style="display: none; height: 201px;"></div></div></div></pre><h4 id='output-1'><span>Output</span></h4><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="console"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="console"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 5.72727px; left: 3.99148px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">[3,9,29,32,392] is 5 elements long</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 31px;"></div><div class="CodeMirror-gutters" style="display: none; height: 31px;"></div></div></div></pre><h3 id='object-oriented-features'><span>Object Oriented features </span></h3><p><span>In Dog.jack:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="JavaScript" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="javascript"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 5.72727px; left: 3.99148px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">class</span> <span class="cm-def">Dog</span> {</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-property">field</span> <span class="cm-def">int</span> <span class="cm-def">weight</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-property">field</span> <span class="cm-def">String</span> <span class="cm-def">name</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-property">constructor</span> <span class="cm-def">Dog</span> <span class="cm-property">new</span>(<span class="cm-def">int</span> <span class="cm-variable">w</span>, <span class="cm-variable">String</span> <span class="cm-variable">n</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">let</span> <span class="cm-def">weight</span> <span class="cm-operator">=</span> <span class="cm-variable">w</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">let</span> <span class="cm-def">name</span> <span class="cm-operator">=</span> <span class="cm-variable">n</span>; &nbsp;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span> <span class="cm-keyword">this</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-property">method</span> <span class="cm-property">void</span> <span class="cm-def">bark</span>() {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">var</span> <span class="cm-def">String</span> <span class="cm-variable">bark</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">if</span> (<span class="cm-variable">weight</span> <span class="cm-operator">&lt;</span> <span class="cm-number">20</span>) {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">let</span> <span class="cm-def">bark</span> <span class="cm-operator">=</span> <span class="cm-string">"woof, woof"</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  } <span class="cm-keyword">else</span> {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">let</span> <span class="cm-def">bark</span> <span class="cm-operator">=</span> <span class="cm-string">"WOOF, WOOF"</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">do</span> <span class="cm-variable">Output</span>.<span class="cm-property">printf</span>(<span class="cm-string">"%s says %s!\n"</span>, <span class="cm-variable">name</span>, <span class="cm-variable">bark</span>); </span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 417px;"></div><div class="CodeMirror-gutters" style="display: none; height: 417px;"></div></div></div></pre><p><span>In Main.jack:</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="JavaScript"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="javascript"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 5.72727px; left: 3.99148px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">class</span> <span class="cm-def">Main</span> {</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-property">function</span> <span class="cm-property">void</span> <span class="cm-def">main</span>() {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">var</span> <span class="cm-def">Dog</span> <span class="cm-variable">codie</span>, <span class="cm-variable">fido</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">let</span> <span class="cm-def">codie</span> <span class="cm-operator">=</span> <span class="cm-variable-2">Dog</span>.<span class="cm-property">new</span>(<span class="cm-number">24</span>, <span class="cm-string">"Codie"</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">let</span> <span class="cm-def">fido</span> <span class="cm-operator">=</span> <span class="cm-variable-2">Dog</span>.<span class="cm-property">new</span>(<span class="cm-number">12</span>, <span class="cm-string">"Fido"</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">do</span> <span class="cm-variable-2">codie</span>.<span class="cm-property">bark</span>();</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">do</span> <span class="cm-variable-2">fido</span>.<span class="cm-property">bark</span>();</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">return</span>;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 201px;"></div><div class="CodeMirror-gutters" style="display: none; height: 201px;"></div></div></div></pre><h4 id='compile--run'><span>Compile &amp;&amp; Run </span></h4><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="Bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 5.72727px; left: 3.99148px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-def">$.</span>/dcc .</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-def">$.</span>/jack .</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 31px;"></div><div class="CodeMirror-gutters" style="display: none; height: 31px;"></div></div></div></pre><h4 id='output-2'><span>Output</span></h4><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 5.72727px; left: 3.99148px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">Codie says WOOF, WOOF!</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">Fido says woof, woof!</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 31px;"></div><div class="CodeMirror-gutters" style="display: none; height: 31px;"></div></div></div></pre><p>&nbsp;</p></div></div>
+</body>
+</html>
