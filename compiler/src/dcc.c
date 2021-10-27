@@ -9,7 +9,11 @@
 
 int main(int argc, char* argv[])
 {
-    if (argc != 2) return 1;
+    if (argc != 2)
+    {
+        fprintf(stderr, "Usage:\n $ dcc <path/to/file.jack>\n or\n $ dcc <path/to/folder>\n"); 
+        return 1;
+    }
     analyze(argv[1]);
     return 0;
 }

@@ -19,6 +19,7 @@ On the parent directory:
 $ sudo ./install.sh 
 ```
 
+
 ### Compilation 
 #### Compile from Jack to VM
 ```Bash
@@ -28,6 +29,40 @@ $ ./dcc <path>
 #### Interpret the VM code 
 ```Bash
 $./jack <path>
+```
+
+
+### Hello, World
+
+Hello world program in Jack
+
+```JavaScript
+class Main {
+    function int main() {
+        do Output.printf("Hello, World!\n");
+        return 0;
+    }
+}
+
+```
+
+Save the file as Main.jack and run
+
+```console
+$ dcc .
+```
+
+This will compile all source files in the current folder. Run
+
+```console
+$ jack .
+```
+
+To interpret the VM files produced in the current folder
+
+Output: 
+```console
+Hello, World!
 ```
 
 ### Features
@@ -48,20 +83,6 @@ Jack has a C-like syntax. Reserved words in Jack are:
 | else | return |
 | true | false |
 | null | void |
-
-### Hello, World
-
-Hello world program in Jack
-
-```JavaScript
-class Main {
-    function int main() {
-        do Output.printf("Hello, World!\n");
-        return 0;
-    }
-}
-
-```
 
 ### Arrays 
 
