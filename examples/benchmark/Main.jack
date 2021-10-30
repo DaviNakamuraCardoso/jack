@@ -1,0 +1,60 @@
+class Main {
+
+    function int main() {
+
+        var Array a;
+
+        let a = Main.build();
+        do Main.sort(a);
+        do Output.printf("%s!\n", a.to_s());
+
+        return 0;
+    }
+
+    function void sort(Array a) {
+
+        var boolean sorted; 
+        var int i, length, temp;
+
+        let sorted = false;
+        let length = 10000;
+
+        while (~sorted) {
+            let sorted = true;
+
+            let i = 0;
+
+            while (i < length - 1) {
+                if (a[i] > a[i + 1]) {
+
+                    let temp = a[i + 1];
+                    let a[i + 1] = a[i];
+                    let a[i] = temp;
+                    let sorted = false;
+
+                }
+
+                let i = i + 1; 
+            }
+        }
+
+        return;
+    }
+
+    function Array build() {
+        var Array a;
+        var int i, num;
+
+        let a = Array.new(10000);
+        let i = 0;
+        let num = 10000;
+
+        while (i < 10000) {
+            let a[i] = num;
+            let num = num - 1;
+        }
+
+        return a;
+
+    }
+}

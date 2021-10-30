@@ -1,11 +1,8 @@
 class Main {
-    function int main() {
-        var Array a;
+    function int main() { 
 
-        let a = Array.new(392, 32, 29, 3, 9);
-        do a.sort();
+        do Output.printf("Hello, World!\n");
 
-        do Output.printf("%s is %i elements long.\n", a.to_s(), a.length());
         return 0;
     }
 }   
