@@ -1,5 +1,6 @@
 unsigned int isnullchar(char c);
 unsigned int iscmd(char c); 
+unsigned int isliteral(char c);
 int max(int a, int b); 
 unsigned int isvalidsym(char c, char* syms, int i);
 unsigned int isnumeral(char* str); 
@@ -12,4 +13,5 @@ void skipc(FILE* stream, char* buff);
 void get_pathname(char* buffer, char* dirname, char* filename); 
 void get_dirname(char* buffer, const char* dir) ; 
 
+char* extract_literal(FILE* f, char* buffer);
 

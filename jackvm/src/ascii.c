@@ -146,4 +146,20 @@ void get_dirname(char* buffer, const char* dir)
     return;
 }
 
+unsigned int isliteral(char c)
+{
+    return c == '"';
+}
 
+char* extract_literal(FILE* f, char* buffer)
+{
+    for (int i = 0; (c = fgetc(f)) != '"'; i++)
+    {
+        buffer[i] = c;
+    }
+
+    buffer[i] = '\0';
+
+    return buffer;
+
+} 

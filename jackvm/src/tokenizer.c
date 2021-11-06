@@ -29,6 +29,7 @@ fstart: {}
         } while (isnullchar(c));
     }
 
+
     if (issym(c)) 
     {
         do {
