@@ -1,16 +1,28 @@
 function Main.main 1
 call Main.build 0
 pop local 0
-push local 0
-call Main.sort 1
-pop temp 0
-push constant 5
+push constant 4
 call String.new 1
 push constant 37
 call String.appendChar 2
 push constant 115
 call String.appendChar 2
-push constant 33
+push constant 92
+call String.appendChar 2
+push constant 110
+call String.appendChar 2
+push local 0
+call Array.to_s 1
+call Output.printf 2
+pop temp 0
+push local 0
+call Array.sort 1
+pop temp 0
+push constant 4
+call String.new 1
+push constant 37
+call String.appendChar 2
+push constant 115
 call String.appendChar 2
 push constant 92
 call String.appendChar 2
@@ -25,8 +37,7 @@ return
 function Main.sort 4
 push constant 0
 pop local 0
-push argument 0
-call Array.length 1
+push constant 100
 pop local 2
 label LABEL_0
 push local 0
@@ -100,17 +111,19 @@ goto LABEL_0
 label LABEL_1
 push constant 0
 return
-function Main.build 3
-push constant 10000
+function Main.build 4
+push constant 100
+pop local 3
+push local 3
 call Array.new 1
 pop local 0
 push constant 0
 pop local 1
-push constant 10000
+push local 3
 pop local 2
 label LABEL_6
 push local 1
-push constant 10000
+push local 3
 lt
 not
 if-goto LABEL_7
@@ -125,6 +138,10 @@ push local 2
 push constant 1
 sub
 pop local 2
+push local 1
+push constant 1
+add
+pop local 1
 goto LABEL_6
 label LABEL_7
 push local 0
