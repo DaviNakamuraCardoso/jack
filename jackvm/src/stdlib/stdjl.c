@@ -32,6 +32,7 @@ static Std library[] = {
     (Std) {.name="Array.length", .f=std_array_length},
     (Std) {.name="Array.sort", .f=std_array_sort},
     (Std) {.name="Array.to_s", .f=std_array_tos},
+    (Std) {.name="Array.print", .f=std_array_print},
 
     // Time
     (Std) {.name="Clock.now", .f=std_clock}, 

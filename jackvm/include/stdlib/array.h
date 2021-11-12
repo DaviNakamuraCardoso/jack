@@ -14,6 +14,7 @@ void std_array_count(Program* p, unsigned short nargs);
 void std_array_dispose(Program* p, unsigned short nargs);
 void std_array_length(Program* p, unsigned short nargs); 
 void std_array_sort(Program* p, unsigned short nargs);
+void std_array_print(Program *p, unsigned short nargs);
 
 
 #endif

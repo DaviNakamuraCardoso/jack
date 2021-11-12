@@ -1,0 +1,231 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ADD	include/tokens.h	/^    ADD     =   8,$/;"	e	enum:command
+AND	include/tokens.h	/^    AND     =   16,$/;"	e	enum:command
+ARGUMENT	include/tokens.h	/^    ARGUMENT        =   2,$/;"	e	enum:memseg
+CALL	include/tokens.h	/^    CALL    =   5,$/;"	e	enum:command
+CC	Makefile	/^CC = gcc $/;"	m
+CMDS	Makefile	/^CMDS = push pop operators jumps$/;"	m
+CMDSP	Makefile	/^CMDSP = $(foreach cmd, $(CMDS), $(addprefix cmds\/, $(cmd)))$/;"	m
+CONSTANT	include/tokens.h	/^    CONSTANT        =   0, $/;"	e	enum:memseg
+DIV	include/tokens.h	/^    DIV     =   11,$/;"	e	enum:command
+EQ	include/tokens.h	/^    EQ      =   14, $/;"	e	enum:command
+FLAGS	Makefile	/^FLAGS = -fPIE -Wall -Wextra $/;"	m
+FUNCTION	include/tokens.h	/^    FUNCTION=   6,$/;"	e	enum:command
+GOTO	include/tokens.h	/^    GOTO    =   3,$/;"	e	enum:command
+GT	include/tokens.h	/^    GT      =   12,$/;"	e	enum:command
+HASHSIZE	src/hash.c	6;"	d	file:
+Hash	include/hash.h	/^} Hash; $/;"	t	typeref:struct:_hash
+I	Makefile	/^I = .\/include\/$/;"	m
+IFGOTO	include/tokens.h	/^    IFGOTO  =   4,$/;"	e	enum:command
+LABEL	include/tokens.h	/^    LABEL   =   2,$/;"	e	enum:command
+LIST_SIZES	src/list.c	/^static unsigned long LIST_SIZES[] = {$/;"	v	file:
+LOCAL	include/tokens.h	/^    LOCAL           =   3, $/;"	e	enum:memseg
+LT	include/tokens.h	/^    LT      =   13,$/;"	e	enum:command
+List	include/list.h	/^typedef struct _list List; $/;"	t	typeref:struct:_list
+List	src/list.c	/^} List; $/;"	t	typeref:struct:_list	file:
+MODULES	Makefile	/^MODULES = main tokenizer ascii hash tokens list vm $(CMDSP) $(STDJLIB) $/;"	m
+MULT	include/tokens.h	/^    MULT    =   10,$/;"	e	enum:command
+Map	include/hash.h	/^} Map;$/;"	t	typeref:struct:_map
+NOT	include/tokens.h	/^    NOT     =   15, $/;"	e	enum:command
+O	Makefile	/^O = .\/obj\/$/;"	m
+OBJECTS	Makefile	/^OBJECTS = $(foreach obj, $(OBJPATHS), $(addsuffix .o, $(obj)))$/;"	m
+OBJPATHS	Makefile	/^OBJPATHS = $(foreach obj, $(MODULES), $(addprefix $(O), $(obj)))  $/;"	m
+OR	include/tokens.h	/^    OR      =   17$/;"	e	enum:command
+POINTER	include/tokens.h	/^    POINTER         =   6,$/;"	e	enum:memseg
+POP	include/tokens.h	/^    POP     =   1,$/;"	e	enum:command
+PUSH	include/tokens.h	/^    PUSH    =   0, $/;"	e	enum:command
+Program	include/vm.h	/^} Program;$/;"	t	typeref:struct:_program
+RETURN	include/tokens.h	/^    RETURN  =   7,$/;"	e	enum:command
+S	Makefile	/^S = .\/src\/$/;"	m
+STATIC	include/tokens.h	/^    STATIC          =   1,$/;"	e	enum:memseg
+STDJL	Makefile	/^STDJL = stdio stdjl memory string stdlib math array$/;"	m
+STDJLIB	Makefile	/^STDJLIB = $(foreach std, $(STDJL), $(addprefix stdlib\/, $(std)))$/;"	m
+SUB	include/tokens.h	/^    SUB     =   9,$/;"	e	enum:command
+Source	include/tokens.h	/^} Source;$/;"	t	typeref:struct:_source
+Std	include/stdlib/stdjl.h	/^} Std; $/;"	t	typeref:struct:_stdf
+TEMP	include/tokens.h	/^    TEMP            =   7$/;"	e	enum:memseg
+THAT	include/tokens.h	/^    THAT            =   5,$/;"	e	enum:memseg
+THIS	include/tokens.h	/^    THIS            =   4,$/;"	e	enum:memseg
+__BASICH	include/basic.h	4;"	d
+__HASHH	include/hash.h	3;"	d
+__JACKARRAYH	include/stdlib/array.h	3;"	d
+__JACKMATHH	include/stdlib/math.h	2;"	d
+__JACKMEMORYH	include/stdlib/memory.h	2;"	d
+__JACKSTDIOH	include/stdlib/stdio.h	7;"	d
+__JACKSTDLH	include/stdlib/stdlib.h	2;"	d
+__JACKSTRH	include/stdlib/string.h	2;"	d
+__JUMPSH	include/cmds/jumps.h	4;"	d
+__LISTH	include/list.h	2;"	d
+__OPERATORSH	include/cmds/operators.h	6;"	d
+__POPH	include/cmds/pop.h	4;"	d
+__PUSHH	include/cmds/push.h	4;"	d
+__STDJACKLH	include/stdlib/stdjl.h	4;"	d
+__TOKENSH	include/tokens.h	5;"	d
+__VMH	include/vm.h	4;"	d
+_hash	include/hash.h	/^typedef struct _hash {$/;"	s
+_list	src/list.c	/^typedef struct _list {$/;"	s	file:
+_map	include/hash.h	/^typedef struct _map {$/;"	s
+_program	include/vm.h	/^typedef struct _program {$/;"	s
+_source	include/tokens.h	/^typedef struct _source {$/;"	s
+_stdf	include/stdlib/stdjl.h	/^typedef struct _stdf {$/;"	s
+add	src/cmds/operators.c	/^void add(Program* p)$/;"	f
+add_hash	src/hash.c	/^void add_hash(Hash** h, char* key, short value)$/;"	f
+add_map	src/hash.c	/^void add_map(Map* m, char* key)$/;"	f
+addl	src/list.c	/^void addl(List* l, unsigned short t)$/;"	f
+and	src/cmds/operators.c	/^void and(Program* p)$/;"	f
+arguments	include/vm.h	/^    unsigned long *stack, *tmp, pc, sp, this, that, arguments, locals;$/;"	m	struct:_program
+call	src/cmds/jumps.c	/^void call(Program* p)$/;"	f
+cmdhash	src/tokens.c	/^static Hash** cmdhash(void)$/;"	f	file:
+cmdlineargs	src/stdlib/string.c	/^void cmdlineargs(Program* p, int argc, const char** argv)$/;"	f
+cmds	include/tokens.h	/^    Hash** cmds;$/;"	m	struct:_source
+cmds	src/tokens.c	/^static char* cmds[] = {$/;"	v	file:
+cmds	src/vm.c	/^static char* cmds[] = {$/;"	v	file:
+command	include/tokens.h	/^enum command { $/;"	g
+commands	src/vm.c	/^void (*commands[]) (Program*) = {$/;"	v
+compare	src/stdlib/array.c	/^long compare(const void* a, const void* b)$/;"	f
+compare	tests/test.c	/^unsigned int compare(void)$/;"	f
+contents	src/list.c	/^    unsigned short *contents; $/;"	m	struct:_list	file:
+counter	include/hash.h	/^    unsigned short counter;$/;"	m	struct:_map
+divc	src/cmds/operators.c	/^void divc(Program* p)$/;"	f
+done	include/vm.h	/^    unsigned int done:1;$/;"	m	struct:_program
+elems	src/list.c	/^    unsigned long elems;$/;"	m	struct:_list	file:
+entry	include/vm.h	/^    unsigned long *labels, stdcount, entry;$/;"	m	struct:_program
+eq	src/cmds/operators.c	/^void eq(Program* p)$/;"	f
+extract_literal	src/ascii.c	/^char* extract_literal(FILE* f, char* buffer)$/;"	f
+f	include/stdlib/stdjl.h	/^    void (*f) (Program*, unsigned short);$/;"	m	struct:_stdf
+function	src/cmds/jumps.c	/^void function(Program* p)$/;"	f
+get_dirname	src/ascii.c	/^void get_dirname(char* buffer, const char* dir) $/;"	f
+get_pathname	src/ascii.c	/^void get_pathname(char* buffer, char* dirname, char* filename)$/;"	f
+getelement	src/list.c	/^unsigned short getelement(List* l, unsigned long index)$/;"	f
+gethash	src/hash.c	/^short gethash(Hash** h, char* key)$/;"	f
+getmap	src/hash.c	/^short getmap(Map* m, char* key)$/;"	f
+getword	src/tokenizer.c	/^static char* getword(FILE* stream, char* buff)$/;"	f	file:
+gotoc	src/cmds/jumps.c	/^void gotoc(Program* p)$/;"	f
+gt	src/cmds/operators.c	/^void gt(Program* p)$/;"	f
+hash	include/hash.h	/^    Hash** hash;$/;"	m	struct:_map
+hash	src/hash.c	/^unsigned int hash(char* key)$/;"	f
+ifgoto	src/cmds/jumps.c	/^void ifgoto(Program* p)$/;"	f
+increasel	src/list.c	/^void increasel(List* l)$/;"	f
+indexes	include/tokens.h	/^    Map* indexes;$/;"	m	struct:_source
+iscmd	src/ascii.c	/^unsigned int iscmd(char c)$/;"	f
+iscommentstart	src/ascii.c	/^unsigned int iscommentstart(char* buff)$/;"	f
+isdir	src/ascii.c	/^unsigned int isdir(const char* filename)$/;"	f
+islabel	src/ascii.c	/^unsigned int islabel(char* str)$/;"	f
+isliteral	src/ascii.c	/^unsigned int isliteral(char c)$/;"	f
+ismultlnc	src/ascii.c	/^unsigned int ismultlnc(char *buff)$/;"	f
+isnullchar	src/ascii.c	/^unsigned int isnullchar(char c)$/;"	f
+isnumeral	src/ascii.c	/^unsigned int isnumeral(char* str)$/;"	f
+isstatic	src/tokenizer.c	/^unsigned int isstatic(prev, last)$/;"	f
+issym	src/ascii.c	/^unsigned int issym(char c)$/;"	f
+isvalidsym	src/ascii.c	/^unsigned int isvalidsym(char c, char* syms, int i)$/;"	f
+isvmsource	src/ascii.c	/^unsigned int isvmsource(char* filename)$/;"	f
+key	include/hash.h	/^    char* key;$/;"	m	struct:_hash
+label	src/cmds/jumps.c	/^void label(Program* p)$/;"	f
+labels	include/tokens.h	/^    unsigned long *labels;$/;"	m	struct:_source
+labels	include/vm.h	/^    unsigned long *labels, stdcount, entry;$/;"	m	struct:_program
+lastel	src/list.c	/^unsigned short lastel(List* l)$/;"	f
+lasttolast	src/list.c	/^unsigned short lasttolast(List* l)$/;"	f
+lcontents	src/list.c	/^unsigned short* lcontents(List* l)$/;"	f
+library	src/stdlib/stdjl.c	/^static Std library[] = {$/;"	v	file:
+listlength	src/list.c	/^unsigned long listlength(List* l)$/;"	f
+locals	include/vm.h	/^    unsigned long *stack, *tmp, pc, sp, this, that, arguments, locals;$/;"	m	struct:_program
+lt	src/cmds/operators.c	/^void lt(Program* p)$/;"	f
+main	src/main.c	/^int main(int argc, const char** argv)$/;"	f
+main	tests/test.c	/^int main(void)$/;"	f
+max	src/ascii.c	/^int max(int a, int b)$/;"	f
+maxsizei	src/list.c	/^    unsigned short maxsizei;$/;"	m	struct:_list	file:
+memseg	include/tokens.h	/^enum memseg {$/;"	g
+memsegs	include/tokens.h	/^    Hash** memsegs;$/;"	m	struct:_source
+memsegs	src/cmds/pop.c	/^static char* memsegs[] = {$/;"	v	file:
+memsegs	src/cmds/push.c	/^static char* memsegs[] = {$/;"	v	file:
+memsegs	src/tokens.c	/^static char* memsegs[] = {$/;"	v	file:
+mseghash	src/tokens.c	/^static Hash** mseghash(void)$/;"	f	file:
+mult	src/cmds/operators.c	/^void mult(Program* p)$/;"	f
+name	include/stdlib/stdjl.h	/^    char* name; $/;"	m	struct:_stdf
+new_hash	src/hash.c	/^Hash** new_hash(void)$/;"	f
+new_hashnode	src/hash.c	/^Hash* new_hashnode(char* key, short type)$/;"	f
+new_list	src/list.c	/^List* new_list(void)$/;"	f
+new_map	src/hash.c	/^Map* new_map(void)$/;"	f
+new_program	src/vm.c	/^static Program* new_program(Source* s)$/;"	f	file:
+new_source	src/tokens.c	/^Source* new_source(void)$/;"	f
+newjackstr	src/stdlib/string.c	/^long *newjackstr(unsigned long maxlen)$/;"	f
+next	include/hash.h	/^    struct _hash* next; $/;"	m	struct:_hash	typeref:struct:_hash::_hash
+next	src/vm.c	/^unsigned short next(Program* p)$/;"	f
+not	src/cmds/operators.c	/^void not(Program* p)$/;"	f
+or	src/cmds/operators.c	/^void or(Program* p)$/;"	f
+pc	include/vm.h	/^    unsigned long *stack, *tmp, pc, sp, this, that, arguments, locals;$/;"	m	struct:_program
+pop	src/cmds/pop.c	/^void pop(Program* p)$/;"	f
+pop_argument	src/cmds/pop.c	/^static void pop_argument(Program* p)$/;"	f	file:
+pop_commands	src/cmds/pop.c	/^void (*pop_commands[]) (Program*) = {$/;"	v
+pop_constant	src/cmds/pop.c	/^static void pop_constant(Program* p)$/;"	f	file:
+pop_local	src/cmds/pop.c	/^static void pop_local(Program* p)$/;"	f	file:
+pop_pointer	src/cmds/pop.c	/^static void pop_pointer(Program* p)$/;"	f	file:
+pop_static	src/cmds/pop.c	/^static void pop_static(Program* p)$/;"	f	file:
+pop_temp	src/cmds/pop.c	/^static void pop_temp(Program* p)$/;"	f	file:
+pop_that	src/cmds/pop.c	/^static void pop_that(Program *p)$/;"	f	file:
+pop_this	src/cmds/pop.c	/^static void pop_this(Program *p)$/;"	f	file:
+popl	src/list.c	/^unsigned short popl(List* l)$/;"	f
+popv	src/cmds/pop.c	/^long popv(Program* p)$/;"	f
+printjackstr	src/stdlib/stdio.c	/^static void printjackstr(FILE* stream, long* obj, long *values)$/;"	f	file:
+printstack	src/vm.c	/^void printstack(Program* p, int n)$/;"	f
+push	src/cmds/push.c	/^void push(Program* p)$/;"	f
+push_argument	src/cmds/push.c	/^static void push_argument(Program* p)$/;"	f	file:
+push_constant	src/cmds/push.c	/^static void push_constant(Program* p)$/;"	f	file:
+push_local	src/cmds/push.c	/^static void push_local(Program* p)$/;"	f	file:
+push_pointer	src/cmds/push.c	/^static void push_pointer(Program* p)$/;"	f	file:
+push_routines	src/cmds/push.c	/^void (*push_routines[]) (Program*) = {$/;"	v
+push_static	src/cmds/push.c	/^static void push_static(Program* p)$/;"	f	file:
+push_temp	src/cmds/push.c	/^static void push_temp(Program* p)$/;"	f	file:
+push_that	src/cmds/push.c	/^static void push_that(Program* p)$/;"	f	file:
+push_this	src/cmds/push.c	/^static void push_this(Program* p)$/;"	f	file:
+pushv	src/cmds/push.c	/^void pushv(Program* p, long value)$/;"	f
+release_hash	src/hash.c	/^void release_hash(Hash** root)$/;"	f
+release_source	src/tokens.c	/^void release_source(Source* s)$/;"	f
+returnc	src/cmds/jumps.c	/^void returnc(Program* p)$/;"	f
+skipc	src/ascii.c	/^void skipc(FILE* stream, char* buff)$/;"	f
+skipmultlnc	src/ascii.c	/^void skipmultlnc(FILE* stream)$/;"	f
+source	include/vm.h	/^    unsigned short *source;$/;"	m	struct:_program
+sp	include/vm.h	/^    unsigned long *stack, *tmp, pc, sp, this, that, arguments, locals;$/;"	m	struct:_program
+stack	include/vm.h	/^    unsigned long *stack, *tmp, pc, sp, this, that, arguments, locals;$/;"	m	struct:_program
+staticcount	include/tokens.h	/^    unsigned long staticcount, stdcount; $/;"	m	struct:_source
+statics	include/vm.h	/^    long* statics;$/;"	m	struct:_program
+std_appendchar	src/stdlib/string.c	/^void std_appendchar(Program* p, int nargs)$/;"	f
+std_array	src/stdlib/array.c	/^void std_array(Program* p, unsigned short nargs)$/;"	f
+std_array_count	src/stdlib/array.c	/^void std_array_count(Program* p, unsigned short nargs)$/;"	f
+std_array_dispose	src/stdlib/array.c	/^void std_array_dispose(Program* p, unsigned short nargs)$/;"	f
+std_array_length	src/stdlib/array.c	/^void std_array_length(Program* p, unsigned short nargs)$/;"	f
+std_array_sort	src/stdlib/array.c	/^void std_array_sort(Program* p, unsigned short nargs)$/;"	f
+std_array_tos	src/stdlib/array.c	/^void std_array_tos(Program* p, unsigned short nargs)$/;"	f
+std_clock	src/stdlib/stdlib.c	/^void std_clock(Program* p, unsigned short nargs)$/;"	f
+std_clockspersec	src/stdlib/stdlib.c	/^void std_clockspersec(Program* p, unsigned short nargs)$/;"	f
+std_close	src/stdlib/stdio.c	/^void std_close(Program* p, unsigned short nargs)$/;"	f
+std_file_print	src/stdlib/stdio.c	/^void std_file_print(Program* p, unsigned short nargs)$/;"	f
+std_free	src/stdlib/memory.c	/^void std_free(Program* p, unsigned short nargs)$/;"	f
+std_full_array	src/stdlib/array.c	/^void std_full_array(Program* p, unsigned short nargs)$/;"	f
+std_getstring	src/stdlib/stdio.c	/^void std_getstring(Program* p, unsigned short nargs)$/;"	f
+std_len	src/stdlib/string.c	/^void std_len(Program* p, int nargs)$/;"	f
+std_malloc	src/stdlib/memory.c	/^void std_malloc(Program* p, unsigned short nargs)$/;"	f
+std_open	src/stdlib/stdio.c	/^void std_open(Program* p, unsigned short nargs)$/;"	f
+std_printf	src/stdlib/stdio.c	/^void std_printf(Program* p, unsigned short nargs)$/;"	f
+std_putc	src/stdlib/stdio.c	/^void std_putc(Program* p, unsigned short nargs)$/;"	f
+std_sqrt	src/stdlib/math.c	/^void std_sqrt(Program* p, unsigned short nargs)$/;"	f
+std_string	src/stdlib/string.c	/^void std_string(Program* p, int nargs)$/;"	f
+stdcount	include/tokens.h	/^    unsigned long staticcount, stdcount; $/;"	m	struct:_source
+stdcount	include/vm.h	/^    unsigned long *labels, stdcount, entry;$/;"	m	struct:_program
+stdlib	src/stdlib/stdjl.c	/^int stdlib(Source* s)$/;"	f
+strmatch	src/hash.c	/^unsigned int strmatch(char* s1, char* s2)$/;"	f
+sub	src/cmds/operators.c	/^void sub(Program* p)$/;"	f
+that	include/vm.h	/^    unsigned long *stack, *tmp, pc, sp, this, that, arguments, locals;$/;"	m	struct:_program
+tmp	include/vm.h	/^    unsigned long *stack, *tmp, pc, sp, this, that, arguments, locals;$/;"	m	struct:_program
+tojackstr	src/stdlib/string.c	/^long *tojackstr(char* str)$/;"	f
+tokenize	src/tokenizer.c	/^Source* tokenize(FILE* stream, Source* s)$/;"	f
+tokenizeall	src/tokenizer.c	/^Source *tokenizeall(const char* argv)$/;"	f
+tokenizedir	src/tokenizer.c	/^Source* tokenizedir(const char* argv, Source* s)$/;"	f
+tokens	include/tokens.h	/^    List* tokens;$/;"	m	struct:_source
+type	include/hash.h	/^    short type;$/;"	m	struct:_hash
+vm	src/vm.c	/^int vm(Source* s, int argc, const char** argv)$/;"	f

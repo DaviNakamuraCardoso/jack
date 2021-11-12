@@ -1,5 +1,7 @@
 #include <stdlib/array.h>
+#include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 
 void std_array(Program* p, unsigned short nargs)
@@ -35,10 +37,30 @@ void std_array_length(Program* p, unsigned short nargs)
     pushv(p, array[-1]);
 }
 
+// Print a Jack Array
+void std_array_print(Program *p, unsigned short nargs)
+{
+    long *a = popv(p);
+    unsigned int length = a[-1];
+
+    printf("[");
+    for (int i = 0; i < length; i++)
+    {
+        printf("%Li", a[i]);
+        if (i != length - 1) printf(", "); 
+    }
+    printf("]\n");
+
+    pushv(p, 0);
+
+}
+
+
+// Converts a Jack Array to a Jack String
 void std_array_tos(Program* p, unsigned short nargs)
 {
     long* array = popv(p);
-    char buff[1000], tmp[300];
+    char tmp[300], buff[1000]; 
 
     buff[0] = '[';
     buff[1] = '\0';
@@ -52,8 +74,7 @@ void std_array_tos(Program* p, unsigned short nargs)
 
     strcat(buff, "]");
 
-    pushv(p, tojackstr(buff));
-
+    pushv(p, tojackstr(buff)); 
 }
 
 

@@ -153,7 +153,9 @@ unsigned int isliteral(char c)
 
 char* extract_literal(FILE* f, char* buffer)
 {
-    for (int i = 0; (c = fgetc(f)) != '"'; i++)
+    char c;
+    int i;
+    for (i = 0; (c = fgetc(f)) != '"'; i++)
     {
         buffer[i] = c;
     }

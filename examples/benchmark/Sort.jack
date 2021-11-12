@@ -5,10 +5,10 @@ class Main {
         var Array a;
 
         let a = Main.build();
-        do Output.printf("%s\n", a.to_s());
-        //do Main.sort(a);
+        do a.print();
+    //    do Main.sort(a);
         do a.sort();
-        do Output.printf("%s\n", a.to_s());
+        do a.print();
 
         return 0;
     }
@@ -19,7 +19,7 @@ class Main {
         var int i, length, temp;
 
         let sorted = false;
-        let length = 100;
+        let length = 1000;
 
         while (~sorted) {
             let sorted = true;
@@ -47,7 +47,7 @@ class Main {
         var Array a;
         var int i, num, len;
 
-        let len = 100;
+        let len = 1000;
         let a = Array.new(len);
         let i = 0;
         let num = len;
