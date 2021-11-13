@@ -199,6 +199,7 @@ std_array	src/stdlib/array.c	/^void std_array(Program* p, unsigned short nargs)$
 std_array_count	src/stdlib/array.c	/^void std_array_count(Program* p, unsigned short nargs)$/;"	f
 std_array_dispose	src/stdlib/array.c	/^void std_array_dispose(Program* p, unsigned short nargs)$/;"	f
 std_array_length	src/stdlib/array.c	/^void std_array_length(Program* p, unsigned short nargs)$/;"	f
+std_array_print	src/stdlib/array.c	/^void std_array_print(Program *p, unsigned short nargs)$/;"	f
 std_array_sort	src/stdlib/array.c	/^void std_array_sort(Program* p, unsigned short nargs)$/;"	f
 std_array_tos	src/stdlib/array.c	/^void std_array_tos(Program* p, unsigned short nargs)$/;"	f
 std_clock	src/stdlib/stdlib.c	/^void std_clock(Program* p, unsigned short nargs)$/;"	f
