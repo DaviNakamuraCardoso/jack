@@ -43,5 +43,3 @@ token_t *token_create(enum tokentype type, unsigned int ln, unsigned int chr, vo
     return t; 
 } 
 
-enum tokentype get_type(char*
-

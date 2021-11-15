@@ -3,6 +3,7 @@
 
 #include "tokens.h"
 
+char* get_token(FILE* f, char* buff); 
 
 #endif
 
