@@ -1,6 +1,0 @@
-class Main {
-    function int main() {
-        do Output.printf("Hello, World!\n");
-        return 0;
-    }
-}
