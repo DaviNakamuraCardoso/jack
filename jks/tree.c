@@ -1,31 +1,58 @@
 #include <stdlib.h>
 #include "tree.h"
 
-enum operators {
-    AMPERCENT,
-    PIPE,
-    STAR,
-    SLASH,
+typedef enum {
+    AMPERSAND,
     DASH,
-    HASH,
-    EXCLAMATION,
-    PERCENT,
     DOT,
-    SEMICOLON,
-    RIGHT_SQUARE_BRACKET,
-    LEFT_SQUARE_BRACKET,
-    PLUS,
     EQUAL,
-    RIGHT_BRACE,
+    EXCLAMATION,
+    HASH,
     LEFT_BRACE,
+    LEFT_SQUARE_BRACKET,
+    PERCENT,
+    PIPE,
+    PLUS,
     QUESTION
+    RIGHT_BRACE,
+    RIGHT_SQUARE_BRACKET,
+    SEMICOLON,
+    SLASH,
+    STAR,
+    ZZ_END
+} operator_e;
+
+const char operator_tokens[] = { 
+    AMPERSAND,
+    DASH,
+    DOT,
+    EQUAL,
+    EXCLAMATION,
+    HASH,
+    LEFT_BRACE,
+    LEFT_SQUARE_BRACKET,
+    PERCENT,
+    PIPE,
+    PLUS,
+    QUESTION
+    RIGHT_BRACE,
+    RIGHT_SQUARE_BRACKET,
+    SEMICOLON,
+    SLASH,
+    STAR,
+    ZZ_END
 };
 
+
 struct tree { 
-    char tokens[
+
 };
 
 tree_t* tree_new(void)
 {
     tree_t *t = malloc(sizeof(tree_t));
+    for (int i = 0; i < ; i++)
+    {
+
+    }
 
