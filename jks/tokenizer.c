@@ -28,5 +28,42 @@ ctype_t get_ctype(char c)
     return C_SYMBOL;
 }
 
+char *get_alpha(FILE* f, char* buff)
+{
+    unsigned int bp = 1; 
+    char c;
+    do {
+        c = fgetc(f);
+        buff[bp++] = c;
+    } while (isvariable(c));
+
+    ungetc(f, c);
+    buff[--bp] = '\0';
+
+    return buff; 
+}
+
+char *get_number(FILE* f, char* buff)
+{
+    unsigned int bp = 1;
+    char c;
+    do {
+        c = fgetc(f);
+        buff[bp++] = c;
+    } while (isdigit(c));
+
+    ungetc(f, c); 
+    buff[--bp] = '\0'; 
+
+    return buffer; 
+}
+
+char *get_symbol(FILE* f, char *buff)
+{
+
+
+    return buff; 
+}
+
 
 
