@@ -1,5 +1,4 @@
 
-
 enum tokentype {
     KEYWORD,
     NUM_LIT,
