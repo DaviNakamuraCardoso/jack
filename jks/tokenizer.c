@@ -1,7 +1,7 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <ctype.h>
-#include "ascii.h" 
-#include "operators.h"
+#include "tokenizer.h"
 
 typedef enum { 
     C_ALPHA,
@@ -9,15 +9,55 @@ typedef enum {
     C_NUMBER
 } ctype_t;
 
-char* (*get[]) (FILE*, char*) = {
+token_t* get_alpha(FILE*, char*);
+token_t* get_symbol(FILE*, char*);
+token_t* get_number(FILE*, char*);
+token_t* get_token(FILE *f, char* buff);
+ctype_t get_ctype(char c);
+int skipblank(FILE* f);
+
+
+token_t** tokenize(FILE* f)
+{
+    char buff[3000] = {0};
+    token_t** tokens = calloc(sizeof(token_t*), 10);
+
+    for (int i = 0;;)
+    {
+        if (skipblank(f)) break; 
+
+        token_t *t = get_token(f, buff); 
+        if (t) tokens[i++] = t;
+        printf("%s\n", buff);
+    }
+
+    return NULL;
+}
+
+
+int skipblank(FILE* f)
+{
+    char c;
+    do {
+        c = fgetc(f);
+        if (c == EOF) return 1;
+    } while (isspace(c));
+
+    ungetc(c, f);
+
+    return 0;
+} 
+
+token_t* (*get[]) (FILE*, char*) = {
     [C_ALPHA]  = get_alpha,
     [C_SYMBOL] = get_symbol,
     [C_NUMBER] = get_number
 };
 
-char* get_token(FILE *f, char* buff)
+token_t* get_token(FILE *f, char* buff)
 { 
     char c = fgetc(f);
+    buff[0] = c;
     return get[get_ctype(c)](f, buff);
 }
 
@@ -29,85 +69,40 @@ ctype_t get_ctype(char c)
     return C_SYMBOL;
 }
 
-char *get_alpha(FILE* f, char* buff)
+token_t *get_alpha(FILE* f, char* buff)
 {
     unsigned int bp = 1; 
     char c;
+
     do {
         c = fgetc(f);
+        if (c == EOF) { bp++; break; }
         buff[bp++] = c;
     } while (isvariable(c));
 
-    ungetc(f, c);
+    ungetc(c, f);
     buff[--bp] = '\0';
 
-    return buff; 
+    return get_identifier_token(buff); 
 }
 
-char *get_number(FILE* f, char* buff)
+token_t *get_number(FILE* f, char* buff)
 {
     unsigned int bp = 1;
     char c;
+
     do {
         c = fgetc(f);
+        if (c == EOF) { bp++; break; }
         buff[bp++] = c;
     } while (isdigit(c));
 
-    ungetc(f, c); 
+    ungetc(c, f); 
     buff[--bp] = '\0'; 
 
-    return buffer; 
+    return get_number_token(buff); 
 }
 
-static token_t *token_operator(operator_e type)
-{
-    token_t *t = malloc(sizeof(token_t));
-    t->type = OPERATOR;
-    t->value = type;
-
-    return t; 
-}
-
-static token_t *token_literal(FILE* f)
-{
-    unsigned int i = 0;
-    char buff[2000]; 
-    token_t *t = malloc(sizeof(token_t));
-
-    for (char c = '\0'; (c = fgetc(f)) != '"'; i++)
-        buff[i] = c;
-
-    buff[i] = '\0';
-
-    t->type = STR_LITERAL;
-    t->word = strdup(buff);
-
-    return buff; 
-}
-
-token_t *skip_com(FILE *f)
-{
-    char c;
-
-    while ((c = fgetc(f)) != '\n') ; 
-
-    return NULL;
-}
-
-token_t *skip_mult_com(FILE* f)
-{
-    char previous, next;
-
-    previous = fgetc(f);
-
-    for (
-            next = fgetc(f); 
-            previous != '/' && next != '*';
-            previous = next, next = fgetc(f);
-        );
-
-    return NULL;
-}
 
 token_t *get_symbol(FILE* f, char *buff)
 { 
@@ -119,25 +114,27 @@ token_t *get_symbol(FILE* f, char *buff)
         c = fgetc(f);
         buff[bp++] = c;
         buff[bp] = '\0';
+        if (c == EOF) break;
+    } while (isoperator(buff));
 
-    } while ((optype = get_operator(buff)) != -1);
-
-    ungetc(f, c);
+    ungetc(c, f);
     buff[--bp] = '\0';
+
+    optype = get_operator(buff);
 
     switch (optype)
     {
+        case OP_INVALID:
+            fprintf(stderr, "Invalid operator %s!\n", buff);
+            return NULL;
         case STR: 
-            return token_literal(f);
+            return get_literal_token(f);
         case COM: 
-              return skip_com(f);
+            return skipic(f);
         case MULT_COM:
-              return skip_mult_com(f);
+            return skipmc(f);
         default: 
-            return token_operator(buff); 
-    }
-
-}
-
-
+            return get_operator_token(optype); 
+    } 
+} 
 

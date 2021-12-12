@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "tokenizer.h"
 
 int main(int argc, char** argv)
 {
@@ -19,6 +20,8 @@ int main(int argc, char** argv)
     }
 
     printf("Hello, %s!\n", argv[1]); 
+
+    tokenize(f);
 
     fclose(f);
     return 0;

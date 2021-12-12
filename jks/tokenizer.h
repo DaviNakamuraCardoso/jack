@@ -2,8 +2,10 @@
 #define __TOKENIZERH
 
 #include "tokens.h"
+#include "ascii.h" 
+#include "operators.h"
 
-char* get_token(FILE* f, char* buff); 
+token_t** tokenize(FILE* f);
 
 #endif
 
