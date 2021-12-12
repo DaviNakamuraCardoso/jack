@@ -1,17 +1,23 @@
 
 CC = clang
-FLAGS = -Wall -Wextra
+FLAGS = -Wall -Wextra -Wpedantic -Werror -Wparentheses
 
 OBJ = main.o tokenizer.o tokens.o ascii.o symbols.o operators.o
 
-%.o: %.c
-	$(CC) $(FLAGS) -c $^ -o $@
+O = obj/
+S = src/
+I = include/
 
-all:  $(OBJ)
+OBJS = $(foreach obj, $(OBJ), $(addprefix $(O), $(obj)))
+
+$(O)%.o: $(S)%.c
+	$(CC) $(FLAGS) -I $(I) -c $^ -o $@
+
+all:  $(OBJS)
 	$(CC) $(FLAGS) $^ -o jks
 
 test: all
 	./jks file.jks
 
 clean: 
-	rm *.o
+	rm $(O)*.o

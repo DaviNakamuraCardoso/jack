@@ -1,4 +1,4 @@
-#include "operators.h"
+#include <operators.h>
 #include <stdio.h>
 
 const char* operators[] = {
@@ -23,7 +23,7 @@ const char* operators[] = {
 
 operator_e get_operator(char* buff)
 {
-    for (int i = 0; i < sizeof(operators) / sizeof(char*); i++)
+    for (size_t i = 0; i < sizeof(operators) / sizeof(char*); i++)
     {
         if (strcmp(buff, operators[i]) == 0) return i;
     }

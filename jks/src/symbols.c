@@ -1,4 +1,4 @@
-#include "symbols.h" 
+#include <symbols.h> 
 
 const char symbols[] = { 
     [AMPERSAND] = '&',

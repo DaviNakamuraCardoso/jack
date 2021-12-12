@@ -1,18 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "tokens.h"
+#include <tokens.h>
 
 enum tokentype {
     KEYWORD,
     NUM_LIT,
     OPERATOR,
+    SYMBOL,
     STR_LIT,
-    VARIABLE,
+    IDENTIFIER,
 };
 
 struct token {
     // Useful metadata
-    unsigned int line, character;
+    size_t position;
     enum tokentype type;
 
     union {
@@ -21,21 +22,22 @@ struct token {
     };
 };
 
-token_t *token_create(enum tokentype type, unsigned int ln, unsigned int chr, void* val)
+token_t *token_create(enum tokentype type, size_t position, void* val)
 {
     token_t *t = malloc(sizeof(token_t));
 
     t->type = type;
 
     // Metadata
-    t->line = ln;
-    t->character   = chr;
+    t->position = position;
 
     // Actual value
     switch (type)
     {
         case NUM_LIT:
-            t->value  = *(long*) val;
+        case SYMBOL:
+        case OPERATOR:
+            t->value  = (long) val;
             break;
         default: 
             t->word = (char*) val;
@@ -46,19 +48,14 @@ token_t *token_create(enum tokentype type, unsigned int ln, unsigned int chr, vo
 } 
 
 
-token_t *get_operator_token(operator_e type)
+token_t *get_operator_token(FILE* f, operator_e type)
 {
-    token_t *t = malloc(sizeof(token_t));
-    t->type = OPERATOR;
-    t->value = type;
-
-    return t; 
+    return token_create(OPERATOR, ftell(f), (void*)type);
 }
 
-token_t *get_literal_token(FILE* f)
+token_t *get_literal_token(FILE* f, char* buff)
 {
     unsigned int i = 0;
-    char buff[2000]; 
     token_t *t = malloc(sizeof(token_t));
 
     for (char c = '\0'; (c = fgetc(f)) != '"'; i++)
@@ -72,14 +69,14 @@ token_t *get_literal_token(FILE* f)
     return t; 
 }
 
-token_t* get_number_token(char* buff)
+token_t* get_number_token(FILE* f, char* buff)
 { 
-    return token_create(NUM_LIT, 0, 0, (void*)atoll(buff)); 
+    return token_create(NUM_LIT, ftell(f), (void*)atoll(buff)); 
 }
 
-token_t* get_identifier_token(char* buff) 
+token_t* get_identifier_token(FILE* f, char* buff) 
 {
-    return token_create(VARIABLE, 0, 0, (void*)buff);
+    return token_create(IDENTIFIER, ftell(f), (void*)buff);
 }
 
 token_t *skipic(FILE *f)
@@ -104,5 +101,18 @@ token_t *skipmc(FILE* f)
         );
 
     return NULL;
+}
+
+token_t* get_symbol_token(FILE* f, char *c)
+{
+    symbol_e type = get_symbol_type(*c);
+    if (type == ZZ_END)
+    {
+        fprintf(stderr, "Invalid token: %c\n", *c);
+        exit(1);
+    }
+
+    return token_create(SYMBOL, ftell(f), (void*)type); 
+
 }
 

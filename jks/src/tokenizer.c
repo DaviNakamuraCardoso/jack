@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
-#include "tokenizer.h"
+#include <tokenizer.h>
 
 typedef enum { 
     C_ALPHA,
@@ -20,15 +20,19 @@ int skipblank(FILE* f);
 token_t** tokenize(FILE* f)
 {
     char buff[3000] = {0};
-    token_t** tokens = calloc(sizeof(token_t*), 10);
+    token_t** tokens = calloc(sizeof(token_t*), 20);
 
     for (int i = 0;;)
     {
         if (skipblank(f)) break; 
 
         token_t *t = get_token(f, buff); 
-        if (t) tokens[i++] = t;
-        printf("%s\n", buff);
+
+        if (t) 
+        {
+            tokens[i++] = t;
+            printf("|%s|\n", buff);
+        }
     }
 
     return NULL;
@@ -83,7 +87,7 @@ token_t *get_alpha(FILE* f, char* buff)
     ungetc(c, f);
     buff[--bp] = '\0';
 
-    return get_identifier_token(buff); 
+    return get_identifier_token(f, buff); 
 }
 
 token_t *get_number(FILE* f, char* buff)
@@ -100,7 +104,7 @@ token_t *get_number(FILE* f, char* buff)
     ungetc(c, f); 
     buff[--bp] = '\0'; 
 
-    return get_number_token(buff); 
+    return get_number_token(f, buff); 
 }
 
 
@@ -125,16 +129,15 @@ token_t *get_symbol(FILE* f, char *buff)
     switch (optype)
     {
         case OP_INVALID:
-            fprintf(stderr, "Invalid operator %s!\n", buff);
-            return NULL;
+            return get_symbol_token(f, buff);
         case STR: 
-            return get_literal_token(f);
+            return get_literal_token(f, buff);
         case COM: 
             return skipic(f);
         case MULT_COM:
             return skipmc(f);
         default: 
-            return get_operator_token(optype); 
+            return get_operator_token(f, optype); 
     } 
 } 
 

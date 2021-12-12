@@ -1,4 +1,4 @@
-#include "ascii.h"
+#include <ascii.h>
 
 unsigned int isvariable(char c)
 {
