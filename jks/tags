@@ -4,91 +4,99 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
-ADD	operators.h	/^    ADD,$/;"	e	enum:_operator
-AMPERSAND	symbols.h	/^    AMPERSAND,$/;"	e	enum:__anon2
-AND	operators.h	/^    AND,$/;"	e	enum:_operator
+ADD	include/operators.h	/^    ADD,$/;"	e	enum:_operator
+AMPERSAND	include/symbols.h	/^    AMPERSAND,$/;"	e	enum:__anon1
+AND	include/operators.h	/^    AND,$/;"	e	enum:_operator
 CC	Makefile	/^CC = clang$/;"	m
-COM	operators.h	/^    COM,$/;"	e	enum:_operator
-COMMA	symbols.h	/^    COMMA,$/;"	e	enum:__anon2
-C_ALPHA	tokenizer.c	/^    C_ALPHA,$/;"	e	enum:__anon1	file:
-C_NUMBER	tokenizer.c	/^    C_NUMBER$/;"	e	enum:__anon1	file:
-C_SYMBOL	tokenizer.c	/^    C_SYMBOL,$/;"	e	enum:__anon1	file:
-DASH	symbols.h	/^    DASH,$/;"	e	enum:__anon2
-DIV	operators.h	/^    DIV,$/;"	e	enum:_operator
-DOT	symbols.h	/^    DOT,$/;"	e	enum:__anon2
-EQ	operators.h	/^    EQ,$/;"	e	enum:_operator
-EQUAL	symbols.h	/^    EQUAL,$/;"	e	enum:__anon2
-EXCLAMATION	symbols.h	/^    EXCLAMATION,$/;"	e	enum:__anon2
-FLAGS	Makefile	/^FLAGS = -Wall -Wextra$/;"	m
-GE	operators.h	/^    GE,$/;"	e	enum:_operator
-GT	operators.h	/^    GT,$/;"	e	enum:_operator
-HASH	symbols.h	/^    HASH,$/;"	e	enum:__anon2
-KEYWORD	tokens.c	/^    KEYWORD,$/;"	e	enum:tokentype	file:
-LE	operators.h	/^    LE,$/;"	e	enum:_operator
-LEFT_ANGLE	symbols.h	/^    LEFT_ANGLE,$/;"	e	enum:__anon2
-LEFT_BRACE	symbols.h	/^    LEFT_BRACE,$/;"	e	enum:__anon2
-LEFT_PARENTHESIS	symbols.h	/^    LEFT_PARENTHESIS, $/;"	e	enum:__anon2
-LEFT_SQUARE_BRACKET	symbols.h	/^    LEFT_SQUARE_BRACKET,$/;"	e	enum:__anon2
-LT	operators.h	/^    LT,$/;"	e	enum:_operator
-MULT	operators.h	/^    MULT,$/;"	e	enum:_operator
-MULT_COM	operators.h	/^    MULT_COM,$/;"	e	enum:_operator
-NE	operators.h	/^    NE,$/;"	e	enum:_operator
-NEG	operators.h	/^    NEG,$/;"	e	enum:_operator
-NOT	operators.h	/^    NOT,$/;"	e	enum:_operator
-NUM_LIT	tokens.c	/^    NUM_LIT,$/;"	e	enum:tokentype	file:
+COM	include/operators.h	/^    COM,$/;"	e	enum:_operator
+COMMA	include/symbols.h	/^    COMMA,$/;"	e	enum:__anon1
+C_ALPHA	src/tokenizer.c	/^    C_ALPHA,$/;"	e	enum:__anon2	file:
+C_NUMBER	src/tokenizer.c	/^    C_NUMBER$/;"	e	enum:__anon2	file:
+C_SYMBOL	src/tokenizer.c	/^    C_SYMBOL,$/;"	e	enum:__anon2	file:
+DASH	include/symbols.h	/^    DASH,$/;"	e	enum:__anon1
+DIV	include/operators.h	/^    DIV,$/;"	e	enum:_operator
+DOT	include/symbols.h	/^    DOT,$/;"	e	enum:__anon1
+END	include/operators.h	/^    END,$/;"	e	enum:_operator
+EQ	include/operators.h	/^    EQ,$/;"	e	enum:_operator
+EQUAL	include/symbols.h	/^    EQUAL,$/;"	e	enum:__anon1
+EXCLAMATION	include/symbols.h	/^    EXCLAMATION,$/;"	e	enum:__anon1
+FLAGS	Makefile	/^FLAGS = -Wall -Wextra -Wpedantic -Werror -Wparentheses$/;"	m
+GE	include/operators.h	/^    GE,$/;"	e	enum:_operator
+GT	include/operators.h	/^    GT,$/;"	e	enum:_operator
+HASH	include/symbols.h	/^    HASH,$/;"	e	enum:__anon1
+I	Makefile	/^I = include\/$/;"	m
+IDENTIFIER	src/tokens.c	/^    IDENTIFIER,$/;"	e	enum:tokentype	file:
+KEYWORD	src/tokens.c	/^    KEYWORD,$/;"	e	enum:tokentype	file:
+LE	include/operators.h	/^    LE,$/;"	e	enum:_operator
+LEFT_ANGLE	include/symbols.h	/^    LEFT_ANGLE,$/;"	e	enum:__anon1
+LEFT_BRACE	include/symbols.h	/^    LEFT_BRACE,$/;"	e	enum:__anon1
+LEFT_PARENTHESIS	include/symbols.h	/^    LEFT_PARENTHESIS, $/;"	e	enum:__anon1
+LEFT_SQUARE_BRACKET	include/symbols.h	/^    LEFT_SQUARE_BRACKET,$/;"	e	enum:__anon1
+LT	include/operators.h	/^    LT,$/;"	e	enum:_operator
+MULT	include/operators.h	/^    MULT,$/;"	e	enum:_operator
+MULT_COM	include/operators.h	/^    MULT_COM,$/;"	e	enum:_operator
+NE	include/operators.h	/^    NE,$/;"	e	enum:_operator
+NOT	include/operators.h	/^    NOT,$/;"	e	enum:_operator
+NUM_LIT	src/tokens.c	/^    NUM_LIT,$/;"	e	enum:tokentype	file:
+O	Makefile	/^O = obj\/$/;"	m
 OBJ	Makefile	/^OBJ = main.o tokenizer.o tokens.o ascii.o symbols.o operators.o$/;"	m
-OPERATOR	tokens.c	/^    OPERATOR,$/;"	e	enum:tokentype	file:
-OP_INVALID	operators.h	/^    OP_INVALID,$/;"	e	enum:_operator
-OR	operators.h	/^    OR,$/;"	e	enum:_operator
-PERCENT	symbols.h	/^    PERCENT,$/;"	e	enum:__anon2
-PIPE	symbols.h	/^    PIPE,$/;"	e	enum:__anon2
-PLUS	symbols.h	/^    PLUS,$/;"	e	enum:__anon2
-QUESTION	symbols.h	/^    QUESTION,$/;"	e	enum:__anon2
-RIGHT_ANGLE	symbols.h	/^    RIGHT_ANGLE,$/;"	e	enum:__anon2
-RIGHT_BRACE	symbols.h	/^    RIGHT_BRACE,$/;"	e	enum:__anon2
-RIGHT_PARENTHESIS	symbols.h	/^    RIGHT_PARENTHESIS,$/;"	e	enum:__anon2
-RIGHT_SQUARE_BRACKET	symbols.h	/^    RIGHT_SQUARE_BRACKET,$/;"	e	enum:__anon2
-SEMICOLON	symbols.h	/^    SEMICOLON,$/;"	e	enum:__anon2
-SLASH	symbols.h	/^    SLASH,$/;"	e	enum:__anon2
-STAR	symbols.h	/^    STAR,$/;"	e	enum:__anon2
-STR	operators.h	/^    STR, $/;"	e	enum:_operator
-STR_LIT	tokens.c	/^    STR_LIT,$/;"	e	enum:tokentype	file:
-SUB	operators.h	/^    SUB,$/;"	e	enum:_operator
-VARIABLE	tokens.c	/^    VARIABLE,$/;"	e	enum:tokentype	file:
-ZZ_END	symbols.h	/^    ZZ_END$/;"	e	enum:__anon2
-__ASCIIH	ascii.h	2;"	d
-__OPERATOR_H	operators.h	2;"	d
-__TOKENIZERH	tokenizer.h	2;"	d
-__TOKENSH	tokens.h	2;"	d
-_operator	operators.h	/^typedef enum _operator {$/;"	g
-character	tokens.c	/^    unsigned int line, character;$/;"	m	struct:token	file:
-ctype_t	tokenizer.c	/^} ctype_t;$/;"	t	typeref:enum:__anon1	file:
-get	tokenizer.c	/^token_t* (*get[]) (FILE*, char*) = {$/;"	v
-get_alpha	tokenizer.c	/^token_t *get_alpha(FILE* f, char* buff)$/;"	f
-get_ctype	tokenizer.c	/^ctype_t get_ctype(char c)$/;"	f
-get_identifier_token	tokens.c	/^token_t* get_identifier_token(char* buff) $/;"	f
-get_literal_token	tokens.c	/^token_t *get_literal_token(FILE* f)$/;"	f
-get_number	tokenizer.c	/^token_t *get_number(FILE* f, char* buff)$/;"	f
-get_number_token	tokens.c	/^token_t* get_number_token(char* buff)$/;"	f
-get_operator	operators.c	/^operator_e get_operator(char* buff)$/;"	f
-get_operator_token	tokens.c	/^token_t *get_operator_token(operator_e type)$/;"	f
-get_symbol	tokenizer.c	/^token_t *get_symbol(FILE* f, char *buff)$/;"	f
-get_symbol_type	symbols.c	/^symbol_e get_symbol_type(char c)$/;"	f
-get_token	tokenizer.c	/^token_t* get_token(FILE *f, char* buff)$/;"	f
-isoperator	operators.c	/^unsigned int isoperator(char* buff)$/;"	f
-isvariable	ascii.c	/^unsigned int isvariable(char c)$/;"	f
-line	tokens.c	/^    unsigned int line, character;$/;"	m	struct:token	file:
-main	main.c	/^int main(int argc, char** argv)$/;"	f
-operator_e	operators.h	/^} operator_e;$/;"	t	typeref:enum:_operator
-operators	operators.c	/^const char* operators[] = {$/;"	v
-skipic	tokens.c	/^token_t *skipic(FILE *f)$/;"	f
-skipmc	tokens.c	/^token_t *skipmc(FILE* f)$/;"	f
-symbol_e	symbols.h	/^} symbol_e;$/;"	t	typeref:enum:__anon2
-symbols	symbols.c	/^const char symbols[] = { $/;"	v
-token	tokens.c	/^struct token {$/;"	s	file:
-token_create	tokens.c	/^token_t *token_create(enum tokentype type, unsigned int ln, unsigned int chr, void* val)$/;"	f
-token_t	tokens.h	/^typedef struct token token_t;$/;"	t	typeref:struct:token
-tokentype	tokens.c	/^enum tokentype {$/;"	g	file:
-type	tokens.c	/^    enum tokentype type;$/;"	m	struct:token	typeref:enum:token::tokentype	file:
-value	tokens.c	/^        long value; $/;"	m	union:token::__anon3	file:
-word	tokens.c	/^        char* word;$/;"	m	union:token::__anon3	file:
+OBJS	Makefile	/^OBJS = $(foreach obj, $(OBJ), $(addprefix $(O), $(obj)))$/;"	m
+OPERATOR	src/tokens.c	/^    OPERATOR,$/;"	e	enum:tokentype	file:
+OP_INVALID	include/operators.h	/^    OP_INVALID, $/;"	e	enum:_operator
+OR	include/operators.h	/^    OR,$/;"	e	enum:_operator
+PERCENT	include/symbols.h	/^    PERCENT,$/;"	e	enum:__anon1
+PIPE	include/symbols.h	/^    PIPE,$/;"	e	enum:__anon1
+PLUS	include/symbols.h	/^    PLUS,$/;"	e	enum:__anon1
+QUESTION	include/symbols.h	/^    QUESTION,$/;"	e	enum:__anon1
+RIGHT_ANGLE	include/symbols.h	/^    RIGHT_ANGLE,$/;"	e	enum:__anon1
+RIGHT_BRACE	include/symbols.h	/^    RIGHT_BRACE,$/;"	e	enum:__anon1
+RIGHT_PARENTHESIS	include/symbols.h	/^    RIGHT_PARENTHESIS,$/;"	e	enum:__anon1
+RIGHT_SQUARE_BRACKET	include/symbols.h	/^    RIGHT_SQUARE_BRACKET,$/;"	e	enum:__anon1
+S	Makefile	/^S = src\/$/;"	m
+SEMICOLON	include/symbols.h	/^    SEMICOLON,$/;"	e	enum:__anon1
+SLASH	include/symbols.h	/^    SLASH,$/;"	e	enum:__anon1
+STAR	include/symbols.h	/^    STAR,$/;"	e	enum:__anon1
+STR	include/operators.h	/^    STR, $/;"	e	enum:_operator
+STR_LIT	src/tokens.c	/^    STR_LIT,$/;"	e	enum:tokentype	file:
+SUB	include/operators.h	/^    SUB,$/;"	e	enum:_operator
+SYMBOL	src/tokens.c	/^    SYMBOL,$/;"	e	enum:tokentype	file:
+ZZ_END	include/symbols.h	/^    ZZ_END$/;"	e	enum:__anon1
+__ASCIIH	include/ascii.h	2;"	d
+__OPERATOR_H	include/operators.h	2;"	d
+__TOKENIZERH	include/tokenizer.h	2;"	d
+__TOKENSH	include/tokens.h	2;"	d
+_operator	include/operators.h	/^typedef enum _operator {$/;"	g
+ctype_t	src/tokenizer.c	/^} ctype_t;$/;"	t	typeref:enum:__anon2	file:
+get	src/tokenizer.c	/^token_t* (*get[]) (FILE*, char*) = {$/;"	v
+get_alpha	src/tokenizer.c	/^token_t *get_alpha(FILE* f, char* buff)$/;"	f
+get_ctype	src/tokenizer.c	/^ctype_t get_ctype(char c)$/;"	f
+get_identifier_token	src/tokens.c	/^token_t* get_identifier_token(FILE* f, char* buff) $/;"	f
+get_literal_token	src/tokens.c	/^token_t *get_literal_token(FILE* f, char* buff)$/;"	f
+get_number	src/tokenizer.c	/^token_t *get_number(FILE* f, char* buff)$/;"	f
+get_number_token	src/tokens.c	/^token_t* get_number_token(FILE* f, char* buff)$/;"	f
+get_operator	src/operators.c	/^operator_e get_operator(char* buff)$/;"	f
+get_operator_token	src/tokens.c	/^token_t *get_operator_token(FILE* f, operator_e type)$/;"	f
+get_symbol	src/tokenizer.c	/^token_t *get_symbol(FILE* f, char *buff)$/;"	f
+get_symbol_token	src/tokens.c	/^token_t* get_symbol_token(FILE* f, char *c)$/;"	f
+get_symbol_type	src/symbols.c	/^symbol_e get_symbol_type(char c)$/;"	f
+get_token	src/tokenizer.c	/^token_t* get_token(FILE *f, char* buff)$/;"	f
+isoperator	src/operators.c	/^unsigned int isoperator(char* buff)$/;"	f
+isvariable	src/ascii.c	/^unsigned int isvariable(char c)$/;"	f
+main	percent.c	/^int main(int argc, const char** argv)$/;"	f
+main	src/main.c	/^int main(int argc, char** argv)$/;"	f
+operator_e	include/operators.h	/^} operator_e;$/;"	t	typeref:enum:_operator
+operators	src/operators.c	/^const char* operators[] = {$/;"	v
+position	src/tokens.c	/^    size_t position;$/;"	m	struct:token	file:
+skipblank	src/tokenizer.c	/^int skipblank(FILE* f)$/;"	f
+skipic	src/tokens.c	/^token_t *skipic(FILE *f)$/;"	f
+skipmc	src/tokens.c	/^token_t *skipmc(FILE* f)$/;"	f
+symbol_e	include/symbols.h	/^} symbol_e;$/;"	t	typeref:enum:__anon1
+symbols	src/symbols.c	/^const char symbols[] = { $/;"	v
+token	src/tokens.c	/^struct token {$/;"	s	file:
+token_create	src/tokens.c	/^token_t *token_create(enum tokentype type, size_t position, void* val)$/;"	f
+token_t	include/tokens.h	/^typedef struct token token_t;$/;"	t	typeref:struct:token
+tokenize	src/tokenizer.c	/^token_t** tokenize(FILE* f)$/;"	f
+tokentype	src/tokens.c	/^enum tokentype {$/;"	g	file:
+type	src/tokens.c	/^    enum tokentype type;$/;"	m	struct:token	typeref:enum:token::tokentype	file:
+value	src/tokens.c	/^        long value; $/;"	m	union:token::__anon3	file:
+word	src/tokens.c	/^        char* word;$/;"	m	union:token::__anon3	file:

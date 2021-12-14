@@ -9,6 +9,7 @@ typedef enum {
     C_NUMBER
 } ctype_t;
 
+
 token_t* get_alpha(FILE*, char*);
 token_t* get_symbol(FILE*, char*);
 token_t* get_number(FILE*, char*);
