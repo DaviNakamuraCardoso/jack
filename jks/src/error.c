@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 
-static int errorat(const char* filename, size_t target)
+int errorat(const char* filename, size_t target)
 {
     FILE *f = fopen(filename, "r");
     unsigned int lines = 0, characters = 0;

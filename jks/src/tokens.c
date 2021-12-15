@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <tokens.h>
+#include <error.h>
 
 enum tokentype {
     KEYWORD,
@@ -108,7 +109,11 @@ token_t* get_symbol_token(FILE* f, char *c)
     symbol_e type = get_symbol_type(*c);
     if (type == ZZ_END)
     {
-        fprintf(stderr, "Invalid token: %c\n", *c);
+        size_t location = ftell(f);
+        fclose(f);
+        fprintf(stderr, "Invalid token: %c\n", *c); 
+        
+        errorat("file.jks", location);
         exit(1);
     }
 

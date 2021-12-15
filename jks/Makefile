@@ -2,7 +2,7 @@
 CC = clang
 FLAGS = -Wall -Wextra -Wpedantic -Werror -Wparentheses
 
-OBJ = main.o tokenizer.o tokens.o ascii.o symbols.o operators.o
+OBJ = main.o tokenizer.o tokens.o ascii.o symbols.o operators.o error.o
 
 O = obj/
 S = src/
