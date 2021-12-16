@@ -10,7 +10,7 @@ int main(int argc, char** argv)
         fprintf(stderr, "Usage: ./jks <filename>\n");
         return 1;
     } 
-
+    
     f = fopen(argv[1], "r");
 
     if (f == NULL) 
