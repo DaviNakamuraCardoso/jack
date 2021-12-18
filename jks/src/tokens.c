@@ -15,6 +15,7 @@ enum tokentype {
 struct token {
     // Useful metadata
     size_t position;
+
     enum tokentype type;
 
     union {
@@ -107,17 +108,16 @@ token_t *skipmc(FILE* f)
 token_t* get_symbol_token(FILE* f, char *c)
 {
     symbol_e type = get_symbol_type(*c);
+
     if (type == ZZ_END)
     {
         size_t location = ftell(f);
         fclose(f);
-        fprintf(stderr, "Invalid token: %c\n", *c); 
         
         errorat("file.jks", location);
         exit(1);
     }
 
     return token_create(SYMBOL, ftell(f), (void*)type); 
-
 }
 

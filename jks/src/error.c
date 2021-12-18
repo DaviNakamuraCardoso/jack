@@ -33,6 +33,7 @@ int errorat(const char* filename, size_t target)
     fprintf(stderr, "  ");
     
     for (unsigned int i = lines; i > 0; i /= 10) fputc(' ', stderr);
+
     fputc(' ', stderr);
     fputc('|', stderr);
     for (unsigned int i = 0; i < characters - 1; i++) fputc(' ', stderr);
