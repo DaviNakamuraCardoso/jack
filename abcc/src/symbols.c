@@ -42,9 +42,11 @@ symbol_e get_symbol_type(char c)
         case ')': return LEFT_PARENTHESIS;
         case '[': return LEFT_SQUARE_BRACKET;
         case ']': return RIGHT_SQUARE_BRACKET; 
+        case '=': return EQUAL;
+                 
         case '{': return RIGHT_BRACE; 
         case '}': return LEFT_BRACE; 
-
-        default: return ZZ_END;
     }
+
+    return ZZ_END;
 }

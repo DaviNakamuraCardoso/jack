@@ -18,7 +18,7 @@ const char* operators[] = {
     [NOT] = "!",
     [OR] = "||",
     [STR] = "\"",
-    [SUB] = "-",
+    [SUB] = "-", 
 };
 
 operator_e get_operator(char* buff)

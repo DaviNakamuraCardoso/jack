@@ -18,7 +18,7 @@ all:  $(OBJS)
 	$(CC) $(FLAGS) $^ -o $(EXEC)
 
 test: all
-	./$(EXEC) file.jks
+	./$(EXEC) percent.c
 
 clean: 
 	rm $(O)*.o $(EXEC)

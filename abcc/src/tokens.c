@@ -107,14 +107,15 @@ token_t *skipmc(FILE* f)
 
 token_t* get_symbol_token(source_t *s)
 {
-    symbol_e type = get_symbol_type(*(s->buff));
+    char c = *(s->buff);
+    symbol_e type = get_symbol_type(c);
 
     if (type == ZZ_END)
     {
         size_t location = ftell(s->f);
         fclose(s->f);
         
-        errorat(s->filename, location);
+        errorat(s->filename, location, "stray '%c' in program", c);
         exit(1);
     }
 

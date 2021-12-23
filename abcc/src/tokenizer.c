@@ -22,7 +22,7 @@ int skipblank(FILE* f);
 token_t** tokenize(const char* filename, FILE* f)
 {
     char buff[3000] = {0};
-    token_t** tokens = calloc(sizeof(token_t*), 20);
+    token_t** tokens = calloc(sizeof(token_t*), 200);
 
     source_t s = {.buff=buff, .f=f, .filename=filename};
 
@@ -35,11 +35,13 @@ token_t** tokenize(const char* filename, FILE* f)
         if (t) 
         {
             tokens[i++] = t;
+#ifdef TOKENIZER_TEST
             printf("|%s|\n", buff);
+#endif
         }
     }
 
-    return NULL;
+    return tokens;
 }
 
 
