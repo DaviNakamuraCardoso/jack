@@ -50,35 +50,35 @@ token_t *token_create(enum tokentype type, size_t position, void* val)
 } 
 
 
-token_t *get_operator_token(FILE* f, operator_e type)
+token_t *get_operator_token(source_t* s)
 {
-    return token_create(OPERATOR, ftell(f), (void*)type);
+    return token_create(OPERATOR, ftell(s->f), (void*)get_operator(s->buff));
 }
 
-token_t *get_literal_token(FILE* f, char* buff)
+token_t *get_literal_token(source_t *s)
 {
     unsigned int i = 0;
     token_t *t = malloc(sizeof(token_t));
 
-    for (char c = '\0'; (c = fgetc(f)) != '"'; i++)
-        buff[i] = c;
+    for (char c = '\0'; (c = fgetc(s->f)) != '"'; i++)
+        s->buff[i] = c;
 
-    buff[i] = '\0';
+    s->buff[i] = '\0';
 
     t->type = STR_LIT;
-    t->word = strdup(buff);
+    t->word = strdup(s->buff);
 
     return t; 
 }
 
-token_t* get_number_token(FILE* f, char* buff)
+token_t* get_number_token(source_t *s)
 { 
-    return token_create(NUM_LIT, ftell(f), (void*)atoll(buff)); 
+    return token_create(NUM_LIT, ftell(s->f), (void*)atoll(s->buff)); 
 }
 
-token_t* get_identifier_token(FILE* f, char* buff) 
+token_t* get_identifier_token(source_t *s) 
 {
-    return token_create(IDENTIFIER, ftell(f), (void*)buff);
+    return token_create(IDENTIFIER, ftell(s->f), (void*)s->buff);
 }
 
 token_t *skipic(FILE *f)
@@ -105,19 +105,19 @@ token_t *skipmc(FILE* f)
     return NULL;
 }
 
-token_t* get_symbol_token(FILE* f, char *c)
+token_t* get_symbol_token(source_t *s)
 {
-    symbol_e type = get_symbol_type(*c);
+    symbol_e type = get_symbol_type(*(s->buff));
 
     if (type == ZZ_END)
     {
-        size_t location = ftell(f);
-        fclose(f);
+        size_t location = ftell(s->f);
+        fclose(s->f);
         
-        errorat("file.jks", location);
+        errorat(s->filename, location);
         exit(1);
     }
 
-    return token_create(SYMBOL, ftell(f), (void*)type); 
+    return token_create(SYMBOL, ftell(s->f), (void*)type); 
 }
 

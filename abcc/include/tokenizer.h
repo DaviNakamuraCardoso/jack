@@ -3,19 +3,13 @@
 
 #define BUFF_MAX 1000
 
+#include "source.h"
 #include "tokens.h"
 #include "ascii.h" 
 #include "operators.h"
 
-typedef struct source 
-{
-    FILE* fd;
-    char buff[BUFF_MAX];
-    const char* filename; 
 
-} source_t;
-
-token_t** tokenize(FILE* f);
+token_t** tokenize(const char* filename, FILE* f);
 
 #endif
 

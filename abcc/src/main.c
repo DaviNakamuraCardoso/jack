@@ -4,6 +4,7 @@
 int main(int argc, char** argv)
 {
     FILE* f;
+    const char* filename = argv[1];
 
     if (argc != 2)
     {
@@ -11,15 +12,15 @@ int main(int argc, char** argv)
         return 1;
     } 
     
-    f = fopen(argv[1], "r");
+    f = fopen(filename, "r");
 
     if (f == NULL) 
     {
-        fprintf(stderr, "Could not open file '%s'. Compilation failed.\n", argv[1]);
+        fprintf(stderr, "Could not open file '%s'. Compilation failed.\n", filename);
         return 1;
     }
 
-    tokenize(f);
+    tokenize(filename, f);
 
     fclose(f);
     return 0;

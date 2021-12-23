@@ -1,6 +1,7 @@
 
 CC = clang
 FLAGS = -Wall -Wextra -Wpedantic -Werror -Wparentheses
+EXEC = abcc
 
 OBJ = main.o tokenizer.o tokens.o ascii.o symbols.o operators.o error.o
 
@@ -14,10 +15,10 @@ $(O)%.o: $(S)%.c
 	$(CC) $(FLAGS) -I $(I) -c $^ -o $@
 
 all:  $(OBJS)
-	$(CC) $(FLAGS) $^ -o jks
+	$(CC) $(FLAGS) $^ -o $(EXEC)
 
 test: all
-	./jks file.jks
+	./$(EXEC) file.jks
 
 clean: 
-	rm $(O)*.o
+	rm $(O)*.o $(EXEC)

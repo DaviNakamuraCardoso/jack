@@ -1,5 +1,4 @@
-# Ignore all CSV files
-*.csv
-*.tsv
-
+*.swp 
+*.o
+tags 
 
