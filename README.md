@@ -1,7 +1,7 @@
 # The Jack Programming Language 
 ## Compiler and Virtual Machine
 
-[toc]
+[toc] 
 
 ### The Jack Language 
 Jack is an educational programming language created by [Shimon Schocken](https://shimonschocken.com) and [Noam Nisan](https://en.wikipedia.org/wiki/Noam_Nisan) for the course *The Elements of Computing Systems*, also known as [Nand2Tetris](https://nand2tetris.org), offered by [The Hebrew University of Jerusalem](https://en.wikipedia.org/wiki/Hebrew_University_of_Jerusalem). Students are asked to build their own compilers for this object-oriented language.
