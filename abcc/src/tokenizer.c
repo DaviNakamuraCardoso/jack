@@ -10,7 +10,6 @@ typedef enum {
 } ctype_t;
 
 
-
 token_t* get_alpha  (source_t* s);
 token_t* get_symbol (source_t* s);
 token_t* get_number (source_t* s);

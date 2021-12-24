@@ -35,3 +35,4 @@ unsigned int isoperator(char* buff)
 {
     return get_operator(buff) != OP_INVALID; 
 } 
+
