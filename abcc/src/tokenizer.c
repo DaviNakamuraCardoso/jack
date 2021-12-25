@@ -17,13 +17,15 @@ token_t* get_token  (source_t* s);
 ctype_t get_ctype(char c);
 int skipblank(FILE* f);
 
-
 token_t** tokenize(const char* filename, FILE* f)
 {
     char buff[3000] = {0};
-    token_t** tokens = calloc(sizeof(token_t*), 200);
+    token_t** tokens = calloc(sizeof(token_t*), 200); 
+    optree_t* t = (optree_t*) sgetall();
+    opgetall(t);
 
-    source_t s = {.buff=buff, .f=f, .filename=filename};
+
+    source_t s = {.buff=buff, .f=f, .filename=filename, .t=t};
 
     for (int i = 0;;)
     {
@@ -39,6 +41,8 @@ token_t** tokenize(const char* filename, FILE* f)
 #endif
         }
     }
+
+    opdestroy(s.t);
 
     return tokens;
 }
@@ -115,40 +119,45 @@ token_t *get_number(source_t* s)
     s->buff[--bp] = '\0'; 
 
     return get_number_token(s); 
-}
-
+} 
 
 token_t *get_symbol(source_t* s)
 { 
     unsigned int bp = 1;
-    char c;
-    operator_e optype;
-    FILE *f = s->f;
-    char* buff = s->buff; 
+    char c = s->buff[0];
+    optree_t *current = opgetc(s->t, c), *next = NULL;
+
+    if (current == NULL)
+    {
+        errorat(s->filename, ftell(s->f), "stray '%c' in program", c);
+        exit(1);
+    }
 
     do {
-        c = fgetc(f);
-        buff[bp++] = c;
-        buff[bp] = '\0';
+        c = fgetc(s->f);
+        s->buff[bp++] = c;
+        s->buff[bp] = '\0';
+
+        next = opgetc(current, c);
         if (c == EOF) break;
-    } while (isoperator(buff));
+        if (next != NULL) current = next;
 
-    ungetc(c, f);
-    buff[--bp] = '\0';
+    } while (next != NULL);
 
-    optype = get_operator(buff);
+    ungetc(c, s->f);
+    s->buff[--bp] = '\0';
 
-    switch (optype)
+    if (!(current->isoperator)) return get_symbol_token(s, current->symbol);
+
+    switch (current->operator)
     {
-        case OP_INVALID:
-            return get_symbol_token(s);
         case STR: 
             return get_literal_token(s);
         case COM: 
-            return skipic(f);
+            return skipic(s->f);
         case MULT_COM:
-            return skipmc(f);
+            return skipmc(s->f);
         default: 
-            return get_operator_token(s); 
+            return get_operator_token(s, current->operator); 
     } 
 } 

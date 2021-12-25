@@ -1,8 +1,12 @@
+#ifndef __SYMBOLS_H
+#define __SYMBOLS_H
 
 typedef enum {
     AMPERSAND,
+    COLON,
     COMMA,
     DASH,
+    DOUBLE_QUOTE, 
     DOT,
     EQUAL,
     EXCLAMATION,
@@ -20,11 +24,13 @@ typedef enum {
     RIGHT_PARENTHESIS,
     RIGHT_SQUARE_BRACKET,
     SEMICOLON,
+    SINGLE_QUOTE, 
     SLASH,
     STAR,
-    ZZ_END
+    __SYM_COUNT,
 } symbol_e;
 
-symbol_e get_symbol_type(char c);
+void* sgetall(void);
+unsigned int opindex(char);
 
-
+#endif

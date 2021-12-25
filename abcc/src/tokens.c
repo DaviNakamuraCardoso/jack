@@ -49,10 +49,9 @@ token_t *token_create(enum tokentype type, size_t position, void* val)
     return t; 
 } 
 
-
-token_t *get_operator_token(source_t* s)
+token_t *get_operator_token(source_t* s, operator_e type)
 {
-    return token_create(OPERATOR, ftell(s->f), (void*)get_operator(s->buff));
+    return token_create(OPERATOR, ftell(s->f), (void*)type);
 }
 
 token_t *get_literal_token(source_t *s)
@@ -61,7 +60,13 @@ token_t *get_literal_token(source_t *s)
     token_t *t = malloc(sizeof(token_t));
 
     for (char c = '\0'; (c = fgetc(s->f)) != '"'; i++)
+    {
         s->buff[i] = c;
+        if (c == '\\')
+        {
+            s->buff[++i] = fgetc(s->f); 
+        }
+    }
 
     s->buff[i] = '\0';
 
@@ -98,27 +103,15 @@ token_t *skipmc(FILE* f)
 
     for (
             next = fgetc(f); 
-            previous != '*' && next != '/';
+            previous != '*' || next != '/';
             previous = next, next = fgetc(f)
-        );
+        ) ;
 
     return NULL;
 }
 
-token_t* get_symbol_token(source_t *s)
+token_t* get_symbol_token(source_t *s, symbol_e type)
 {
-    char c = *(s->buff);
-    symbol_e type = get_symbol_type(c);
-
-    if (type == ZZ_END)
-    {
-        size_t location = ftell(s->f);
-        fclose(s->f);
-        
-        errorat(s->filename, location, "stray '%c' in program", c);
-        exit(1);
-    }
-
     return token_create(SYMBOL, ftell(s->f), (void*)type); 
 }
 

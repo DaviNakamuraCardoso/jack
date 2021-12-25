@@ -8,7 +8,7 @@ int main(int argc, char** argv)
 
     if (argc != 2)
     {
-        fprintf(stderr, "Usage: ./jks <filename>\n");
+        fprintf(stderr, "Usage: abcc <filename>\n");
         return 1;
     } 
     

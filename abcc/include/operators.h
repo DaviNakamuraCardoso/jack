@@ -2,10 +2,11 @@
 #define __OPERATOR_H 1
 
 #include <string.h>
+#include "optree.h"
 
 typedef enum _operator {
     ADD,
-    AND,
+    AND, 
     COM,
     DIV,
     END,
@@ -21,12 +22,11 @@ typedef enum _operator {
     OR,
     STR, 
     SUB,
-    OP_INVALID, 
+    __OP_COUNT, 
 
 } operator_e;
 
-operator_e get_operator(char* buff); 
-unsigned int isoperator(char* buff); 
+unsigned int opgetall(optree_t*);
 
 #endif
 

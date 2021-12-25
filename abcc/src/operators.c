@@ -1,7 +1,7 @@
 #include <operators.h>
 #include <stdio.h>
 
-const char* operators[] = {
+const char* operators[__OP_COUNT] = {
     [ADD] = "+", 
     [AND] = "&&",
     [COM] = "//",
@@ -21,18 +21,9 @@ const char* operators[] = {
     [SUB] = "-", 
 };
 
-operator_e get_operator(char* buff)
+unsigned int opgetall(optree_t* t)
 {
-    for (size_t i = 0; i < sizeof(operators) / sizeof(char*); i++)
-    {
-        if (strcmp(buff, operators[i]) == 0) return i;
-    }
-
-    return OP_INVALID;
+    for (int i = 0; i < __OP_COUNT; i++) opadds(t, operators[i], (operator_e)i);
+    return 0; 
 }
-
-unsigned int isoperator(char* buff)
-{
-    return get_operator(buff) != OP_INVALID; 
-} 
 
