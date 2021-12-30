@@ -110,8 +110,38 @@ token_t *skipmc(FILE* f)
     return NULL;
 }
 
+token_t* get_char_literal(source_t *s)
+{
+    long c = fgetc(s->f), next = fgetc(s->f);
+
+    if (next == '\'') goto end; // gotos, oh no
+
+    if (c == '\\')
+    {
+        c = getesc(next);
+        next = fgetc(s->f);
+        if (next == '\'') goto end;
+    } 
+
+    errorat(s->filename, ftell(s->f), "multi-character character constant");
+    exit(1);
+
+end:
+#ifdef TOKENIZER_TEST
+    s->buff[0] = c;
+    s->buff[1] = '\0';
+#endif
+    return token_create(NUM_LIT, ftell(s->f), (void*)c);
+
+}
+
 token_t* get_symbol_token(source_t *s, symbol_e type)
 {
+    if (type == SINGLE_QUOTE)
+    {
+        return get_char_literal(s);
+    }
+        
     return token_create(SYMBOL, ftell(s->f), (void*)type); 
 }
 

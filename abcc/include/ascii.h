@@ -3,5 +3,6 @@
 
 #include <ctype.h>
 unsigned int isvariable(char c);
+char getesc(char c);
 #endif
 

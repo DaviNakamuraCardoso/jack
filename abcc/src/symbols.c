@@ -12,62 +12,66 @@ const char symbols[] = {
     [EQUAL] = '=',
     [EXCLAMATION] = '!',
     [HASH] = '#',
-    [LEFT_ANGLE] = '<',
-    [LEFT_BRACE] = '{',
-    [LEFT_PARENTHESIS] = '(',
-    [LEFT_SQUARE_BRACKET] = '[',
+    [LA] = '<',
+    [LB] = '{',
+    [LP] = '(',
+    [LS] = '[',
     [PERCENT] = '%',
     [PIPE] = '|',
     [PLUS] = '+',
     [QUESTION] = '?',
-    [RIGHT_ANGLE] = '>',
-    [RIGHT_BRACE] = '}',
-    [RIGHT_PARENTHESIS] = ')',
-    [RIGHT_SQUARE_BRACKET] = ']',
+    [RA] = '>',
+    [RB] = '}',
+    [RP] = ')',
+    [RS] = ']',
     [SEMICOLON] = ';',
+    [SINGLE_QUOTE] = 39,
     [SLASH] = '/',
     [STAR] = '*',
     [__SYM_COUNT] = '\0',
 };
 
+const symbol_e svalues[] = {
+    ['&'] = AMPERSAND,
+    [':'] = COLON,
+    [','] = COMMA,
+    ['-'] = DASH,
+    ['.'] = DOT,
+    ['"'] = DOUBLE_QUOTE, 
+    ['='] = EQUAL,
+    ['!'] = EXCLAMATION,
+    ['#'] = HASH,
+    ['<'] = LA,
+    ['{'] = LB,
+    ['('] = LP,
+    ['['] = LS,
+    ['%'] = PERCENT,
+    ['+'] = PLUS,
+    ['|'] = PIPE,
+    ['>'] = RA,
+    ['}'] = RB,
+    [')'] = RP,
+    [']'] = RS,
+    [';'] = SEMICOLON,
+    [39] = SINGLE_QUOTE,
+    ['/'] = SLASH,
+    ['*'] = STAR,
+
+};
+
 symbol_e opindex(char c)
 {
-    if (!ispunct(c)) return __SYM_COUNT;
-
-    switch (c) {
-        case ';': return SEMICOLON;
-        case '=': return EQUAL;
-        case ')': return RIGHT_PARENTHESIS;
-        case '(': return LEFT_PARENTHESIS;
-        case '}': return RIGHT_BRACE; 
-        case '{': return LEFT_BRACE; 
-        case '[': return LEFT_SQUARE_BRACKET;
-        case ']': return RIGHT_SQUARE_BRACKET;
-        case '>': return RIGHT_ANGLE;
-        case '<': return LEFT_ANGLE; 
-        case '\'': return SINGLE_QUOTE; 
-        case ':': return COLON; 
-        case '"': return DOUBLE_QUOTE; 
-        case '*': return STAR;
-        case '/': return SLASH;
-        case '-': return DASH;
-        case '.': return DOT;
-        case '+': return PLUS;
-        case ',': return COMMA;
-        case '%': return HASH;
-        case '!': return EXCLAMATION;
-        case '#': return HASH;
-        case '&': return AMPERSAND; 
-        case '|': return PIPE;
-    }
-
-    return __SYM_COUNT;
+    if (!ispunct(c)) return __SYM_COUNT; 
+    symbol_e s = svalues[(unsigned int) c];
+    if (s == __INVALID) return __SYM_COUNT;
+   
+    return s;
 }
 
 void* sgetall(void)
 {
     optree_t *t = opnew();
-    for (unsigned int i = 0; i < __SYM_COUNT; i++) opaddc(t, symbols[i]);
+    for (unsigned int i = __INVALID+1; i < __SYM_COUNT; i++) opaddc(t, symbols[i]);
 
     return t; 
 }

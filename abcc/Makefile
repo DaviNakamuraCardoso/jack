@@ -1,6 +1,6 @@
 
 CC = clang
-FLAGS = -Wall -Wextra -Wpedantic -Werror -Wparentheses
+FLAGS = -Wall -Wextra -Wpedantic -Werror -Wparentheses 
 EXEC = abcc
 
 OBJ = main.o tokenizer.o tokens.o ascii.o symbols.o operators.o error.o optree.o
@@ -24,7 +24,7 @@ all: $(OBJS)
 	$(CC) $(FLAGS) $^ -o $(EXEC)
 
 testall: $(TOBJS)
-	$(CC) $^ -o test-$(EXEC)
+	$(CC) $^ -o $(TP)$(EXEC)
 
 test: testall
 	for i in test/tok/*.c; do echo "$$i"; ./$(TP)$(EXEC) $$i; done

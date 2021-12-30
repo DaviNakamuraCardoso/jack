@@ -1,6 +1,7 @@
 #ifndef __TOKENSH
 #define __TOKENSH
 
+#include "ascii.h"
 #include "source.h"
 #include "symbols.h"
 #include "operators.h"

@@ -29,9 +29,9 @@ token_t** tokenize(const char* filename, FILE* f)
 
     for (int i = 0;;)
     {
-        if (skipblank(f)) break; 
 
-        token_t *t = get_token(&s); 
+        if (skipblank(f)) break; 
+        token_t* t = get_token(&s); 
 
         if (t) 
         {
