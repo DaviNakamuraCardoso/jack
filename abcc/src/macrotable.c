@@ -3,13 +3,7 @@
 #include <string.h>
 #include <macrotable.h>
 
-#define MTSIZE 101
-
-typedef struct mtnode {
-    char *macro;
-    size_t value;
-    struct mtnode *next;
-} mnode_t;
+#define MTSIZE 101 
 
 struct mtable {
     mnode_t *nodes[MTSIZE];
@@ -41,29 +35,29 @@ mnode_t *mnnew(char* s, size_t v)
 {
     mnode_t *n = malloc(sizeof(mnode_t));
     n->macro = strdup(s);
-    n->value = v;
+    n->index = v;
 
     return n;
 }
 
 
-size_t mtset(mtable_t *mt, char *macro, size_t value)
+mnode_t* mtset(mtable_t *mt, char *macro, size_t value)
 {
     size_t index = hash(macro);
     mnode_t *first = mt->nodes[index];
     mt->nodes[index] = mnnew(macro, value);
     mt->nodes[index]->next = first;
 
-    return value;
+    return mt->nodes[index];
 } 
 
-size_t mtget(mtable_t *mt, char* macro)
+mnode_t* mtget(mtable_t *mt, char* macro)
 {
     size_t index = hash(macro);
 
-    for (mnode_t *n = mt->nodes[index]; n != NULL; n = n->next) if (strcmp(n->macro, macro) == 0) return n->value;
+    for (mnode_t *n = mt->nodes[index]; n != NULL; n = n->next) if (strcmp(n->macro, macro) == 0) return n;
 
-    return 0;
+    return NULL;
 }
 
 
