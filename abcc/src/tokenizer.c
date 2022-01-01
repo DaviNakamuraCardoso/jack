@@ -3,6 +3,10 @@
 #include <ctype.h>
 #include <tokenizer.h>
 
+#ifdef TOKENIZER_TEST
+#include <string.h>
+#endif
+
 typedef enum { 
     C_ALPHA,
     C_SYMBOL,
@@ -15,24 +19,37 @@ token_t* get_symbol (source_t* s);
 token_t* get_number (source_t* s);
 token_t* get_token  (source_t* s);
 ctype_t get_ctype(char c);
-int skipblank(FILE* f);
 
 token_t** tokenize(const char* filename, FILE* f)
 {
     char buff[3000] = {0};
     token_t** tokens = calloc(sizeof(token_t*), 200); 
     optree_t* t = (optree_t*) sgetall();
-    opgetall(t);
-
+    opgetall(t); 
 
     source_t s = {.buff=buff, .f=f, .filename=filename, .t=t};
 
     for (int i = 0;;)
     {
 
-        if (skipblank(f)) break; 
-        token_t* t = get_token(&s); 
+        token_t *t = NULL;
 
+        if (s.tl) 
+        {
+            t = skipspace(f);
+            if (t) 
+            {
+                s.tl = 0; 
+#ifdef TOKENIZER_TEST 
+                strcpy(buff, "__NEWLINE__");
+#endif
+                goto end;
+            }
+        } else if (skipblank(f)) break; 
+
+        t = get_token(&s); 
+
+end:
         if (t) 
         {
             tokens[i++] = t;
@@ -46,24 +63,6 @@ token_t** tokenize(const char* filename, FILE* f)
 
     return tokens;
 }
-
-
-/**
- *  Skips blank characters, returning 1 when the EOF is reached
- *
- */
-int skipblank(FILE* f)
-{
-    char c;
-    do {
-        c = fgetc(f);
-        if (c == EOF) return 1;
-    } while (isspace(c));
-
-    ungetc(c, f);
-
-    return 0;
-} 
 
 token_t* (*get[]) (source_t*) = {
     [C_ALPHA]  = get_alpha,
@@ -81,7 +80,7 @@ token_t* get_token(source_t *s)
 ctype_t get_ctype(char c)
 {
     if (isdigit(c)) return C_NUMBER;
-    if (isalpha(c)) return C_ALPHA;
+    if (isvariable(c)) return C_ALPHA;
 
     return C_SYMBOL;
 }

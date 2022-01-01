@@ -21,7 +21,7 @@ typedef enum _operator {
     NOT,
     OR,
     STR, 
-    SUB,
+    SUB, 
     __OP_COUNT, 
 
 } operator_e;

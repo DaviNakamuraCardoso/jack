@@ -3,15 +3,6 @@
 #include <tokens.h>
 #include <error.h>
 
-enum tokentype {
-    KEYWORD,
-    NUM_LIT,
-    OPERATOR,
-    SYMBOL,
-    STR_LIT,
-    IDENTIFIER,
-};
-
 struct token {
     // Useful metadata
     size_t position;
@@ -86,29 +77,6 @@ token_t* get_identifier_token(source_t *s)
     return token_create(IDENTIFIER, ftell(s->f), (void*)s->buff);
 }
 
-token_t *skipic(FILE *f)
-{
-    char c;
-
-    while ((c = fgetc(f)) != '\n') ; 
-
-    return NULL;
-}
-
-token_t *skipmc(FILE* f)
-{
-    char previous, next;
-
-    previous = fgetc(f);
-
-    for (
-            next = fgetc(f); 
-            previous != '*' || next != '/';
-            previous = next, next = fgetc(f)
-        ) ;
-
-    return NULL;
-}
 
 token_t* get_char_literal(source_t *s)
 {
@@ -135,13 +103,16 @@ end:
 
 }
 
+token_t* fnewlinet(FILE *f)
+{
+    return token_create(NEWLINE, ftell(f), NULL);
+}
+
 token_t* get_symbol_token(source_t *s, symbol_e type)
 {
-    if (type == SINGLE_QUOTE)
-    {
-        return get_char_literal(s);
-    }
-        
+    if (type == SINGLE_QUOTE) return get_char_literal(s);
+    if (type == HASH) s->tl = 1;
+
     return token_create(SYMBOL, ftell(s->f), (void*)type); 
 }
 

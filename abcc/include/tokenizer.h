@@ -6,6 +6,7 @@
 #include "optree.h"
 #include "source.h"
 #include "tokens.h"
+#include "skip.h"
 #include "ascii.h" 
 #include "operators.h"
 #include "error.h"

@@ -9,6 +9,7 @@ typedef struct source
     optree_t *t; 
     char* buff;
     const char* filename; 
+    unsigned int tl;
 
 } source_t;
 
