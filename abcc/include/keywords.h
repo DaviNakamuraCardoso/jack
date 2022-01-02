@@ -2,13 +2,17 @@
 #define __KEYWORDS_H
 
 typedef enum keyword {
+    __NOT_KEYWORD = 0,
     BREAK,
     CASE,
     CHAR,
     CONTINUE,
+    DEFAULT,
     DO,
+    DOUBLE,
     ELSE,
     ENUM,
+    FLOAT,
     FOR,
     GOTO,
     IF,
@@ -24,8 +28,7 @@ typedef enum keyword {
     UNSIGNED,
     VOID,
     WHILE,
-    __KEYOWRD_COUNT,
-    __NOT_KEYWORD = 0,
+    __KEYWORD_COUNT,
     
 } keyword_e; 
 
