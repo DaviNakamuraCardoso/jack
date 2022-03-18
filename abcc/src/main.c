@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <tokenizer.h>
+#include <pp.h>
 
 int main(int argc, char** argv)
 {
@@ -20,9 +21,11 @@ int main(int argc, char** argv)
         return 1;
     }
 
-    tokenize(filename, f);
+    preprocess(tokenize(filename, f));
+
 
     fclose(f);
+
     return 0;
 }
 

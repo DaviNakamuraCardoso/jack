@@ -18,6 +18,10 @@ typedef enum tokentype {
     SYMBOL
 } type_e;
 
+enum tokentype tktype(token_t*);
+void* tkvalue(token_t*);
+size_t tkloc(token_t*);
+
 token_t *get_number_token       (source_t*);
 token_t *get_identifier_token   (source_t*); 
 token_t *get_literal_token      (source_t*);

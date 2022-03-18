@@ -20,6 +20,7 @@ token_t* get_number (source_t* s);
 token_t* get_token  (source_t* s);
 ctype_t get_ctype(char c);
 
+
 token_t** tokenize(const char* filename, FILE* f)
 {
     char buff[3000] = {0};
@@ -30,8 +31,7 @@ token_t** tokenize(const char* filename, FILE* f)
     source_t s = {.buff=buff, .f=f, .filename=filename, .t=t};
 
     for (int i = 0;;)
-    {
-
+    { 
         token_t *t = NULL;
 
         if (s.tl) 

@@ -33,5 +33,6 @@ typedef enum {
 
 void* sgetall(void);
 unsigned int opindex(char);
+char opvalue(unsigned int);
 
 #endif

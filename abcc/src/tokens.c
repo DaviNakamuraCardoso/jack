@@ -15,6 +15,23 @@ struct token {
     };
 };
 
+inline enum tokentype tktype(token_t* t) { return t->type; }
+
+inline size_t tkloc(token_t* t) { return t->position; }
+
+void* tkvalue(token_t* t)
+{
+    switch (tktype(t))
+    {
+        case NUM_LIT:
+        case SYMBOL:
+        case OPERATOR:
+            return (void*) t->value;
+        default: 
+            return (void*) t->word;
+    } 
+}
+
 token_t *token_create(enum tokentype type, size_t position, void* val)
 {
     token_t *t = malloc(sizeof(token_t));

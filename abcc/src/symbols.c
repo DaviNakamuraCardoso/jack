@@ -59,6 +59,8 @@ const symbol_e svalues[] = {
 
 };
 
+char opvalue(unsigned int i) { return symbols[i]; }
+
 symbol_e opindex(char c)
 {
     if (!ispunct(c)) return __SYM_COUNT; 
