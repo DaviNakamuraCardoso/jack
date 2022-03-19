@@ -27,13 +27,14 @@ token_t** ftokenize(token_t** ts, const char* filename, optree_t* t)
 
     if (f == NULL)
     {
-        fprintf(stderr, "Could not open '%s': %s", filename, strerror(errno));
+        fprintf(stderr, "Could not open '%s': %s\n", filename, strerror(errno));
         exit(1);
     }
 
-    source_t s = {.buff=buff, .f=f, .filename=filename, .t=t};
+    source_t s = {.buff=buff, .f=f, .filename=filename, .t=t, .tl=0};
 
-    for (int i = 0;;)
+    size_t i = 0;
+    for (;;)
     { 
 
         if (s.tl) 
@@ -41,7 +42,7 @@ token_t** ftokenize(token_t** ts, const char* filename, optree_t* t)
             if (skipspace(f)) 
             {
                 s.tl = 0; 
-                preprocess(&s, ts+i-1);
+                i = preprocess(&s, ts+i-1) - ts+i-1;
                 continue;
             }
         } else if (skipblank(f)) break; 
@@ -60,7 +61,7 @@ token_t** ftokenize(token_t** ts, const char* filename, optree_t* t)
 
     fclose(f);
 
-    return ts;
+    return ts+i;
 }
 
 // To be called once
@@ -72,7 +73,7 @@ token_t** tokenize(const char* filename)
     optree_t* t = (optree_t*) sgetall();
     opgetall(t); 
 
-    ts = ftokenize(ts, filename, t);
+    ftokenize(ts, filename, t);
     opdestroy(t);
 
     return ts;

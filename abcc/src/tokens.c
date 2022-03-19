@@ -96,6 +96,20 @@ token_t* get_identifier_token(source_t *s)
 }
 
 
+token_t* get_path_literal(source_t *s)
+{
+    char c = fgetc(s->f);
+    char buff[300] = {0};
+
+    for (int i = 0; c != '>'; c = fgetc(s->f), i++) buff[i] = c;
+
+#ifdef TOKENIZER_TEST
+    strcpy(s->buff, buff);
+#endif
+
+    return token_create(STR_LIT, ftell(s->f), (void*)strdup(buff));
+}
+
 token_t* get_char_literal(source_t *s)
 {
     long c = fgetc(s->f), next = fgetc(s->f);
@@ -121,14 +135,10 @@ end:
 
 }
 
-token_t* fnewlinet(FILE *f)
-{
-    return token_create(NEWLINE, ftell(f), NULL);
-}
-
 token_t* get_symbol_token(source_t *s, symbol_e type)
 {
     if (type == SINGLE_QUOTE) return get_char_literal(s);
+    if (type == LA && s->tl) return get_path_literal(s);
     if (type == HASH) s->tl = 1;
 
     return token_create(SYMBOL, ftell(s->f), (void*)type); 

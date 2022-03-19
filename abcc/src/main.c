@@ -12,7 +12,9 @@ int main(int argc, char** argv)
         return 1;
     } 
 
-    tokenize(filename); 
+    token_t** ts = tokenize(filename); 
+    for (size_t i = 0; ts[i] != NULL; i++)
+        tkprint(ts[i]);
 
     return 0;
 }

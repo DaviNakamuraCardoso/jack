@@ -13,6 +13,7 @@
 
 
 token_t** tokenize(const char*);
+token_t** ftokenize(token_t**, const char*, optree_t*);
 
 #endif
 

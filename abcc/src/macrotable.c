@@ -31,21 +31,22 @@ mtable_t *mtnew(void)
     return mt;
 }
 
-mnode_t *mnnew(char* s, size_t v)
+mnode_t *mnnew(char* s, token_t** ts, size_t l)
 {
     mnode_t *n = malloc(sizeof(mnode_t));
     n->macro = strdup(s);
-    n->index = v;
+    n->length = l;
+    n->ts = ts;
 
     return n;
 }
 
 
-mnode_t* mtset(mtable_t *mt, char *macro, size_t value)
+mnode_t* mtset(mtable_t *mt, char *macro, token_t** ts, size_t l)
 {
     size_t index = hash(macro);
     mnode_t *first = mt->nodes[index];
-    mt->nodes[index] = mnnew(macro, value);
+    mt->nodes[index] = mnnew(macro, ts, l);
     mt->nodes[index]->next = first;
 
     return mt->nodes[index];
