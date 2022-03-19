@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
-#include <tokenizer.h>
-
-#ifdef TOKENIZER_TEST
+#include <tokenizer.h> 
+#include <pp.h>
 #include <string.h>
-#endif
+#include <errno.h>
+
 
 typedef enum { 
     C_ALPHA,
@@ -20,48 +20,62 @@ token_t* get_number (source_t* s);
 token_t* get_token  (source_t* s);
 ctype_t get_ctype(char c);
 
-
-token_t** tokenize(const char* filename, FILE* f)
+token_t** ftokenize(token_t** ts, const char* filename, optree_t* t)
 {
-    char buff[3000] = {0};
-    token_t** tokens = calloc(sizeof(token_t*), 200); 
-    optree_t* t = (optree_t*) sgetall();
-    opgetall(t); 
+    char buff[3000] = {0}; 
+    FILE* f = fopen(filename, "r");
+
+    if (f == NULL)
+    {
+        fprintf(stderr, "Could not open '%s': %s", filename, strerror(errno));
+        exit(1);
+    }
 
     source_t s = {.buff=buff, .f=f, .filename=filename, .t=t};
 
     for (int i = 0;;)
     { 
-        token_t *t = NULL;
 
         if (s.tl) 
         {
-            t = skipspace(f);
-            if (t) 
+            if (skipspace(f)) 
             {
                 s.tl = 0; 
-#ifdef TOKENIZER_TEST 
-                strcpy(buff, "__NEWLINE__");
-#endif
-                goto end;
+                preprocess(&s, ts+i-1);
+                continue;
             }
         } else if (skipblank(f)) break; 
 
-        t = get_token(&s); 
+        token_t* tk = get_token(&s); 
 
-end:
-        if (t) 
+        if (tk) 
         {
-            tokens[i++] = t;
+            ts[i++] = tk;
 #ifdef TOKENIZER_TEST
             printf("|%s|\n", buff);
 #endif
         }
     }
 
-    opdestroy(s.t);
 
-    return tokens;
+    fclose(f);
+
+    return ts;
+}
+
+// To be called once
+token_t** tokenize(const char* filename)
+{
+    token_t** ts = calloc(300, sizeof(token_t*)); 
+
+    // Init operator tree
+    optree_t* t = (optree_t*) sgetall();
+    opgetall(t); 
+
+    ts = ftokenize(ts, filename, t);
+    opdestroy(t);
+
+    return ts;
 }
 
 token_t* (*get[]) (source_t*) = {

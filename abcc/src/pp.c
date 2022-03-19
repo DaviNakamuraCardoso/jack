@@ -37,18 +37,12 @@ instruction_e get_instruction(token_t* t)
     return __INSTRUCTION_COUNT;
 }
 
-token_t **preprocess(token_t** tokens)
-{
-    for (size_t i = 0; tokens[i] != NULL; i++)
-    {
-        if (tktype(tokens[i]) == SYMBOL) 
-        {
-            if ((unsigned int) tkvalue(tokens[i]) == HASH)
-                puts("Here");
-        }
-
-    }
-    return tokens;
+token_t **preprocess(source_t *s, token_t** ts)
+{ 
+    int i = 0; 
+    (void)s;
+    for (; (long) tkvalue(ts[i]) != HASH; i--);
+    return ts+i;
 } 
 
 

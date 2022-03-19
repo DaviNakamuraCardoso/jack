@@ -20,19 +20,23 @@ int skipblank(FILE* f)
     return 0;
 } 
 
-token_t *skipspace(FILE *f)
+/*
+ * Skips spaces, returning 1 when newline is reached
+ *
+ */
+int skipspace(FILE *f)
 {
     char c;
 
     do {
         c = fgetc(f);
-        if (c == EOF) return NULL;
-        if (c == '\n') return fnewlinet(f);
+        if (c == EOF) return 0;
+        if (c == '\n') return 1;
     } while (isspace(c));
 
     ungetc(c, f);
 
-    return NULL;
+    return 0;
 }
 
 

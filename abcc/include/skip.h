@@ -4,7 +4,7 @@
 #include "tokens.h"
 
 int skipblank(FILE*);
-token_t* skipspace(FILE*);
+int skipspace(FILE*);
 void* skipmc(FILE*);
 void* skipic(FILE*);
 

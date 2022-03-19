@@ -1,6 +1,6 @@
 
 CC = clang
-FLAGS = -Wall -Wextra -Wpedantic -Werror -Wparentheses -Ofast
+FLAGS = -Wall -Wextra -Wpedantic -Werror -Wparentheses 
 EXEC = abcc
 
 OBJ = main.o tokenizer.o tokens.o ascii.o symbols.o operators.o error.o optree.o skip.o macrotable.o pp.o

@@ -9,6 +9,7 @@ const char symbols[] = {
     [COMMA] = ',',
     [DASH] = '-',
     [DOT] = '.',
+    [DOUBLE_QUOTE] = '"',
     [EQUAL] = '=',
     [EXCLAMATION] = '!',
     [HASH] = '#',
@@ -17,8 +18,8 @@ const char symbols[] = {
     [LP] = '(',
     [LS] = '[',
     [PERCENT] = '%',
-    [PIPE] = '|',
     [PLUS] = '+',
+    [PIPE] = '|',
     [QUESTION] = '?',
     [RA] = '>',
     [RB] = '}',
@@ -28,8 +29,9 @@ const char symbols[] = {
     [SINGLE_QUOTE] = 39,
     [SLASH] = '/',
     [STAR] = '*',
-    [__SYM_COUNT] = '\0',
 };
+
+_Static_assert (sizeof(symbols) / sizeof(char) == __SYM_COUNT, "Mismatch in symbol enum and representation");
 
 const symbol_e svalues[] = {
     ['&'] = AMPERSAND,
@@ -48,6 +50,7 @@ const symbol_e svalues[] = {
     ['%'] = PERCENT,
     ['+'] = PLUS,
     ['|'] = PIPE,
+    ['?'] = QUESTION,
     ['>'] = RA,
     ['}'] = RB,
     [')'] = RP,

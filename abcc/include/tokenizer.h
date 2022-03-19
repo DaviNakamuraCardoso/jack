@@ -12,7 +12,7 @@
 #include "error.h"
 
 
-token_t** tokenize(const char*, FILE*);
+token_t** tokenize(const char*);
 
 #endif
 

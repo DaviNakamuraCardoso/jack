@@ -1,25 +1,19 @@
 #include <operators.h>
 #include <stdio.h>
 
-const char* operators[__OP_COUNT] = {
-    [ADD] = "+", 
+const char* operators[] = {
     [AND] = "&&",
     [COM] = "//",
-    [DIV] = "/",
-    [END] = ";",
     [EQ] = "==",
     [GE] = ">=",
-    [GT] = ">",
     [LE] = "<=",
-    [LT] = "<",
-    [MULT] = "*",
     [MULT_COM] = "/*",
     [NE] = "!=",
-    [NOT] = "!",
     [OR] = "||",
     [STR] = "\"",
-    [SUB] = "-", 
-};
+}; 
+
+_Static_assert (sizeof(operators) / sizeof(char*) == __OP_COUNT, "Mismatch in operator enum and values");
 
 unsigned int opgetall(optree_t* t)
 {

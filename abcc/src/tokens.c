@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <tokens.h>
 #include <error.h>
 
@@ -91,7 +92,7 @@ token_t* get_number_token(source_t *s)
 
 token_t* get_identifier_token(source_t *s) 
 {
-    return token_create(IDENTIFIER, ftell(s->f), (void*)s->buff);
+    return token_create(IDENTIFIER, ftell(s->f), (void*)strdup(s->buff));
 }
 
 
@@ -133,3 +134,17 @@ token_t* get_symbol_token(source_t *s, symbol_e type)
     return token_create(SYMBOL, ftell(s->f), (void*)type); 
 }
 
+void tkprint(token_t* t)
+{ 
+    switch (t->type)
+    {
+        case NUM_LIT:
+        case SYMBOL:
+        case OPERATOR:
+            printf("%li\n", (long) t->value);
+            break;
+        default: 
+            printf("%s\n", (char*) t->word);
+            break;
+    }
+}

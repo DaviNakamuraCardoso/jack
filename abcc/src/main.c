@@ -4,7 +4,6 @@
 
 int main(int argc, char** argv)
 {
-    FILE* f;
     const char* filename = argv[1];
 
     if (argc != 2)
@@ -12,19 +11,8 @@ int main(int argc, char** argv)
         fprintf(stderr, "Usage: abcc <filename>\n");
         return 1;
     } 
-    
-    f = fopen(filename, "r");
 
-    if (f == NULL) 
-    {
-        fprintf(stderr, "Could not open file '%s'. Compilation failed.\n", filename);
-        return 1;
-    }
-
-    preprocess(tokenize(filename, f));
-
-
-    fclose(f);
+    tokenize(filename); 
 
     return 0;
 }
