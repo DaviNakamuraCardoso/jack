@@ -1,0 +1,21 @@
+In file included from src/main.c:2:
+In file included from include/tokenizer.h:7:
+In file included from include/source.h:5:
+In file included from include/macrotable.h:4:
+include/tokens.h:25:34: error: unknown type name 'source_t'
+token_t *get_number_token       (source_t*);
+                                 ^
+include/tokens.h:26:34: error: unknown type name 'source_t'
+token_t *get_identifier_token   (source_t*); 
+                                 ^
+include/tokens.h:27:34: error: unknown type name 'source_t'
+token_t *get_literal_token      (source_t*);
+                                 ^
+include/tokens.h:28:34: error: unknown type name 'source_t'
+token_t *get_symbol_token       (source_t*, symbol_e);
+                                 ^
+include/tokens.h:29:34: error: unknown type name 'source_t'
+token_t *get_operator_token     (source_t*, operator_e);
+                                 ^
+5 errors generated.
+make: *** [Makefile:18: obj/main.o] Error 1

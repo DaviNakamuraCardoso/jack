@@ -20,7 +20,7 @@ token_t* get_number (source_t* s);
 token_t* get_token  (source_t* s);
 ctype_t get_ctype(char c);
 
-token_t** ftokenize(token_t** ts, const char* filename, optree_t* t)
+token_t** ftokenize(token_t** ts, const char* filename, optree_t* t, mtable_t* mt)
 {
     char buff[3000] = {0}; 
     FILE* f = fopen(filename, "r");
@@ -31,7 +31,7 @@ token_t** ftokenize(token_t** ts, const char* filename, optree_t* t)
         exit(1);
     }
 
-    source_t s = {.buff=buff, .f=f, .filename=filename, .t=t, .tl=0};
+    source_t s = {.buff=buff, .f=f, .filename=filename, .t=t, .tl=0, .mt=mt};
 
     size_t i = 0;
     for (;;)
@@ -42,7 +42,7 @@ token_t** ftokenize(token_t** ts, const char* filename, optree_t* t)
             if (skipspace(f)) 
             {
                 s.tl = 0; 
-                i = preprocess(&s, ts+i-1) - ts+i-1;
+                i = preprocess(&s, ts+i-1) - ts;
                 continue;
             }
         } else if (skipblank(f)) break; 
@@ -73,7 +73,10 @@ token_t** tokenize(const char* filename)
     optree_t* t = (optree_t*) sgetall();
     opgetall(t); 
 
-    ftokenize(ts, filename, t);
+    // Init macrotable 
+    mtable_t* mt = mtnew();
+
+    ftokenize(ts, filename, t, mt);
     opdestroy(t);
 
     return ts;

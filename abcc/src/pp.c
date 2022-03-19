@@ -57,7 +57,10 @@ token_t **preprocess(source_t *s, token_t** ts)
     instruction_e d = get_instruction(directive);
 
     if (d == __INSTRUCTION_COUNT) 
+    {
         errorat(s->filename, tkloc(ts[i+1]), "Invalid preprocessing directive '#%s';\n", directive);
+        exit(1);
+    }
 
     return directives[d](s, ts, (size_t) -(i+1));
 } 
@@ -70,23 +73,23 @@ token_t** pinclude(source_t* s, token_t** ts, size_t nargs)
         errorat(s->filename, tkloc(ts[0]), "extra tokens at end of #include directive");
         exit(1); 
     }
-    return ftokenize(ts-nargs-1, (char*) tkvalue(ts[0]), s->t);
+    return ftokenize(ts-nargs-1, (char*) tkvalue(ts[0]), s->t, s->mt);
 }
 
 token_t** pdefine(source_t* s, token_t** ts, size_t nargs)
 {
     (void)s;
-    return ts-nargs-2;
+    return ts-nargs-1;
 }
 
 token_t** pifndef(source_t* s, token_t** ts, size_t nargs)
 {
     (void)s;
-    return ts-nargs-2;
+    return ts-nargs-1;
 }
 
 token_t** pendif(source_t* s, token_t** ts, size_t nargs)
 {
     (void)s;
-    return ts-nargs-2;
+    return ts-nargs-1;
 }

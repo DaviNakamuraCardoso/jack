@@ -1,9 +1,10 @@
 #ifndef __MACROTABLE_H
 #define __MACROTABLE_H
 
+typedef struct mtable mtable_t;
+
 #include "tokens.h"
 
-typedef struct mtable mtable_t;
 
 typedef struct mnode {
     char*  macro;

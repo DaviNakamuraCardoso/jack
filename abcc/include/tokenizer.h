@@ -4,6 +4,7 @@
 #define BUFF_MAX 1000
 
 #include "optree.h"
+#include "macrotable.h"
 #include "source.h"
 #include "tokens.h"
 #include "skip.h"
@@ -13,7 +14,7 @@
 
 
 token_t** tokenize(const char*);
-token_t** ftokenize(token_t**, const char*, optree_t*);
+token_t** ftokenize(token_t**, const char*, optree_t*, mtable_t* mt);
 
 #endif
 

@@ -1,12 +1,13 @@
 #ifndef __TOKENSH
 #define __TOKENSH
 
+typedef struct token token_t;
+
 #include "ascii.h"
 #include "source.h"
 #include "symbols.h"
 #include "operators.h"
 
-typedef struct token token_t;
 
 typedef enum tokentype {
     IDENTIFIER,

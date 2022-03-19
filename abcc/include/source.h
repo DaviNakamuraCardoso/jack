@@ -2,6 +2,7 @@
 #define __SOURCE_H
 
 #include "optree.h"
+#include "macrotable.h"
 
 typedef struct source 
 {
@@ -10,6 +11,7 @@ typedef struct source
     char* buff;
     const char* filename; 
     unsigned int tl;
+    mtable_t* mt;
 
 } source_t;
 
