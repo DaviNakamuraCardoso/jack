@@ -8,27 +8,31 @@ static int eputh(const char* filename, size_t lines, size_t characters, const ch
 
 static int eputc(char* line, size_t lines, size_t characters);
 
-int errorat(const char* filename, size_t target, const char* format, ...)
+int verrorat(const char* filename, size_t target, const char* format, va_list ap)
 {
     FILE *f = fopen(filename, "r");
-    size_t lines = 0, characters = 0;
-    char line[1000];
-    va_list ap;
+    size_t lines = 1, characters = 0;
+    char line[1000]; 
 
-
-    egetl(f, line, target, &lines, &characters);
-
-    va_start(ap, format);
-    eputh(filename, lines, characters, format, ap);
-    va_end(ap);
-
-    eputc(line, lines, characters);
-
+    egetl(f, line, target, &lines, &characters); 
+    eputh(filename, lines, characters, format, ap); 
+    eputc(line, lines, characters); 
 
     fclose(f);
 
     return 0; 
 }
+
+int errorat(const char* filename, size_t target, const char* format, ...)
+{
+    va_list ap;
+    va_start(ap, format);
+    verrorat(filename, target, format, ap);
+    va_end(ap);
+
+    return 0;
+}
+
 
 static char* egetl(FILE* f, char *line, size_t target, size_t* lines, size_t *characters)
 {

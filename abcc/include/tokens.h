@@ -22,6 +22,9 @@ typedef enum tokentype {
 enum tokentype tktype(token_t*);
 void* tkvalue(token_t*);
 size_t tkloc(token_t*);
+unsigned short tkfindex(token_t*);
+
+int tkerror(token_t*, const char*, ...);
 
 token_t *get_number_token       (source_t*);
 token_t *get_identifier_token   (source_t*); 

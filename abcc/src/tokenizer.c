@@ -31,7 +31,8 @@ token_t** ftokenize(token_t** ts, const char* filename, optree_t* t, mtable_t* m
         exit(1);
     }
 
-    source_t s = {.buff=buff, .f=f, .filename=filename, .t=t, .tl=0, .mt=mt};
+
+    source_t s = {.buff=buff, .f=f, .filename=filename, .t=t, .tl=0, .findex=opensrc(filename), .mt=mt};
 
     size_t i = 0;
     for (;;)
@@ -49,12 +50,9 @@ token_t** ftokenize(token_t** ts, const char* filename, optree_t* t, mtable_t* m
 
         token_t* tk = get_token(&s); 
 
-        if (tk) 
+        if (tk != NULL) 
         {
             ts[i++] = tk;
-#ifdef TOKENIZER_TEST
-            printf("|%s|\n", buff);
-#endif
         }
     }
 

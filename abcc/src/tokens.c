@@ -7,6 +7,7 @@
 struct token {
     // Useful metadata
     size_t position;
+    unsigned short findex;
 
     enum tokentype type;
 
@@ -16,9 +17,11 @@ struct token {
     };
 };
 
-inline enum tokentype tktype(token_t* t) { return t->type; }
+enum tokentype tktype(token_t* t) { return t->type; }
 
-inline size_t tkloc(token_t* t) { return t->position; }
+size_t tkloc(token_t* t) { return t->position; }
+
+unsigned short tkfindex(token_t* t) { return t->findex; }
 
 void* tkvalue(token_t* t)
 {
@@ -33,7 +36,7 @@ void* tkvalue(token_t* t)
     } 
 }
 
-token_t *token_create(enum tokentype type, size_t position, void* val)
+token_t *token_create(enum tokentype type, size_t position, unsigned short findex, void* val)
 {
     token_t *t = malloc(sizeof(token_t));
 
@@ -41,6 +44,7 @@ token_t *token_create(enum tokentype type, size_t position, void* val)
 
     // Metadata
     t->position = position;
+    t->findex = findex;
 
     // Actual value
     switch (type)
@@ -60,7 +64,7 @@ token_t *token_create(enum tokentype type, size_t position, void* val)
 
 token_t *get_operator_token(source_t* s, operator_e type)
 {
-    return token_create(OPERATOR, ftell(s->f), (void*)type);
+    return token_create(OPERATOR, ftell(s->f), s->findex, (void*)type);
 }
 
 token_t *get_literal_token(source_t *s)
@@ -87,12 +91,12 @@ token_t *get_literal_token(source_t *s)
 
 token_t* get_number_token(source_t *s)
 { 
-    return token_create(NUM_LIT, ftell(s->f), (void*)atoll(s->buff)); 
+    return token_create(NUM_LIT, ftell(s->f), s->findex, (void*)atoll(s->buff)); 
 }
 
 token_t* get_identifier_token(source_t *s) 
 {
-    return token_create(IDENTIFIER, ftell(s->f), (void*)strdup(s->buff));
+    return token_create(IDENTIFIER, ftell(s->f), s->findex, (void*)strdup(s->buff));
 }
 
 
@@ -103,11 +107,7 @@ token_t* get_path_literal(source_t *s)
 
     for (int i = 0; c != '>'; c = fgetc(s->f), i++) buff[i] = c;
 
-#ifdef TOKENIZER_TEST
-    strcpy(s->buff, buff);
-#endif
-
-    return token_create(STR_LIT, ftell(s->f), (void*)strdup(buff));
+    return token_create(STR_LIT, ftell(s->f), s->findex, (void*)strdup(buff));
 }
 
 token_t* get_char_literal(source_t *s)
@@ -127,11 +127,7 @@ token_t* get_char_literal(source_t *s)
     exit(1);
 
 end:
-#ifdef TOKENIZER_TEST
-    s->buff[0] = c;
-    s->buff[1] = '\0';
-#endif
-    return token_create(NUM_LIT, ftell(s->f), (void*)c);
+    return token_create(NUM_LIT, ftell(s->f), s->findex, (void*)c);
 
 }
 
@@ -141,7 +137,19 @@ token_t* get_symbol_token(source_t *s, symbol_e type)
     if (type == LA && s->tl) return get_path_literal(s);
     if (type == HASH) s->tl = 1;
 
-    return token_create(SYMBOL, ftell(s->f), (void*)type); 
+    return token_create(SYMBOL, ftell(s->f), s->findex, (void*)type); 
+}
+
+int tkerror(token_t* t, const char* fmt, ...)
+{ 
+    va_list ap;
+
+    va_start(ap, fmt);
+    printf("%s,%d\n", getsrc(t->findex), t->findex);
+    verrorat(getsrc(t->findex), t->position, fmt, ap);
+    va_end(ap);
+            
+    return 0; 
 }
 
 void tkprint(token_t* t)

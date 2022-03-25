@@ -51,14 +51,20 @@ instruction_e get_instruction(char* word)
 token_t **preprocess(source_t *s, token_t** ts)
 { 
     long i = 0; 
-    for (; (long) tkvalue(ts[i]) != HASH; i--);
+    for (; tktype(ts[i]) != SYMBOL || (long) tkvalue(ts[i]) != HASH; i--);
+
+    if (ts[i+1] == NULL) 
+    {
+        tkerror(ts[i], "unexpected end of preprocessing directive.");
+        exit(1);
+    }
 
     char *directive = (char*) tkvalue(ts[i+1]);
     instruction_e d = get_instruction(directive);
 
     if (d == __INSTRUCTION_COUNT) 
     {
-        errorat(s->filename, tkloc(ts[i+1]), "Invalid preprocessing directive '#%s';\n", directive);
+        tkerror(ts[i+1], "invalid preprocessing directive '#%s';\n", directive);
         exit(1);
     }
 
@@ -70,7 +76,7 @@ token_t** pinclude(source_t* s, token_t** ts, size_t nargs)
 {
     if (nargs != 1)
     {
-        errorat(s->filename, tkloc(ts[0]), "extra tokens at end of #include directive");
+        tkerror(ts[0], "extra tokens at end of #include directive");
         exit(1); 
     }
     return ftokenize(ts-nargs-1, (char*) tkvalue(ts[0]), s->t, s->mt);
